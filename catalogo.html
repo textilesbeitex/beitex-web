@@ -489,6 +489,24 @@ h2.section-h.light { color: #fff; }
 .cta-bottom-ttl{font-family:var(--fd);font-size:clamp(2.5rem,5vw,4rem);color:#fff;letter-spacing:.04em;margin-bottom:1rem}
 .cta-bottom-ttl span{color:var(--rl)}
 .cta-bottom-sub{font-size:1.05rem;color:rgba(255,255,255,.42);margin-bottom:2.5rem}
+
+/* ══ COTIZADOR MOBILE RESPONSIVE ══ */
+@media(max-width:480px){
+  .cart-drawer{width:100vw}
+  .cart-head{padding:1.2rem 1.4rem}
+  .cart-items-wrap{padding:1rem 1.4rem}
+  .cart-foot{padding:1.2rem 1.4rem}
+  .cart-item-qty{flex-wrap:wrap;gap:.4rem}
+  .qty-val{min-width:44px;font-size:.9rem}
+}
+.ficha-tecnica{max-height:90vh;overflow-y:auto}
+@media(max-width:1100px){
+  .cat-grid > .cat-card:nth-child(2n) .ficha-tecnica{
+    left:auto;right:calc(100% + 14px);
+    transform:translateX(10px) scale(.97);
+  }
+  .cat-grid > .cat-card:nth-child(2n):hover .ficha-tecnica{transform:translateX(0) scale(1)}
+}
 </style>
 </head>
 <body>
@@ -586,6 +604,10 @@ h2.section-h.light { color: #fff; }
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Gris Jaspe">Gris Jaspe</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Naranja">Naranja</option><option value="Rosa">Rosa</option><option value="Beige">Beige</option><option value="Morado">Morado</option>
             </select>
+            <select class="ficha-color" id="fu-felpa-nacional" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
+            </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('felpa-nacional',-0.5)">−</button>
               <input class="fq-inp" id="fq-felpa-nacional" type="number" value="5" min="0.5" step="0.5"/>
@@ -630,6 +652,10 @@ h2.section-h.light { color: #fff; }
             <select class="ficha-color" id="fc-micropique">
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Azul Rey">Azul Rey</option><option value="Rojo">Rojo</option><option value="Verde Bandera">Verde Bandera</option><option value="Amarillo">Amarillo</option><option value="Naranja">Naranja</option><option value="Rosa Mexicano">Rosa Mexicano</option><option value="Gris">Gris</option>
+            </select>
+            <select class="ficha-color" id="fu-micropique" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
             </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('micropique',-0.5)">−</button>
@@ -676,6 +702,10 @@ h2.section-h.light { color: #fff; }
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Gris Jaspe">Gris Jaspe</option><option value="Azul Marino">Azul Marino</option><option value="Azul Cielo">Azul Cielo</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Rosa">Rosa</option><option value="Beige">Beige</option><option value="Morado">Morado</option>
             </select>
+            <select class="ficha-color" id="fu-premiere" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
+            </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('premiere',-0.5)">−</button>
               <input class="fq-inp" id="fq-premiere" type="number" value="5" min="0.5" step="0.5"/>
@@ -720,6 +750,10 @@ h2.section-h.light { color: #fff; }
             <select class="ficha-color" id="fc-sportock">
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Naranja">Naranja</option><option value="Rosa">Rosa</option><option value="Gris">Gris</option>
+            </select>
+            <select class="ficha-color" id="fu-sportock" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
             </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('sportock',-0.5)">−</button>
@@ -766,6 +800,10 @@ h2.section-h.light { color: #fff; }
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Gris">Gris</option><option value="Morado">Morado</option><option value="Rosa">Rosa</option>
             </select>
+            <select class="ficha-color" id="fu-polar-fleece" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
+            </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('polar-fleece',-0.5)">−</button>
               <input class="fq-inp" id="fq-polar-fleece" type="number" value="5" min="0.5" step="0.5"/>
@@ -810,6 +848,10 @@ h2.section-h.light { color: #fff; }
             <select class="ficha-color" id="fc-forro-capitonado">
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Gris">Gris</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option>
+            </select>
+            <select class="ficha-color" id="fu-forro-capitonado" style="margin-top:.4rem">
+              <option value="mt">Por metro (mt)</option>
+              <option value="rollo">Por rollo (~50 mt)</option>
             </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('forro-capitonado',-0.5)">−</button>
@@ -856,6 +898,10 @@ h2.section-h.light { color: #fff; }
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Gris">Gris</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Rosa">Rosa</option><option value="Beige">Beige</option>
             </select>
+            <select class="ficha-color" id="fu-interlock" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
+            </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('interlock',-0.5)">−</button>
               <input class="fq-inp" id="fq-interlock" type="number" value="5" min="0.5" step="0.5"/>
@@ -900,6 +946,10 @@ h2.section-h.light { color: #fff; }
             <select class="ficha-color" id="fc-pique">
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Amarillo">Amarillo</option><option value="Naranja">Naranja</option><option value="Rosa Mexicano">Rosa Mexicano</option>
+            </select>
+            <select class="ficha-color" id="fu-pique" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
             </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('pique',-0.5)">−</button>
@@ -946,6 +996,10 @@ h2.section-h.light { color: #fff; }
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Azul Rey">Azul Rey</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Naranja">Naranja</option><option value="Rosa">Rosa</option><option value="Gris">Gris</option>
             </select>
+            <select class="ficha-color" id="fu-forro-millenium" style="margin-top:.4rem">
+              <option value="mt">Por metro (mt)</option>
+              <option value="rollo">Por rollo (~50 mt)</option>
+            </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('forro-millenium',-0.5)">−</button>
               <input class="fq-inp" id="fq-forro-millenium" type="number" value="5" min="0.5" step="0.5"/>
@@ -990,6 +1044,10 @@ h2.section-h.light { color: #fff; }
             <select class="ficha-color" id="fc-licra-brush">
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Rosa">Rosa</option><option value="Morado">Morado</option><option value="Gris">Gris</option><option value="Beige">Beige</option>
+            </select>
+            <select class="ficha-color" id="fu-licra-brush" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
             </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('licra-brush',-0.5)">−</button>
@@ -1036,6 +1094,10 @@ h2.section-h.light { color: #fff; }
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Rojo">Rojo</option><option value="Azul Rey">Azul Rey</option><option value="Verde">Verde</option><option value="Amarillo">Amarillo</option><option value="Naranja">Naranja</option><option value="Rosa Mexicano">Rosa Mexicano</option><option value="Morado">Morado</option>
             </select>
+            <select class="ficha-color" id="fu-bombay" style="margin-top:.4rem">
+              <option value="mt">Por metro (mt)</option>
+              <option value="rollo">Por rollo (~50 mt)</option>
+            </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('bombay',-0.5)">−</button>
               <input class="fq-inp" id="fq-bombay" type="number" value="5" min="0.5" step="0.5"/>
@@ -1080,6 +1142,10 @@ h2.section-h.light { color: #fff; }
             <select class="ficha-color" id="fc-dublin">
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Gris">Gris</option><option value="Beige">Beige</option>
+            </select>
+            <select class="ficha-color" id="fu-dublin" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
             </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('dublin',-0.5)">−</button>
@@ -1126,6 +1192,10 @@ h2.section-h.light { color: #fff; }
               <option value="">Seleccionar color</option>
               <option value="Blanco">Blanco</option><option value="Negro">Negro</option><option value="Gris">Gris</option><option value="Azul Marino">Azul Marino</option><option value="Rojo">Rojo</option><option value="Verde">Verde</option><option value="Rosa">Rosa</option><option value="Morado">Morado</option>
             </select>
+            <select class="ficha-color" id="fu-felpa-china" style="margin-top:.4rem">
+              <option value="kg">Por kilogramo (kg)</option>
+              <option value="rollo">Por rollo (~30 kg)</option>
+            </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('felpa-china',-0.5)">−</button>
               <input class="fq-inp" id="fq-felpa-china" type="number" value="5" min="0.5" step="0.5"/>
@@ -1166,7 +1236,7 @@ h2.section-h.light { color: #fff; }
             <div class="ficha-desc">Sudadera cuello redondo en felpa azul pizarra. Corte oversized moderno, sin capucha.</div>
           </div>
           <div class="ficha-specs">
-            <div class="spec-row"><span class="spec-lbl">Composición</span><span class="spec-val">90% Poliéster · 10% Algodón</span></div>
+            <div class="spec-row"><span class="spec-lbl">Composición</span><span class="spec-val">100% Algodón</span></div>
             <div class="spec-row"><span class="spec-lbl">Peso</span><span class="spec-val">250 g/m²</span></div>
             <div class="spec-row"><span class="spec-lbl">Color</span><span class="spec-val">Azul Pizarra</span></div>
             <div class="spec-row"><span class="spec-lbl">Corte</span><span class="spec-val">Oversized / Crew Neck</span></div>
@@ -1190,7 +1260,7 @@ h2.section-h.light { color: #fff; }
             </select>
             <div class="ficha-qty">
               <button class="fq-btn" onclick="fqChange('sudadera-azul',-1)">−</button>
-              <input class="fq-inp" id="fq-sudadera-azul" type="number" value="1" min="1" step="1"/>
+              <input class="fq-inp" id="fq-sudadera-azul" type="number" value="25" min="25" step="1"/>
               <span class="fq-unit">pza</span>
               <button class="fq-btn" onclick="fqChange('sudadera-azul',1)">+</button>
             </div>
@@ -1203,7 +1273,7 @@ h2.section-h.light { color: #fff; }
       </div>
       <div class="cat-info">
         <div class="cat-name">Sudadera Crew Neck</div>
-        <div class="cat-detail">90% Poliéster · 10% Algodón · 250 g/m² · Azul Pizarra</div>
+        <div class="cat-detail">100% Algodón · 250 g/m² · Azul Pizarra</div>
       </div>
     </div>
   </div>
@@ -1512,11 +1582,17 @@ function fqChange(id, delta) {
   const newVal = Math.max(min, parseFloat(inp.value) + delta);
   inp.value = step >= 1 ? Math.round(newVal) : newVal.toFixed(1);
 }
-function fichaAdd(id, name, unit) {
+function getUnitLabel(id) {
+  const sel = document.getElementById('fu-' + id);
+  return sel ? sel.value : (document.getElementById('fq-' + id)?.dataset.unit || 'kg');
+}
+function fichaAdd(id, name, baseUnit) {
   const colorEl = document.getElementById('fc-' + id);
   const qtyEl = document.getElementById('fq-' + id);
+  const unitEl = document.getElementById('fu-' + id);
   const color = colorEl?.value;
   const qty = qtyEl?.value;
+  const unit = unitEl ? unitEl.value : baseUnit;
   if (!color) { alert('Por favor selecciona un color o talla.'); colorEl?.focus(); return; }
   addToCart({ id, name, color, qty, unit });
 }
