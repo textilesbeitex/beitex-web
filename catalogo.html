@@ -189,7 +189,11 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
 .how-txt strong{font-size:.92rem;color:#fff;font-weight:600;display:block}
 .how-txt span{font-size:.72rem;color:rgba(255,255,255,.32)}
 .how-arrow{color:rgba(192,90,58,.35);font-size:1.4rem;font-weight:200}
-@media(max-width:700px){.how-arrow{display:none}.how-bar{gap:1.2rem;justify-content:flex-start}}
+@media(max-width:700px){
+  .how-arrow{display:none}
+  .how-bar{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem;justify-items:start}
+  .how-step{align-items:flex-start}
+}
 .filters-bar{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;padding:1.8rem 0;border-bottom:1px solid #DDD5C8;margin-bottom:2rem}
 .filter-lbl{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A7060;white-space:nowrap}
 .filter-btn{background:transparent;border:1.5px solid #DDD5C8;color:#8A7060;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;padding:.4rem 1rem;border-radius:30px;cursor:pointer;transition:all .2s}
@@ -216,6 +220,14 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
 .cta-bottom-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);color:#fff;letter-spacing:.04em;margin-bottom:.85rem}
 .cta-bottom-ttl span{color:#C05A3A}
 .cta-bottom-sub{font-size:1.05rem;color:rgba(255,255,255,.42);margin-bottom:2.5rem}
+
+.cart-order-summary{background:#1E0F08;border-radius:6px;padding:1rem 1.2rem;margin-bottom:1.2rem}
+.cos-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.1em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:.6rem;padding-bottom:.5rem;border-bottom:1px solid rgba(192,90,58,.2)}
+.cos-items{display:flex;flex-direction:column;gap:.4rem}
+.cos-item{display:flex;justify-content:space-between;align-items:center;font-size:.82rem}
+.cos-item-name{color:rgba(255,255,255,.7);flex:1;margin-right:.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.cos-item-qty{color:#C05A3A;font-weight:700;white-space:nowrap}
+.cos-empty{font-size:.82rem;color:rgba(255,255,255,.28);text-align:center;padding:.3rem 0}
 </style>
 </head>
 <body>
@@ -446,17 +458,18 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
   <div class="cart-head"><span class="cart-ttl">Mi Cotización</span><button class="cart-close" onclick="closeCart()">×</button></div>
   <div class="cart-items-wrap" id="cart-items-list"></div>
   <div class="cart-foot">
-    <p class="cart-sum">Completa tus datos y te enviamos una oferta en menos de 24 horas.</p>
+    <p class="cart-sum">Completa tus datos y te enviamos una propuesta en menos de <strong>24 horas hábiles</strong>.</p>
     <form class="cot-form" id="cot-form">
       <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
       <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
       <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
-      <div><label>Notas</label><textarea name="co" placeholder="Colores, tallas, fecha de entrega..."></textarea></div>
+      <div><label>Notas</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
       <button type="submit" class="btn-primary-cot">Enviar cotización →</button>
     </form>
   </div>
 </div>
-<script>/* ═══════════════════════════════════════════════════
+<script>
+/* ═══════════════════════════════════════════════════
    TEXTILES BEITEX — JS GLOBAL
    ═══════════════════════════════════════════════════ */
 
@@ -607,6 +620,7 @@ function renderCart() {
       <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
       <p>Tu cotización está vacía.<br/>Visita el <a href="catalogo.html">catálogo</a> para agregar telas.</p>
     </div>`;
+    renderOrderSummary([]);
     return;
   }
   el.innerHTML = c.map(x => `
@@ -627,6 +641,22 @@ function renderCart() {
         </svg>
       </button>
     </div>`).join('');
+  renderOrderSummary(c);
+}
+
+function renderOrderSummary(c) {
+  const el = document.getElementById('cos-items-summary');
+  if (!el) return;
+  if (!c || !c.length) {
+    el.innerHTML = '<div class="cos-empty">Sin productos aún</div>';
+    return;
+  }
+  el.innerHTML = c.map(x =>
+    `<div class="cos-item">
+      <span class="cos-item-name">${x.name}${x.color ? ' — ' + x.color : ''}</span>
+      <span class="cos-item-qty">${x.qty} ${x.unit}</span>
+    </div>`
+  ).join('');
 }
 
 function openCart() {
@@ -642,17 +672,76 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
-function submitCotizacion(e) {
+async function submitCotizacion(e) {
   e.preventDefault();
   const c = getCart();
   if (!c.length) { alert('Agrega al menos una tela a tu cotización.'); return; }
   const f = new FormData(e.target);
-  const lista = c.map(x => `• ${x.name}${x.color ? ' — ' + x.color : ''}: ${x.qty} ${x.unit}`).join('\n');
-  const body = `Solicitud de cotización\n\nNombre: ${f.get('cn')}\nTeléfono: ${f.get('ct')}\nCorreo: ${f.get('ce')}\n\nProductos:\n${lista}${f.get('co') ? '\n\nNotas: ' + f.get('co') : ''}`;
-  window.location.href = `mailto:ventas@textilesbeitex.mx?subject=Cotización — ${f.get('cn')}&body=${encodeURIComponent(body)}`;
-  localStorage.removeItem(CK);
-  updateBadge();
-  closeCart();
+  const nombre = f.get('cn');
+  const correo = f.get('ce');
+  const tel = f.get('ct') || 'No proporcionado';
+  const notas = f.get('co') || '';
+  const lista = c.map(x => `• ${x.name}${x.color ? ' — ' + x.color : ''}: ${x.qty} ${x.unit}`).join('
+');
+  const resumen = `Solicitud de cotización
+
+Nombre: ${nombre}
+Teléfono: ${tel}
+Correo: ${correo}
+
+Productos solicitados:
+${lista}${notas ? '
+
+Notas: ' + notas : ''}`;
+
+  // Deshabilitar botón mientras envía
+  const btn = e.target.querySelector('[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+
+  // Enviar a Formspree (llega directo a ventas@textilesbeitex.mx)
+  let formspreeOk = false;
+  try {
+    const res = await fetch('https://formspree.io/f/mzdweadd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        nombre,
+        email: correo,
+        telefono: tel,
+        productos: lista,
+        notas,
+        _subject: `Nueva cotización Beitex — ${nombre}`,
+        _replyto: correo
+      })
+    });
+    formspreeOk = res.ok;
+  } catch(err) {
+    console.warn('Formspree error:', err);
+  }
+
+  // Respaldo mailto si Formspree falla
+  if (!formspreeOk) {
+    window.location.href = `mailto:ventas@textilesbeitex.mx?subject=Cotización — ${nombre}&body=${encodeURIComponent(resumen)}`;
+  } else {
+    // Mostrar confirmación al cliente
+    const itemsList = document.getElementById('cart-items-list');
+    if (itemsList) {
+      itemsList.innerHTML = `<div style="text-align:center;padding:2.5rem 1rem">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.08em;color:#1E0F08;margin-bottom:.5rem">¡COTIZACIÓN ENVIADA!</div>
+        <p style="font-size:.92rem;color:#8A7060;line-height:1.7">Recibimos tu solicitud correctamente.<br/>Te contactaremos a <strong style="color:#C05A3A">${correo}</strong><br/>en menos de <strong>24 horas hábiles</strong>.</p>
+      </div>`;
+    }
+    // Limpiar form y carrito
+    e.target.reset();
+    localStorage.removeItem(CK);
+    updateBadge();
+    renderOrderSummary([]);
+    // Cerrar drawer después de 3 segundos
+    setTimeout(() => closeCart(), 3500);
+  }
+
+  if (btn) { btn.disabled = false; btn.textContent = 'Enviar cotización →'; }
 }
 
 // ── INIT ──
@@ -665,14 +754,48 @@ document.addEventListener('DOMContentLoaded', () => {
   updateBadge();
   document.getElementById('cart-ov')?.addEventListener('click', closeCart);
   document.getElementById('cot-form')?.addEventListener('submit', submitCotizacion);
-  document.getElementById('contact-form')?.addEventListener('submit', e => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    const body = `Nombre: ${f.get('nombre')}\nTeléfono: ${f.get('tel')}\nCorreo: ${f.get('email')}\n\nMensaje:\n${f.get('msg')}`;
+  document.getElementById('contact-form')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const nombre = f.get('nombre') || '';
+  const tel = f.get('tel') || '';
+  const correo = f.get('email') || '';
+  const msg = f.get('msg') || '';
+  const btn = e.target.querySelector('[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+  let ok = false;
+  try {
+    const res = await fetch('https://formspree.io/f/mzdweadd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        nombre, email: correo, telefono: tel, mensaje: msg,
+        _subject: `Contacto Beitex — ${nombre}`,
+        _replyto: correo
+      })
+    });
+    ok = res.ok;
+  } catch(err) {}
+  if (!ok) {
+    const body = `Nombre: ${nombre}
+Teléfono: ${tel}
+Correo: ${correo}
+
+Mensaje:
+${msg}`;
     window.location.href = `mailto:ventas@textilesbeitex.mx?subject=Contacto desde textilesbeitex.mx&body=${encodeURIComponent(body)}`;
-  });
+  } else {
+    e.target.innerHTML = `<div style="text-align:center;padding:2rem;background:rgba(192,90,58,.06);border-radius:8px;border:1px solid rgba(192,90,58,.2)">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <p style="font-size:1rem;color:#2C1F17;font-weight:600">¡Mensaje enviado correctamente!</p>
+      <p style="font-size:.9rem;color:#8A7060;margin-top:.5rem">Te contactaremos en menos de 24 horas hábiles.</p>
+    </div>`;
+  }
+  if (btn) { btn.disabled = false; btn.textContent = 'Enviar mensaje →'; }
+});
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
 });
+
 </script>
 <script>
 const PRODUCTS_DB = {"felpa-nacional": {"id": "felpa-nacional", "name": "Felpa Nacional 50/50", "badge": "\u2605 Nacional", "btype": "solid", "unit": "kg", "cat": "felpa", "img": "https://textilesbeitex.mx/cdn/shop/files/6_9f14e77e-158b-44fa-a6ec-9e47d84bc2a9.png?v=1729803173", "desc": "La favorita para pants y sudaderas. Sin bolitas, suave al tacto y excelente ca\u00edda.", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n", "peso": "250 g/m\u00b2", "ancho": "1.80 m", "rend": "~4 kg/rollo", "usos": ["Pants", "Sudaderas", "Uniformes escolares", "Chamarras"], "colores": ["Blanco", "Negro", "Gris Jaspe", "Azul Marino", "Rojo", "Verde", "Naranja", "Rosa", "Beige", "Morado"]}, "micropique": {"id": "micropique", "name": "Micropiqu\u00e9", "badge": "Textura Fina", "btype": "outline", "unit": "kg", "cat": "deportivo", "img": "https://textilesbeitex.mx/cdn/shop/files/7_eb52327d-1274-4f08-931b-21b06988b482.png?v=1729803189", "desc": "Tela deportiva de textura fina para playeras tipo polo y uniformes de alto rendimiento.", "comp": "100% Poli\u00e9ster", "peso": "180 g/m\u00b2", "ancho": "1.60 m", "rend": "~3.5 mt/kg", "usos": ["Playeras deportivas", "Tipo polo", "Uniformes corporativos", "Ropa escolar"], "colores": ["Blanco", "Negro", "Azul Rey", "Rojo", "Verde Bandera", "Amarillo", "Naranja", "Rosa Mexicano", "Gris"]}, "premiere": {"id": "premiere", "name": "Tela Premiere", "badge": "\u2605 Top Ventas", "btype": "solid", "unit": "kg", "cat": "basica", "img": "https://textilesbeitex.mx/cdn/shop/files/PremiereBlanco_1.jpg?v=1715202042&width=800", "desc": "Nuestra tela m\u00e1s popular. Acabado tacto algod\u00f3n en 100% poli\u00e9ster. Perfecta para todo tipo de playeras.", "comp": "100% Poli\u00e9ster \u00b7 Tacto Algod\u00f3n", "peso": "250 g/m\u00b2", "ancho": "1.80 m", "rend": "~4 mt/kg", "usos": ["Playera escolar", "Playera casual", "Uniformes", "Ropa deportiva"], "colores": ["Blanco", "Negro", "Gris Jaspe", "Azul Marino", "Azul Cielo", "Rojo", "Verde", "Rosa", "Beige", "Morado"]}, "sportock": {"id": "sportock", "name": "Sportock", "badge": "Deportivo", "btype": "solid", "unit": "kg", "cat": "deportivo", "img": "https://textilesbeitex.mx/cdn/shop/files/9_b6333722-de5d-4d6d-a8a8-ed567435daea.png?v=1729803218", "desc": "Tela satinada de alto rendimiento para conjuntos deportivos y chamarras escolares.", "comp": "100% Poli\u00e9ster \u00b7 Satinado", "peso": "250 g/m\u00b2", "ancho": "1.60 m", "rend": "~3.5 mt/kg", "usos": ["Pants deportivos", "Chamarras escolares", "Conjuntos", "Uniformes de equipo"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Naranja", "Rosa", "Gris"]}, "polar-fleece": {"id": "polar-fleece", "name": "Polar Fleece", "badge": "Nuevo", "btype": "outline", "unit": "kg", "cat": "felpa", "img": "https://textilesbeitex.mx/cdn/shop/files/5_3b8d1bc4-8b96-4c80-b8c7-50c1dd94cacd.png?v=1729803160", "desc": "Tela suave y c\u00e1lida ideal para temporada de fr\u00edo. Perfecta para forros, cobijas y chamarras.", "comp": "100% Poli\u00e9ster", "peso": "280 g/m\u00b2", "ancho": "1.60 m", "rend": "~3 mt/kg", "usos": ["Forros de chamarras", "Cobijas", "Chamarras de invierno", "Accesorios"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Gris", "Morado", "Rosa"]}, "forro-capitonado": {"id": "forro-capitonado", "name": "Forro Capitonado", "badge": "Invierno", "btype": "outline", "unit": "mt", "cat": "forro", "img": "https://textilesbeitex.mx/cdn/shop/files/PORTADAS_7.png?v=1755891967", "desc": "Forro acolchado en rombos. Calidez excepcional para chamarras, colchas y colchonetas.", "comp": "100% Poli\u00e9ster Acolchado", "peso": "Huata 60\u2013600 g", "ancho": "1.50 \u2013 3.00 m", "rend": "Rollos ~50 mt", "usos": ["Chamarras acolchadas", "Colchas", "Colchonetas", "Forros de invierno"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde"]}, "interlock": {"id": "interlock", "name": "Interlock 50/50", "badge": "Vers\u00e1til", "btype": "outline", "unit": "kg", "cat": "basica", "img": "https://textilesbeitex.mx/cdn/shop/files/PORTADAS_7.png?v=1755891967", "desc": "Tela interlock de punto con excelente elasticidad. Suave, ligera y c\u00f3moda para uso diario.", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n", "peso": "220 g/m\u00b2", "ancho": "1.80 m", "rend": "~4 mt/kg", "usos": ["Playeras b\u00e1sicas", "Ropa interior", "Uniformes escolares", "Prendas de beb\u00e9"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde", "Rosa", "Beige"]}, "pique": {"id": "pique", "name": "Piqu\u00e9 50/50", "badge": "Popular", "btype": "solid", "unit": "kg", "cat": "deportivo", "img": "https://textilesbeitex.mx/cdn/shop/files/PORTADAS_7.png?v=1755891967", "desc": "Cl\u00e1sico piqu\u00e9 con textura waffle para playeras tipo polo y uniformes corporativos.", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n", "peso": "220 g/m\u00b2", "ancho": "1.60 m", "rend": "~3.5 mt/kg", "usos": ["Playeras tipo polo", "Uniformes corporativos", "Ropa deportiva", "Escolares"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Amarillo", "Naranja", "Rosa Mexicano"]}, "forro-millenium": {"id": "forro-millenium", "name": "Forro Millenium", "badge": "Deportivo", "btype": "solid", "unit": "mt", "cat": "forro", "img": "https://textilesbeitex.mx/cdn/shop/files/PORTADAS_7.png?v=1755891967", "desc": "Forro ligero y transpirable ideal para el interior de chamarras deportivas.", "comp": "100% Poli\u00e9ster", "peso": "80 g/m\u00b2", "ancho": "1.60 m", "rend": "~8 mt/kg", "usos": ["Forros de chamarras", "Playeras deportivas", "Uniformes de f\u00fatbol", "Ropa t\u00e9cnica"], "colores": ["Blanco", "Negro", "Azul Rey", "Rojo", "Verde", "Naranja", "Rosa", "Gris"]}, "licra-brush": {"id": "licra-brush", "name": "Licra Brush", "badge": "El\u00e1stica", "btype": "solid", "unit": "kg", "cat": "elastica", "img": "https://textilesbeitex.mx/cdn/shop/files/2_aac4f8fe-b291-4405-bcbd-fbbd0fd86076.png?v=1729803106", "desc": "Licra con acabado brush suave al tacto. Alta elasticidad en 4 direcciones.", "comp": "92% Poli\u00e9ster \u00b7 8% Spandex", "peso": "200 g/m\u00b2", "ancho": "1.60 m", "rend": "4 v\u00edas", "usos": ["Leggins y mallas", "Ropa deportiva", "Ropa de cama", "Playeras ajustadas"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Rosa", "Morado", "Gris", "Beige"]}, "bombay": {"id": "bombay", "name": "Bombay", "badge": "Ligero", "btype": "outline", "unit": "mt", "cat": "ligero", "img": "https://textilesbeitex.mx/cdn/shop/files/3_86ec3ffb-379e-4a03-bc4f-2c59fcd5b1e2.png?v=1729803130", "desc": "Tela ligera y fresca para playeras de campa\u00f1a, decoraci\u00f3n de eventos y sublimaci\u00f3n.", "comp": "100% Poli\u00e9ster", "peso": "80 g/m\u00b2", "ancho": "1.60 m", "rend": "~8 mt/kg", "usos": ["Playeras de campa\u00f1a", "Decoraci\u00f3n eventos", "Manteler\u00eda", "Sublimaci\u00f3n"], "colores": ["Blanco", "Negro", "Rojo", "Azul Rey", "Verde", "Amarillo", "Naranja", "Rosa Mexicano", "Morado"]}, "dublin": {"id": "dublin", "name": "Dubl\u00edn", "badge": "Formal", "btype": "outline", "unit": "kg", "cat": "formal", "img": "https://textilesbeitex.mx/cdn/shop/files/4_efe4fbff-a0f9-4a4e-a1d1-6fb81d7107a4.png?v=1729803149", "desc": "Tela resistente con acabado liso y formal. Preferida para uniformes de b\u00e9isbol y americano.", "comp": "100% Poli\u00e9ster", "peso": "220 g/m\u00b2", "ancho": "1.60 m", "rend": "~3.5 mt/kg", "usos": ["Uniformes de b\u00e9isbol", "Americano", "Manteados de tianguis", "Ropa formal"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Gris", "Beige"]}, "felpa-china": {"id": "felpa-china", "name": "Felpa China 100% Poli\u00e9ster", "badge": "Importada", "btype": "solid", "unit": "kg", "cat": "felpa", "img": "https://textilesbeitex.mx/cdn/shop/files/5_3b8d1bc4-8b96-4c80-b8c7-50c1dd94cacd.png?v=1729803160", "desc": "Felpa 100% poli\u00e9ster importada. Sin bolitas, excelente resistencia al lavado intensivo.", "comp": "100% Poli\u00e9ster", "peso": "280 g/m\u00b2", "ancho": "1.80 m", "rend": "~3.5 mt/kg", "usos": ["Sudaderas con capucha", "Pants de invierno", "Chamarras", "Ropa casual"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde", "Rosa", "Morado"]}};
