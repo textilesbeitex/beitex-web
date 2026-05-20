@@ -320,17 +320,18 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
   <div class="cart-head"><span class="cart-ttl">Mi Cotización</span><button class="cart-close" onclick="closeCart()">×</button></div>
   <div class="cart-items-wrap" id="cart-items-list"></div>
   <div class="cart-foot">
-    <p class="cart-sum">Completa tus datos y te enviamos una oferta en menos de 24 horas.</p>
+    <p class="cart-sum">Completa tus datos y te enviamos una propuesta en menos de <strong>24 horas hábiles</strong>.</p>
     <form class="cot-form" id="cot-form">
       <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
       <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
       <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
-      <div><label>Notas</label><textarea name="co" placeholder="Colores, tallas, fecha de entrega..."></textarea></div>
+      <div><label>Notas</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
       <button type="submit" class="btn-primary-cot">Enviar cotización →</button>
     </form>
   </div>
 </div>
-<script>/* ═══════════════════════════════════════════════════
+<script>
+/* ═══════════════════════════════════════════════════
    TEXTILES BEITEX — JS GLOBAL
    ═══════════════════════════════════════════════════ */
 
@@ -481,6 +482,7 @@ function renderCart() {
       <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
       <p>Tu cotización está vacía.<br/>Visita el <a href="catalogo.html">catálogo</a> para agregar telas.</p>
     </div>`;
+    renderOrderSummary([]);
     return;
   }
   el.innerHTML = c.map(x => `
@@ -501,6 +503,22 @@ function renderCart() {
         </svg>
       </button>
     </div>`).join('');
+  renderOrderSummary(c);
+}
+
+function renderOrderSummary(c) {
+  const el = document.getElementById('cos-items-summary');
+  if (!el) return;
+  if (!c || !c.length) {
+    el.innerHTML = '<div class="cos-empty">Sin productos aún</div>';
+    return;
+  }
+  el.innerHTML = c.map(x =>
+    `<div class="cos-item">
+      <span class="cos-item-name">${x.name}${x.color ? ' — ' + x.color : ''}</span>
+      <span class="cos-item-qty">${x.qty} ${x.unit}</span>
+    </div>`
+  ).join('');
 }
 
 function openCart() {
@@ -516,17 +534,76 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
-function submitCotizacion(e) {
+async function submitCotizacion(e) {
   e.preventDefault();
   const c = getCart();
   if (!c.length) { alert('Agrega al menos una tela a tu cotización.'); return; }
   const f = new FormData(e.target);
-  const lista = c.map(x => `• ${x.name}${x.color ? ' — ' + x.color : ''}: ${x.qty} ${x.unit}`).join('\n');
-  const body = `Solicitud de cotización\n\nNombre: ${f.get('cn')}\nTeléfono: ${f.get('ct')}\nCorreo: ${f.get('ce')}\n\nProductos:\n${lista}${f.get('co') ? '\n\nNotas: ' + f.get('co') : ''}`;
-  window.location.href = `mailto:ventas@textilesbeitex.mx?subject=Cotización — ${f.get('cn')}&body=${encodeURIComponent(body)}`;
-  localStorage.removeItem(CK);
-  updateBadge();
-  closeCart();
+  const nombre = f.get('cn');
+  const correo = f.get('ce');
+  const tel = f.get('ct') || 'No proporcionado';
+  const notas = f.get('co') || '';
+  const lista = c.map(x => `• ${x.name}${x.color ? ' — ' + x.color : ''}: ${x.qty} ${x.unit}`).join('
+');
+  const resumen = `Solicitud de cotización
+
+Nombre: ${nombre}
+Teléfono: ${tel}
+Correo: ${correo}
+
+Productos solicitados:
+${lista}${notas ? '
+
+Notas: ' + notas : ''}`;
+
+  // Deshabilitar botón mientras envía
+  const btn = e.target.querySelector('[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+
+  // Enviar a Formspree (llega directo a ventas@textilesbeitex.mx)
+  let formspreeOk = false;
+  try {
+    const res = await fetch('https://formspree.io/f/mzdweadd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        nombre,
+        email: correo,
+        telefono: tel,
+        productos: lista,
+        notas,
+        _subject: `Nueva cotización Beitex — ${nombre}`,
+        _replyto: correo
+      })
+    });
+    formspreeOk = res.ok;
+  } catch(err) {
+    console.warn('Formspree error:', err);
+  }
+
+  // Respaldo mailto si Formspree falla
+  if (!formspreeOk) {
+    window.location.href = `mailto:ventas@textilesbeitex.mx?subject=Cotización — ${nombre}&body=${encodeURIComponent(resumen)}`;
+  } else {
+    // Mostrar confirmación al cliente
+    const itemsList = document.getElementById('cart-items-list');
+    if (itemsList) {
+      itemsList.innerHTML = `<div style="text-align:center;padding:2.5rem 1rem">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.08em;color:#1E0F08;margin-bottom:.5rem">¡COTIZACIÓN ENVIADA!</div>
+        <p style="font-size:.92rem;color:#8A7060;line-height:1.7">Recibimos tu solicitud correctamente.<br/>Te contactaremos a <strong style="color:#C05A3A">${correo}</strong><br/>en menos de <strong>24 horas hábiles</strong>.</p>
+      </div>`;
+    }
+    // Limpiar form y carrito
+    e.target.reset();
+    localStorage.removeItem(CK);
+    updateBadge();
+    renderOrderSummary([]);
+    // Cerrar drawer después de 3 segundos
+    setTimeout(() => closeCart(), 3500);
+  }
+
+  if (btn) { btn.disabled = false; btn.textContent = 'Enviar cotización →'; }
 }
 
 // ── INIT ──
@@ -539,14 +616,48 @@ document.addEventListener('DOMContentLoaded', () => {
   updateBadge();
   document.getElementById('cart-ov')?.addEventListener('click', closeCart);
   document.getElementById('cot-form')?.addEventListener('submit', submitCotizacion);
-  document.getElementById('contact-form')?.addEventListener('submit', e => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    const body = `Nombre: ${f.get('nombre')}\nTeléfono: ${f.get('tel')}\nCorreo: ${f.get('email')}\n\nMensaje:\n${f.get('msg')}`;
+  document.getElementById('contact-form')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const nombre = f.get('nombre') || '';
+  const tel = f.get('tel') || '';
+  const correo = f.get('email') || '';
+  const msg = f.get('msg') || '';
+  const btn = e.target.querySelector('[type="submit"]');
+  if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+  let ok = false;
+  try {
+    const res = await fetch('https://formspree.io/f/mzdweadd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        nombre, email: correo, telefono: tel, mensaje: msg,
+        _subject: `Contacto Beitex — ${nombre}`,
+        _replyto: correo
+      })
+    });
+    ok = res.ok;
+  } catch(err) {}
+  if (!ok) {
+    const body = `Nombre: ${nombre}
+Teléfono: ${tel}
+Correo: ${correo}
+
+Mensaje:
+${msg}`;
     window.location.href = `mailto:ventas@textilesbeitex.mx?subject=Contacto desde textilesbeitex.mx&body=${encodeURIComponent(body)}`;
-  });
+  } else {
+    e.target.innerHTML = `<div style="text-align:center;padding:2rem;background:rgba(192,90,58,.06);border-radius:8px;border:1px solid rgba(192,90,58,.2)">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <p style="font-size:1rem;color:#2C1F17;font-weight:600">¡Mensaje enviado correctamente!</p>
+      <p style="font-size:.9rem;color:#8A7060;margin-top:.5rem">Te contactaremos en menos de 24 horas hábiles.</p>
+    </div>`;
+  }
+  if (btn) { btn.disabled = false; btn.textContent = 'Enviar mensaje →'; }
+});
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
 });
+
 </script>
 </body>
 </html>
