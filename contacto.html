@@ -535,7 +535,7 @@ h2.section-h.light { color: #fff; }
     <div class="footer-policy"><a href="privacidad.html">Privacidad</a><a href="#">Términos</a></div>
   </div>
 </footer>
-<div class="notif" id="bx-notif"></div>
+<div class="notif" id="bx-notif" style="opacity:0;transform:translateX(130%)"></div>
 <button class="cart-fab" onclick="openCart()" aria-label="Ver cotización">
   <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
   <span class="cart-badge" id="cart-badge-main"></span>
@@ -550,7 +550,18 @@ h2.section-h.light { color: #fff; }
       <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
       <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
       <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
-      <div><label>Notas</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
+            <div style="display:flex;flex-direction:column;gap:.35rem">
+        <label style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A7060">Requieres factura?</label>
+        <div style="display:flex;gap:.75rem">
+          <label class="fac-opt" id="fac-no-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #C05A3A;border-radius:3px;flex:1;background:rgba(192,90,58,.07);transition:all .2s">
+            <input type="radio" name="factura" value="No" style="accent-color:#C05A3A;width:16px;height:16px" checked/> No
+          </label>
+          <label class="fac-opt" id="fac-si-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #DDD5C8;border-radius:3px;flex:1;background:#fff;transition:all .2s">
+            <input type="radio" name="factura" value="Si" style="accent-color:#C05A3A;width:16px;height:16px"/> Si
+          </label>
+        </div>
+      </div>
+<div><label>Notas</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1.1rem">Enviar cotización →</button>
     </form>
   </div>
@@ -713,9 +724,12 @@ async function submitCotizacion(e) {
   var correo = f.get('ce') || '';
   var tel = f.get('ct') || 'No proporcionado';
   var notas = f.get('co') || '';
+  var factura = f.get('factura') || 'No';
+  var envio = f.get('envio') || 'No especificado';
   var listaParts = [];
   c.forEach(function(x) { listaParts.push('- ' + x.name + (x.color ? ' (' + x.color + ')' : '') + ': ' + x.qty + ' ' + x.unit); });
   var lista = listaParts.join('; ');
+  var infoEnvio = 'Envio: ' + envio;
   var btn = e.target.querySelector('[type="submit"]');
   if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
   var ok = false;
@@ -723,7 +737,7 @@ async function submitCotizacion(e) {
     var res = await fetch('https://formspree.io/f/mzdweadd', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, productos: lista, notas: notas, _subject: 'Cotizacion Beitex - ' + nombre, _replyto: correo })
+      body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, productos: lista, envio: envio, factura: factura, notas: notas, _subject: 'Cotizacion Beitex - ' + nombre, _replyto: correo })
     });
     ok = res.ok;
   } catch(err) { console.warn('Formspree error:', err); }
