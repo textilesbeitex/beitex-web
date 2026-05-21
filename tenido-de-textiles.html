@@ -118,8 +118,8 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
 .cot-form textarea{min-height:72px;resize:vertical}
 .btn-primary-cot{width:100%;background:var(--rl);color:#fff;font-family:var(--fd);font-size:1rem;letter-spacing:.14em;text-transform:uppercase;padding:1rem;border-radius:2px;border:none;cursor:pointer;transition:background .2s}
 .btn-primary-cot:hover{background:var(--rust)}
-.notif{position:fixed;bottom:7rem;right:2rem;z-index:1100;background:var(--dark);color:#fff;padding:1rem 1.5rem;border-radius:6px;font-size:.9rem;border-left:3px solid var(--rl);box-shadow:0 8px 32px rgba(0,0,0,.3);transform:translateX(130%);transition:transform .3s;max-width:280px;line-height:1.5}
-.notif.show{transform:translateX(0)}
+.notif{position:fixed;bottom:7rem;right:2rem;z-index:1100;background:var(--dark);color:#fff;padding:1rem 1.5rem;border-radius:6px;font-size:.9rem;border-left:3px solid var(--rl);box-shadow:0 8px 32px rgba(0,0,0,.3);transform:translateX(130%);opacity:0;transition:transform .3s,opacity .3s;max-width:280px;line-height:1.5;pointer-events:none}
+.notif.show{transform:translateX(0);opacity:1;pointer-events:auto}
 
 /* === BTNS GENERALES === */
 .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--rl);color:#fff;font-family:var(--fd);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2.2rem;border-radius:2px;border:none;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 4px 16px rgba(192,90,58,.35)}
@@ -286,7 +286,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
     <div class="footer-policy"><a href="../privacidad.html">Privacidad</a><a href="#">Términos</a></div>
   </div>
 </footer>
-<div class="notif" id="bx-notif"></div>
+<div class="notif" id="bx-notif" style="opacity:0;transform:translateX(130%)"></div>
 <button class="cart-fab" onclick="openCart()" aria-label="Ver cotización">
   <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
   <span class="cart-badge" id="cart-badge-main"></span>
@@ -301,7 +301,18 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
       <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
       <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
       <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
-      <div><label>Notas</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
+            <div style="display:flex;flex-direction:column;gap:.35rem">
+        <label style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A7060">Requieres factura?</label>
+        <div style="display:flex;gap:.75rem">
+          <label class="fac-opt" id="fac-no-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #C05A3A;border-radius:3px;flex:1;background:rgba(192,90,58,.07);transition:all .2s">
+            <input type="radio" name="factura" value="No" style="accent-color:#C05A3A;width:16px;height:16px" checked/> No
+          </label>
+          <label class="fac-opt" id="fac-si-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #DDD5C8;border-radius:3px;flex:1;background:#fff;transition:all .2s">
+            <input type="radio" name="factura" value="Si" style="accent-color:#C05A3A;width:16px;height:16px"/> Si
+          </label>
+        </div>
+      </div>
+<div><label>Notas</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
       <button type="submit" class="btn-primary-cot">Enviar cotización →</button>
     </form>
   </div>
@@ -464,9 +475,12 @@ async function submitCotizacion(e) {
   var correo = f.get('ce') || '';
   var tel = f.get('ct') || 'No proporcionado';
   var notas = f.get('co') || '';
+  var factura = f.get('factura') || 'No';
+  var envio = f.get('envio') || 'No especificado';
   var listaParts = [];
   c.forEach(function(x) { listaParts.push('- ' + x.name + (x.color ? ' (' + x.color + ')' : '') + ': ' + x.qty + ' ' + x.unit); });
   var lista = listaParts.join('; ');
+  var infoEnvio = 'Envio: ' + envio;
   var btn = e.target.querySelector('[type="submit"]');
   if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
   var ok = false;
@@ -474,7 +488,7 @@ async function submitCotizacion(e) {
     var res = await fetch('https://formspree.io/f/mzdweadd', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, productos: lista, notas: notas, _subject: 'Cotizacion Beitex - ' + nombre, _replyto: correo })
+      body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, productos: lista, envio: envio, factura: factura, notas: notas, _subject: 'Cotizacion Beitex - ' + nombre, _replyto: correo })
     });
     ok = res.ok;
   } catch(err) { console.warn('Formspree error:', err); }
