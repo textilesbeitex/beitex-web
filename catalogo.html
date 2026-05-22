@@ -228,6 +228,11 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
 .cos-item-name{color:rgba(255,255,255,.7);flex:1;margin-right:.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
 .cos-item-qty{color:#C05A3A;font-weight:700;white-space:nowrap}
 .cos-empty{font-size:.82rem;color:rgba(255,255,255,.28);text-align:center;padding:.3rem 0}
+
+.wa-fab{position:fixed;bottom:2rem;left:2rem;z-index:800;width:56px;height:56px;border-radius:50%;
+  background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s,background .2s}
+.wa-fab:hover{transform:scale(1.1);background:#1ebe5d}
 </style>
 </head>
 <body>
@@ -303,7 +308,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
       </button>
       <div class="cat-info"><div class="cat-name">Sportock</div><div class="cat-detail">100% Poliéster · Satinado · Por kg</div></div>
     </div>
-    <div class="cat-card" data-cat="felpa" id="card-polar-fleece">
+    <div class="cat-card" data-cat="forro" id="card-polar-fleece">
       <button class="cat-img-btn" onclick="openProductModal('polar-fleece')" aria-label="Ver Polar Fleece">
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIj4KICA8ZGVmcz4KICAgIDxwYXR0ZXJuIGlkPSJ3ZWF2ZS1mZWxwYSIgeD0iMCIgeT0iMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNGEyYTZhIi8+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzZhNGE5YSIgb3BhY2l0eT0iMC40Ii8+CiAgICAgIDxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjNmE0YTlhIiBvcGFjaXR5PSIwLjQiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjd2VhdmUtZmVscGEpIi8+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InJnYmEoMzAsMTUsOCwwLjQ1KSIvPgogIDx0ZXh0IHg9IjIwMCIgeT0iMjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiAKICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuOSI+UG9sYXIgRmxlZWNlPC90ZXh0PgogIDx0ZXh0IHg9IjIwMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIgogICAgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC41NSkiPkZFTFBBPC90ZXh0Pgo8L3N2Zz4=" alt="Polar Fleece" loading="lazy"/><div class="cat-overlay"></div>
         <span class="cat-badge badge-outline">Nuevo</span>
@@ -402,10 +407,25 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
 <div class="modal-overlay" id="modal-overlay"></div>
 <div class="product-modal" id="product-modal">
   <div class="modal-header">
-    <button class="modal-close" onclick="closeProductModal()">×</button>
+    <button class="modal-close" onclick="closeProductModal()">&#215;</button>
     <div class="modal-title" id="modal-title"></div>
     <div class="modal-desc" id="modal-desc"></div>
   </div>
+  <div class="modal-specs" id="modal-specs"></div>
+  <div class="modal-usos" id="modal-usos"></div>
+  <div class="modal-actions">
+    <select class="modal-select" id="modal-color"><option value="">Seleccionar color</option></select>
+    <div id="modal-dibujo-wrap"></div>
+    <div class="modal-qty-row">
+      <button class="mq-btn" onclick="modalQtyChange(-1)">&#8722;</button>
+      <input class="mq-inp" type="number" id="modal-qty" value="5" min="1" step="1"/>
+      <span class="mq-unit" id="modal-unit">kg</span>
+      <button class="mq-btn" onclick="modalQtyChange(1)">+</button>
+    </div>
+    <div id="modal-min-note"></div>
+    <button class="modal-add-btn" id="modal-add-btn">+ Agregar a cotizacion</button>
+  </div>
+</div>
   <div class="modal-specs" id="modal-specs"></div>
   <div class="modal-usos" id="modal-usos"></div>
   <div class="modal-actions">
@@ -449,6 +469,12 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
   </div>
 </footer>
 <div class="notif" id="bx-notif" style="opacity:0;transform:translateX(130%)"></div>
+<a href="https://wa.me/525553513925" target="_blank" rel="noopener noreferrer"
+   class="wa-fab" title="Contactar por WhatsApp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.12 1.529 5.845L.057 23.927l6.244-1.638A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.51-5.184-1.4l-.37-.22-3.853 1.01 1.029-3.762-.241-.387A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
 <button class="cart-fab" onclick="openCart()" aria-label="Ver cotización">
   <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
   <span class="cart-badge" id="cart-badge-main"></span>
@@ -564,8 +590,8 @@ function updateQty(id, color, delta) {
   var c = getCart();
   var idx = c.findIndex(function(i) { return i.id === id && i.color === color; });
   if (idx < 0) return;
-  var nv = Math.max(0.5, parseFloat(c[idx].qty) + delta);
-  c[idx].qty = nv.toFixed(1);
+  var nv = Math.max(1, Math.round(parseFloat(c[idx].qty) + delta));
+  c[idx].qty = nv.toString();
   saveCart(c); renderCart();
 }
 
@@ -611,7 +637,7 @@ function renderCart() {
   }
   var html = '';
   c.forEach(function(x) {
-    html += '<div class="cart-item"><div><div class="cart-item-name">' + x.name + '</div><div class="cart-item-detail">' + (x.color ? 'Color: ' + x.color + ' - ' : '') + 'Por ' + x.unit + '</div><div class="cart-item-qty"><button class="qty-btn" onclick="updateQty(\'' + x.id + '\',\'' + x.color + '\',-0.5)">-</button><span class="qty-val">' + x.qty + ' ' + x.unit + '</span><button class="qty-btn" onclick="updateQty(\'' + x.id + '\',\'' + x.color + '\',0.5)">+</button></div></div><button class="cart-rm" onclick="removeFromCart(\'' + x.id + '\',\'' + x.color + '\')" title="Eliminar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg></button></div>';
+    html += '<div class="cart-item"><div><div class="cart-item-name">' + x.name + '</div><div class="cart-item-detail">' + (x.color ? 'Color: ' + x.color + ' - ' : '') + 'Por ' + x.unit + '</div><div class="cart-item-qty"><button class="qty-btn" onclick="updateQty(\'' + x.id + '\',\'' + x.color + '\',-1)">-</button><span class="qty-val">' + x.qty + ' ' + x.unit + '</span><button class="qty-btn" onclick="updateQty(\'' + x.id + '\',\'' + x.color + '\',1)">+</button></div></div><button class="cart-rm" onclick="removeFromCart(\'' + x.id + '\',\'' + x.color + '\')" title="Eliminar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg></button></div>';
   });
   el.innerHTML = html;
   renderOrderSummary(c);
@@ -633,12 +659,19 @@ async function submitCotizacion(e) {
   e.preventDefault();
   var c = getCart();
   if (!c.length) { alert('Agrega al menos una tela a tu cotizacion.'); return; }
+  // Validar minimo 25 piezas para prendas
+  var prendaTotal = 0;
+  var hasPrenda = false;
+  c.forEach(function(x) { if(x.unit === 'pza') { hasPrenda = true; prendaTotal += parseInt(x.qty)||0; } });
+  if(hasPrenda && prendaTotal < 25) {
+    alert('El minimo de prendas terminadas es 25 piezas en total entre todas las tallas. Actualmente tienes ' + prendaTotal + ' pza.');
+    return;
+  }
   var f = new FormData(e.target);
   var nombre = f.get('cn') || '';
   var correo = f.get('ce') || '';
   var tel = f.get('ct') || 'No proporcionado';
   var notas = f.get('co') || '';
-  var factura = f.get('factura') || 'No';
   var envio = f.get('envio') || 'No especificado';
   var listaParts = [];
   c.forEach(function(x) { listaParts.push('- ' + x.name + (x.color ? ' (' + x.color + ')' : '') + ': ' + x.qty + ' ' + x.unit); });
@@ -651,7 +684,7 @@ async function submitCotizacion(e) {
     var res = await fetch('https://formspree.io/f/mzdweadd', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, productos: lista, envio: envio, factura: factura, notas: notas, _subject: 'Cotizacion Beitex - ' + nombre, _replyto: correo })
+      body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, productos: lista, envio: envio, notas: notas, _subject: 'Cotizacion Beitex - ' + nombre, _replyto: correo })
     });
     ok = res.ok;
   } catch(err) { console.warn('Formspree error:', err); }
@@ -708,14 +741,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <script>
-var PRODUCTS_DB = {"felpa-nacional": {"id": "felpa-nacional", "name": "Felpa Nacional 50/50", "badge": "\u2605 Nacional", "btype": "solid", "unit": "kg", "cat": "felpa", "img": "https://textilesbeitex.mx/cdn/shop/files/6_9f14e77e-158b-44fa-a6ec-9e47d84bc2a9.png?v=1729803173", "desc": "La favorita para pants y sudaderas. Sin bolitas, suave al tacto y excelente ca\u00edda.", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n", "peso": "250 g/m\u00b2", "ancho": "1.80 m", "rend": "~4 kg/rollo", "usos": ["Pants", "Sudaderas", "Uniformes escolares", "Chamarras"], "colores": ["Blanco", "Negro", "Gris Jaspe", "Azul Marino", "Rojo", "Verde", "Naranja", "Rosa", "Beige", "Morado"]}, "micropique": {"id": "micropique", "name": "Micropiqu\u00e9", "badge": "Textura Fina", "btype": "outline", "unit": "kg", "cat": "deportivo", "img": "https://textilesbeitex.mx/cdn/shop/files/7_eb52327d-1274-4f08-931b-21b06988b482.png?v=1729803189", "desc": "Tela deportiva de textura fina para playeras tipo polo y uniformes de alto rendimiento.", "comp": "100% Poli\u00e9ster", "peso": "180 g/m\u00b2", "ancho": "1.60 m", "rend": "~3.5 mt/kg", "usos": ["Playeras deportivas", "Tipo polo", "Uniformes corporativos", "Ropa escolar"], "colores": ["Blanco", "Negro", "Azul Rey", "Rojo", "Verde Bandera", "Amarillo", "Naranja", "Rosa Mexicano", "Gris"]}, "premiere": {"id": "premiere", "name": "Tela Premiere", "badge": "\u2605 Top Ventas", "btype": "solid", "unit": "kg", "cat": "basica", "img": "https://textilesbeitex.mx/cdn/shop/files/PremiereBlanco_1.jpg?v=1715202042&width=800", "desc": "Nuestra tela m\u00e1s popular. Acabado tacto algod\u00f3n en 100% poli\u00e9ster. Perfecta para todo tipo de playeras.", "comp": "100% Poli\u00e9ster \u00b7 Tacto Algod\u00f3n", "peso": "250 g/m\u00b2", "ancho": "1.80 m", "rend": "~4 mt/kg", "usos": ["Playera escolar", "Playera casual", "Uniformes", "Ropa deportiva"], "colores": ["Blanco", "Negro", "Gris Jaspe", "Azul Marino", "Azul Cielo", "Rojo", "Verde", "Rosa", "Beige", "Morado"]}, "sportock": {"id": "sportock", "name": "Sportock", "badge": "Deportivo", "btype": "solid", "unit": "kg", "cat": "deportivo", "img": "https://textilesbeitex.mx/cdn/shop/files/9_b6333722-de5d-4d6d-a8a8-ed567435daea.png?v=1729803218", "desc": "Tela satinada de alto rendimiento para conjuntos deportivos y chamarras escolares.", "comp": "100% Poli\u00e9ster \u00b7 Satinado", "peso": "250 g/m\u00b2", "ancho": "1.60 m", "rend": "~3.5 mt/kg", "usos": ["Pants deportivos", "Chamarras escolares", "Conjuntos", "Uniformes de equipo"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Naranja", "Rosa", "Gris"]}, "polar-fleece": {"id": "polar-fleece", "name": "Polar Fleece", "badge": "Nuevo", "btype": "outline", "unit": "kg", "cat": "felpa", "img": "https://textilesbeitex.mx/cdn/shop/files/5_3b8d1bc4-8b96-4c80-b8c7-50c1dd94cacd.png?v=1729803160", "desc": "Tela suave y c\u00e1lida ideal para temporada de fr\u00edo. Perfecta para forros, cobijas y chamarras.", "comp": "100% Poli\u00e9ster", "peso": "280 g/m\u00b2", "ancho": "1.60 m", "rend": "~3 mt/kg", "usos": ["Forros de chamarras", "Cobijas", "Chamarras de invierno", "Accesorios"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Gris", "Morado", "Rosa"]}, "forro-capitonado": {"id": "forro-capitonado", "name": "Forro Capitonado", "badge": "Invierno", "btype": "outline", "unit": "mt", "cat": "forro", "img": "https://textilesbeitex.mx/cdn/shop/files/PORTADAS_7.png?v=1755891967", "desc": "Forro acolchado en rombos. Calidez excepcional para chamarras, colchas y colchonetas.", "comp": "100% Poli\u00e9ster Acolchado", "peso": "Huata 60\u2013600 g", "ancho": "1.50 \u2013 3.00 m", "rend": "Rollos ~50 mt", "usos": ["Chamarras acolchadas", "Colchas", "Colchonetas", "Forros de invierno"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde"]}, "interlock": {"id": "interlock", "name": "Interlock 50/50", "badge": "Vers\u00e1til", "btype": "outline", "unit": "kg", "cat": "basica", "img": "https://textilesbeitex.mx/cdn/shop/files/PORTADAS_7.png?v=1755891967", "desc": "Tela interlock de punto con excelente elasticidad. Suave, ligera y c\u00f3moda para uso diario.", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n", "peso": "220 g/m\u00b2", "ancho": "1.80 m", "rend": "~4 mt/kg", "usos": ["Playeras b\u00e1sicas", "Ropa interior", "Uniformes escolares", "Prendas de beb\u00e9"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde", "Rosa", "Beige"]}, "pique": {"id": "pique", "name": "Piqu\u00e9 50/50", "badge": "Popular", "btype": "solid", "unit": "kg", "cat": "deportivo", "img": "https://textilesbeitex.mx/cdn/shop/files/PORTADAS_7.png?v=1755891967", "desc": "Cl\u00e1sico piqu\u00e9 con textura waffle para playeras tipo polo y uniformes corporativos.", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n", "peso": "220 g/m\u00b2", "ancho": "1.60 m", "rend": "~3.5 mt/kg", "usos": ["Playeras tipo polo", "Uniformes corporativos", "Ropa deportiva", "Escolares"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Amarillo", "Naranja", "Rosa Mexicano"]}, "forro-millenium": {"id": "forro-millenium", "name": "Forro Millenium", "badge": "Deportivo", "btype": "solid", "unit": "mt", "cat": "forro", "img": "https://textilesbeitex.mx/cdn/shop/files/PORTADAS_7.png?v=1755891967", "desc": "Forro ligero y transpirable ideal para el interior de chamarras deportivas.", "comp": "100% Poli\u00e9ster", "peso": "80 g/m\u00b2", "ancho": "1.60 m", "rend": "~8 mt/kg", "usos": ["Forros de chamarras", "Playeras deportivas", "Uniformes de f\u00fatbol", "Ropa t\u00e9cnica"], "colores": ["Blanco", "Negro", "Azul Rey", "Rojo", "Verde", "Naranja", "Rosa", "Gris"]}, "licra-brush": {"id": "licra-brush", "name": "Licra Brush", "badge": "El\u00e1stica", "btype": "solid", "unit": "kg", "cat": "elastica", "img": "https://textilesbeitex.mx/cdn/shop/files/2_aac4f8fe-b291-4405-bcbd-fbbd0fd86076.png?v=1729803106", "desc": "Licra con acabado brush suave al tacto. Alta elasticidad en 4 direcciones.", "comp": "92% Poli\u00e9ster \u00b7 8% Spandex", "peso": "200 g/m\u00b2", "ancho": "1.60 m", "rend": "4 v\u00edas", "usos": ["Leggins y mallas", "Ropa deportiva", "Ropa de cama", "Playeras ajustadas"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Rosa", "Morado", "Gris", "Beige"]}, "bombay": {"id": "bombay", "name": "Bombay", "badge": "Ligero", "btype": "outline", "unit": "mt", "cat": "ligero", "img": "https://textilesbeitex.mx/cdn/shop/files/3_86ec3ffb-379e-4a03-bc4f-2c59fcd5b1e2.png?v=1729803130", "desc": "Tela ligera y fresca para playeras de campa\u00f1a, decoraci\u00f3n de eventos y sublimaci\u00f3n.", "comp": "100% Poli\u00e9ster", "peso": "80 g/m\u00b2", "ancho": "1.60 m", "rend": "~8 mt/kg", "usos": ["Playeras de campa\u00f1a", "Decoraci\u00f3n eventos", "Manteler\u00eda", "Sublimaci\u00f3n"], "colores": ["Blanco", "Negro", "Rojo", "Azul Rey", "Verde", "Amarillo", "Naranja", "Rosa Mexicano", "Morado"]}, "dublin": {"id": "dublin", "name": "Dubl\u00edn", "badge": "Formal", "btype": "outline", "unit": "kg", "cat": "formal", "img": "https://textilesbeitex.mx/cdn/shop/files/4_efe4fbff-a0f9-4a4e-a1d1-6fb81d7107a4.png?v=1729803149", "desc": "Tela resistente con acabado liso y formal. Preferida para uniformes de b\u00e9isbol y americano.", "comp": "100% Poli\u00e9ster", "peso": "220 g/m\u00b2", "ancho": "1.60 m", "rend": "~3.5 mt/kg", "usos": ["Uniformes de b\u00e9isbol", "Americano", "Manteados de tianguis", "Ropa formal"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Gris", "Beige"]}, "felpa-china": {"id": "felpa-china", "name": "Felpa China 100% Poli\u00e9ster", "badge": "Importada", "btype": "solid", "unit": "kg", "cat": "felpa", "img": "https://textilesbeitex.mx/cdn/shop/files/5_3b8d1bc4-8b96-4c80-b8c7-50c1dd94cacd.png?v=1729803160", "desc": "Felpa 100% poli\u00e9ster importada. Sin bolitas, excelente resistencia al lavado intensivo.", "comp": "100% Poli\u00e9ster", "peso": "280 g/m\u00b2", "ancho": "1.80 m", "rend": "~3.5 mt/kg", "usos": ["Sudaderas con capucha", "Pants de invierno", "Chamarras", "Ropa casual"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde", "Rosa", "Morado"]}};
+var PRODUCTS_DB = {"felpa-nacional": {"id": "felpa-nacional", "name": "Felpa Nacional", "badge": "\u2605 Nacional", "btype": "solid", "unit": "kg", "cat": "felpa", "comp": "100% Poli\u00e9ster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.5 mt/kg", "desc": "La favorita para pants y sudaderas. Suave al tacto, sin bolitas, excelente ca\u00edda.", "usos": ["Pants", "Sudaderas", "Chamarras", "Uniformes escolares", "Hoodies"], "colores": ["Blanco", "Negro", "Gris Jaspe", "Azul Marino", "Rojo", "Verde", "Naranja", "Rosa", "Beige", "Morado"]}, "micropique": {"id": "micropique", "name": "Micropiqu\u00e9", "badge": "Deportivo", "btype": "outline", "unit": "kg", "cat": "deportivo", "comp": "100% Poli\u00e9ster", "peso": "145 gsm", "ancho": "1.60 m", "rend": "4.2 mt/kg", "desc": "Textura fina ideal para playeras tipo polo y uniformes deportivos de alto rendimiento.", "usos": ["Playeras tipo polo", "Uniformes corporativos", "Ropa deportiva", "Escolares", "Camisas"], "colores": ["Blanco", "Negro", "Azul Rey", "Rojo", "Verde Bandera", "Amarillo", "Naranja", "Rosa Mexicano", "Gris"]}, "premiere": {"id": "premiere", "name": "Tela Premiere", "badge": "\u2605 Top Ventas", "btype": "solid", "unit": "kg", "cat": "basica", "comp": "100% Poli\u00e9ster", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Nuestra tela m\u00e1s popular. Acabado suave, vers\u00e1til y perfecta para todo tipo de playeras y uniformes.", "usos": ["Playeras escolares", "Playeras casuales", "Uniformes", "Ropa deportiva", "Camisetas"], "colores": ["Blanco", "Negro", "Gris Jaspe", "Azul Marino", "Azul Cielo", "Rojo", "Verde", "Rosa", "Beige", "Morado"]}, "sportock": {"id": "sportock", "name": "Sportock", "badge": "Deportivo", "btype": "solid", "unit": "kg", "cat": "deportivo", "comp": "100% Poli\u00e9ster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.50 mt/kg", "desc": "Tela satinada de alto rendimiento para conjuntos deportivos y chamarras escolares.", "usos": ["Pants deportivos", "Chamarras escolares", "Conjuntos deportivos", "Uniformes de equipo"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Naranja", "Rosa", "Gris"]}, "polar-fleece": {"id": "polar-fleece", "name": "Polar Fleece", "badge": "Forro", "btype": "outline", "unit": "kg", "cat": "forro", "comp": "100% Poli\u00e9ster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.50 mt/kg", "desc": "Tela suave y c\u00e1lida ideal para temporada de fr\u00edo. Excelente como forro o prenda exterior.", "usos": ["Forros de chamarras", "Cobijas", "Chamarras de invierno", "Forros interiores", "Accesorios"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Gris", "Morado", "Rosa"]}, "forro-capitonado": {"id": "forro-capitonado", "name": "Forro Capitonado", "badge": "Invierno", "btype": "outline", "unit": "mt", "cat": "forro", "comp": "100% Poli\u00e9ster", "peso": "Variable", "ancho": "1.50 m", "rend": "Por metro", "desc": "Forro acolchado de alta calidad. Proporciona calidez excepcional en chamarras y colchas. Dise\u00f1o a tu elecci\u00f3n.", "usos": ["Chamarras acolchadas", "Colchas", "Colchonetas", "Forros de invierno", "Sacos"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde"], "has_dibujo": true}, "interlock": {"id": "interlock", "name": "Interlock 50/50", "badge": "Vers\u00e1til", "btype": "outline", "unit": "kg", "cat": "basica", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n Peinado", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Tela interlock suave con buena elasticidad. C\u00f3moda para uso diario y prendas de contacto con la piel.", "usos": ["Playeras b\u00e1sicas", "Ropa interior", "Uniformes escolares", "Prendas de beb\u00e9", "Camisetas"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde", "Rosa", "Beige"]}, "pique": {"id": "pique", "name": "Piqu\u00e9 50/50", "badge": "Popular", "btype": "solid", "unit": "kg", "cat": "deportivo", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n Peinado", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Cl\u00e1sico piqu\u00e9 con textura waffle. Fresco y resistente, ideal para playeras tipo polo y uniformes.", "usos": ["Playeras tipo polo", "Uniformes corporativos", "Ropa deportiva", "Camisas escolares"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Amarillo", "Naranja", "Rosa Mexicano"]}, "forro-millenium": {"id": "forro-millenium", "name": "Forro Millenium", "badge": "Forro", "btype": "solid", "unit": "mt", "cat": "forro", "comp": "100% Poli\u00e9ster", "peso": "90 gsm", "ancho": "1.50 m", "rend": "Por metro", "desc": "Forro ligero y transpirable. Acabado liso y elegante, perfecto para el interior de chamarras y sacos.", "usos": ["Forros de chamarras", "Forros de sacos", "Uniformes de f\u00fatbol", "Ropa t\u00e9cnica", "Forros elegantes"], "colores": ["Blanco", "Negro", "Azul Rey", "Rojo", "Verde", "Naranja", "Rosa", "Gris"]}, "licra-brush": {"id": "licra-brush", "name": "Licra DTY Brush", "badge": "El\u00e1stica", "btype": "solid", "unit": "kg", "cat": "elastica", "comp": "100% Poli\u00e9ster", "peso": "135 gsm", "ancho": "1.60 m", "rend": "4.6 mt/kg", "desc": "Licra con acabado brush suave al tacto. Alta elasticidad en 4 direcciones, ideal para ropa deportiva y ajustada.", "usos": ["Leggins y mallas", "Ropa deportiva", "Shorts", "Playeras ajustadas", "Ropa de yoga"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Rosa", "Morado", "Gris", "Beige"]}, "bombay": {"id": "bombay", "name": "Bombay", "badge": "Ligero", "btype": "outline", "unit": "kg", "cat": "ligero", "comp": "100% Poli\u00e9ster", "peso": "105 gsm", "ancho": "1.60 m", "rend": "5.95 mt/kg", "desc": "Tela ultra ligera y fresca. Excelente para sublimaci\u00f3n, playeras de campa\u00f1a y decoraci\u00f3n de eventos.", "usos": ["Playeras de campa\u00f1a", "Sublimaci\u00f3n", "Decoraci\u00f3n de eventos", "Manteler\u00eda", "Playeras promocionales"], "colores": ["Blanco", "Negro", "Rojo", "Azul Rey", "Verde", "Amarillo", "Naranja", "Rosa Mexicano", "Morado"]}, "dublin": {"id": "dublin", "name": "Dubl\u00edn", "badge": "Formal", "btype": "outline", "unit": "kg", "cat": "formal", "comp": "100% Poli\u00e9ster", "peso": "230 gsm", "ancho": "1.55 m", "rend": "2.8 mt/kg", "desc": "Tela resistente con acabado liso y formal. Preferida para uniformes de beisbol, americano y manteados.", "usos": ["Uniformes de beisbol", "Americano", "Manteados de tianguis", "Ropa formal", "Uniformes industriales"], "colores": ["Blanco", "Negro", "Azul Marino", "Rojo", "Verde", "Gris", "Beige"]}, "felpa-china": {"id": "felpa-china", "name": "Felpa China", "badge": "Importada", "btype": "solid", "unit": "kg", "cat": "felpa", "comp": "95% Poli\u00e9ster \u00b7 5% Spandex", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.5 mt/kg", "desc": "Felpa importada con elasticidad superior. Sin bolitas, excelente resistencia al lavado intensivo.", "usos": ["Sudaderas con capucha", "Hoodies", "Pants de invierno", "Chamarras", "Ropa casual premium"], "colores": ["Blanco", "Negro", "Gris", "Azul Marino", "Rojo", "Verde", "Rosa", "Morado"]}};
 var PRENDA_DB = {
   "sudadera-azul":{
     id:"sudadera-azul",name:"Sudadera Crew Neck Azul Pizarra",
-    desc:"Sudadera cuello redondo en felpa azul pizarra. Corte oversized moderno, sin capucha. 100% Algodon.",
-    specs:[["Composicion","100% Algodon"],["Peso","250 g/m2"],["Color","Azul Pizarra"],["Corte","Oversized / Crew Neck"],["Minimo","25 piezas por talla"]],
-    colores:["Azul Pizarra - XS","Azul Pizarra - S","Azul Pizarra - M","Azul Pizarra - L","Azul Pizarra - XL","Azul Pizarra - XXL"],
-    usos:["XS","S","M","L","XL","XXL"],unit:"pza",is_prenda:true
+    desc:"Sudadera cuello redondo en felpa azul pizarra. Corte oversized, sin capucha. 100% Algodon.",
+    specs:[["Composicion","100% Algodon"],["Gramaje","250 gsm"],["Color","Azul Pizarra"],["Corte","Oversized Crew Neck"],["Minimo","25 piezas totales"]],
+    colores:["XS - Azul Pizarra","S - Azul Pizarra","M - Azul Pizarra","L - Azul Pizarra","XL - Azul Pizarra","XXL - Azul Pizarra"],
+    usos:["Uso casual","Streetwear","Uniformes","Bordado","Serigrafia"],
+    unit:"pza",is_prenda:true
   }
 };
 
@@ -723,122 +757,121 @@ function openProductModal(id) {
   var p = PRODUCTS_DB[id] || PRENDA_DB[id];
   if(!p) return;
   var isP = !!PRENDA_DB[id];
-  var unit = isP ? 'pza' : p.unit;
-  var minQ = isP ? 25 : 0.5;
-  var stepQ = isP ? 1 : 0.5;
+  var unit = isP ? "pza" : p.unit;
   var defQ = isP ? 25 : 5;
 
-  var specRows = '';
+  var specRows = "";
   if(isP) {
     (PRENDA_DB[id].specs||[]).forEach(function(sp) {
-      specRows += '<div class="ms-row"><span class="ms-lbl">' + sp[0] + '</span><span class="ms-val"' + (sp[0]==='Minimo'?' style="color:#C05A3A;font-weight:700"':'') + '>' + sp[1] + '</span></div>';
+      var style = sp[0]==="Minimo" ? " style=\"color:#C05A3A;font-weight:700\"" : "";
+      specRows += "<div class=\"ms-row\"><span class=\"ms-lbl\">" + sp[0] + "</span><span class=\"ms-val\"" + style + ">" + sp[1] + "</span></div>";
     });
   } else {
-    var specData = [['Composicion',p.comp],['Peso',p.peso],['Ancho',p.ancho],['Rendimiento',p.rend],['Unidad','Por '+p.unit]];
-    specData.forEach(function(sp) {
-      specRows += '<div class="ms-row"><span class="ms-lbl">' + sp[0] + '</span><span class="ms-val">' + sp[1] + '</span></div>';
+    [["Composicion",p.comp],["Gramaje",p.peso],["Ancho",p.ancho],["Rendimiento",p.rend],["Venta","Por "+p.unit]].forEach(function(sp) {
+      specRows += "<div class=\"ms-row\"><span class=\"ms-lbl\">" + sp[0] + "</span><span class=\"ms-val\">" + sp[1] + "</span></div>";
     });
   }
 
-  var usosHtml = '';
-  if(isP) {
-    usosHtml = '<div class="ms-usos-ttl">Tallas disponibles</div><div class="ms-chips">';
-    ['XS','S','M','L','XL','XXL'].forEach(function(t) { usosHtml += '<span class="ms-chip">' + t + '</span>'; });
-    usosHtml += '</div>';
-  } else {
-    usosHtml = '<div class="ms-usos-ttl">Usos principales</div><div class="ms-chips">';
-    (p.usos||[]).forEach(function(u) { usosHtml += '<span class="ms-chip">' + u + '</span>'; });
-    usosHtml += '</div>';
+  var usosHtml = "<div class=\"ms-usos-ttl\">Uso recomendado</div><div class=\"ms-chips\">";
+  (isP ? PRENDA_DB[id].usos : (p.usos||[])).forEach(function(u) {
+    usosHtml += "<span class=\"ms-chip\">" + u + "</span>";
+  });
+  usosHtml += "</div>";
+
+  var colLabel = isP ? "Seleccionar talla" : "Seleccionar color";
+  var colList = isP ? PRENDA_DB[id].colores : (p.colores||[]);
+  var colOpts = "<option value=\"\">" + colLabel + "</option>";
+  colList.forEach(function(c) { colOpts += "<option value=\"" + c + "\">" + c + "</option>"; });
+
+  var dibujoHtml = "";
+  if(id === "forro-capitonado") {
+    dibujoHtml = "<div style=\"margin-top:.5rem\">" +
+      "<label style=\"font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A7060;display:block;margin-bottom:.3rem\">Dibujo del capitonado</label>" +
+      "<input id=\"modal-dibujo\" type=\"text\" placeholder=\"Ej: rombos, rayas, lineas diagonales...\" style=\"width:100%;border:1.5px solid #DDD5C8;border-radius:3px;padding:.6rem .85rem;font-family:sans-serif;font-size:.88rem;color:#1E0F08;outline:none\" /></div>";
   }
 
-  var colOpts = '<option value="">' + (isP?'Seleccionar talla':'Seleccionar color') + '</option>';
-  if(isP) {
-    PRENDA_DB[id].colores.forEach(function(c) { colOpts += '<option value="' + c + '">' + c + '</option>'; });
-  } else {
-    (p.colores||[]).forEach(function(c) { colOpts += '<option value="' + c + '">' + c + '</option>'; });
-  }
+  var minNote = isP ? "<div class=\"ms-min-note\">Minimo 25 piezas en total entre todas las tallas</div>" : "";
 
-  document.getElementById('modal-title').textContent = p.name.toUpperCase();
-  document.getElementById('modal-desc').textContent = p.desc||'';
-  document.getElementById('modal-specs').innerHTML = specRows;
-  document.getElementById('modal-usos').innerHTML = usosHtml;
-  document.getElementById('modal-color').innerHTML = colOpts;
-  var qi = document.getElementById('modal-qty');
-  qi.value = defQ; qi.min = minQ; qi.step = stepQ;
-  document.getElementById('modal-unit').textContent = unit;
-  document.getElementById('modal-min-note').innerHTML = isP ? '<div class="ms-min-note">Minimo 25 piezas por talla</div>' : '';
-  var btn = document.getElementById('modal-add-btn');
-  btn.dataset.id = id; btn.dataset.name = p.name; btn.dataset.unit = unit; btn.dataset.prenda = isP?'1':'0';
-
-  document.getElementById('product-modal').classList.add('open');
-  document.getElementById('modal-overlay').classList.add('show');
-  document.body.style.overflow = 'hidden';
+  document.getElementById("modal-title").textContent = p.name.toUpperCase();
+  document.getElementById("modal-desc").textContent = p.desc||"";
+  document.getElementById("modal-specs").innerHTML = specRows;
+  document.getElementById("modal-usos").innerHTML = usosHtml;
+  document.getElementById("modal-color").innerHTML = colOpts;
+  var dw = document.getElementById("modal-dibujo-wrap");
+  if(dw) dw.innerHTML = dibujoHtml;
+  var qi = document.getElementById("modal-qty");
+  qi.value = defQ; qi.min = 1; qi.step = 1;
+  document.getElementById("modal-unit").textContent = unit;
+  document.getElementById("modal-min-note").innerHTML = minNote;
+  var btn = document.getElementById("modal-add-btn");
+  btn.dataset.id = id; btn.dataset.name = p.name; btn.dataset.unit = unit; btn.dataset.prenda = isP ? "1" : "0";
+  document.getElementById("product-modal").classList.add("open");
+  document.getElementById("modal-overlay").classList.add("show");
+  document.body.style.overflow = "hidden";
 }
 
 function closeProductModal() {
-  var pm = document.getElementById('product-modal');
-  var mo = document.getElementById('modal-overlay');
-  if(pm) pm.classList.remove('open');
-  if(mo) mo.classList.remove('show');
-  document.body.style.overflow = '';
+  var pm = document.getElementById("product-modal");
+  var mo = document.getElementById("modal-overlay");
+  if(pm) pm.classList.remove("open");
+  if(mo) mo.classList.remove("show");
+  document.body.style.overflow = "";
 }
 
 function modalQtyChange(delta) {
-  var qi = document.getElementById('modal-qty');
-  var min = parseFloat(qi.min)||0.5;
-  var step = parseFloat(qi.step)||0.5;
-  var nv = Math.max(min, parseFloat(qi.value)+delta);
-  qi.value = step>=1 ? Math.round(nv) : nv.toFixed(1);
+  var qi = document.getElementById("modal-qty");
+  var nv = Math.max(1, Math.round(parseFloat(qi.value) + delta));
+  qi.value = nv;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  var addBtn = document.getElementById('modal-add-btn');
+document.addEventListener("DOMContentLoaded", function() {
+  var addBtn = document.getElementById("modal-add-btn");
   if(addBtn) {
-    addBtn.addEventListener('click', function() {
-      var id = this.dataset.id, name = this.dataset.name, unit = this.dataset.unit, isP = this.dataset.prenda==='1';
-      var color = document.getElementById('modal-color').value;
-      var qty = parseFloat(document.getElementById('modal-qty').value);
-      if(!color) { showModalErr(isP?'Selecciona una talla.':'Selecciona un color.'); return; }
-      if(isP && qty<25) { document.getElementById('modal-qty').value=25; showModalErr('Minimo 25 piezas por talla.'); return; }
-      addToCart({id:id,name:name,color:color,qty:qty.toString(),unit:unit});
+    addBtn.addEventListener("click", function() {
+      var id = this.dataset.id, name = this.dataset.name, unit = this.dataset.unit, isP = this.dataset.prenda === "1";
+      var color = document.getElementById("modal-color").value;
+      var qty = parseInt(document.getElementById("modal-qty").value) || 1;
+      var dInp = document.getElementById("modal-dibujo");
+      var dibujo = dInp ? dInp.value : "";
+      var colorFinal = color + (dibujo ? " | Dibujo: " + dibujo : "");
+      if(!color) { showModalErr(isP ? "Selecciona una talla." : "Selecciona un color."); return; }
+      addToCart({id: id, name: name, color: colorFinal, qty: qty.toString(), unit: unit});
       closeProductModal();
       openCart();
     });
   }
-  var mo = document.getElementById('modal-overlay');
-  if(mo) mo.addEventListener('click', closeProductModal);
-  document.addEventListener('keydown', function(e) { if(e.key==='Escape') closeProductModal(); });
-
-  var filterBtns = document.querySelectorAll('.filter-btn');
-  filterBtns.forEach(function(b) {
-    b.addEventListener('click', function() {
-      filterBtns.forEach(function(x) { x.classList.remove('active'); });
-      this.classList.add('active');
-      var cat = this.dataset.cat||'all';
-      document.querySelectorAll('.cat-card').forEach(function(c) {
-        c.style.display = (cat==='all'||c.dataset.cat===cat) ? '' : 'none';
+  var mo = document.getElementById("modal-overlay");
+  if(mo) mo.addEventListener("click", closeProductModal);
+  document.addEventListener("keydown", function(e) { if(e.key === "Escape") closeProductModal(); });
+  document.querySelectorAll(".filter-btn").forEach(function(b) {
+    b.addEventListener("click", function() {
+      document.querySelectorAll(".filter-btn").forEach(function(x) { x.classList.remove("active"); });
+      this.classList.add("active");
+      var cat = this.dataset.cat || "all";
+      document.querySelectorAll(".cat-card").forEach(function(c) {
+        c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none";
       });
     });
   });
 });
 
 function showModalErr(msg) {
-  var e = document.getElementById('modal-err');
+  var e = document.getElementById("modal-err");
   if(!e) {
-    e = document.createElement('div'); e.id='modal-err';
-    e.style.cssText='background:rgba(192,90,58,.1);color:#C05A3A;font-size:.85rem;font-weight:600;padding:.55rem 1rem;border-radius:4px;text-align:center;margin-top:.3rem;border:1px solid rgba(192,90,58,.3)';
-    var addBtn = document.getElementById('modal-add-btn');
-    if(addBtn) addBtn.after(e);
+    e = document.createElement("div"); e.id = "modal-err";
+    e.style.cssText = "background:rgba(192,90,58,.1);color:#C05A3A;font-size:.85rem;font-weight:600;padding:.55rem 1rem;border-radius:4px;text-align:center;margin-top:.3rem;border:1px solid rgba(192,90,58,.3)";
+    var ab = document.getElementById("modal-add-btn");
+    if(ab) ab.after(e);
   }
-  e.textContent=msg;
-  setTimeout(function() { if(e) e.textContent=''; }, 3000);
+  e.textContent = msg;
+  setTimeout(function() { if(e) e.textContent = ""; }, 3000);
 }
 
 function filterCat(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-  document.querySelectorAll('.cat-card').forEach(function(c) {
-    c.style.display = (cat==='all'||c.dataset.cat===cat) ? '' : 'none';
+  document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
+  btn.classList.add("active");
+  document.querySelectorAll(".cat-card").forEach(function(c) {
+    c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none";
   });
 }
 </script>
