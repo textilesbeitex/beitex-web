@@ -810,10 +810,7 @@ var PRENDA_DB = {
     id:"playera-premiere",name:"Playera Premiere Slim Fit",
     desc:"Playera cuello redondo en tela Premiere 100% Poliéster. Corte slim fit moderno, acabado suave y fresco.",
     specs:[["Composicion","100% Poliester"],["Gramaje","240 gsm"],["Corte","Slim Fit"],["Cuello","Redondo"],["Minimo","25 piezas por articulo"]],
-    colores:["Blanco - XS","Blanco - S","Blanco - M","Blanco - L","Blanco - XL","Blanco - XXL",
-             "Negro - XS","Negro - S","Negro - M","Negro - L","Negro - XL","Negro - XXL",
-             "Azul Marino - S","Azul Marino - M","Azul Marino - L","Azul Marino - XL",
-             "Gris - S","Gris - M","Gris - L","Gris - XL"],
+    colores:["Blanco - XS","Blanco - S","Blanco - M","Blanco - L","Blanco - XL","Blanco - XXL","Negro - XS","Negro - S","Negro - M","Negro - L","Negro - XL","Negro - XXL","Azul Marino - XS","Azul Marino - S","Azul Marino - M","Azul Marino - L","Azul Marino - XL","Azul Marino - XXL"],
     usos:["Uniformes","Playera casual","Deportivo","Sublimacion","Bordado"],
     unit:"pza",is_prenda:true
   },
@@ -821,7 +818,7 @@ var PRENDA_DB = {
     id:"sudadera-azul",name:"Sudadera Crew Neck Azul Pizarra",
     desc:"Sudadera cuello redondo en felpa azul pizarra. Corte oversized, sin capucha. 100% Algodon.",
     specs:[["Composicion","100% Algodon"],["Gramaje","250 gsm"],["Color","Azul Pizarra"],["Corte","Oversized Crew Neck"],["Minimo","25 piezas totales"]],
-    colores:["XS - Azul Pizarra","S - Azul Pizarra","M - Azul Pizarra","L - Azul Pizarra","XL - Azul Pizarra","XXL - Azul Pizarra"],
+    colores:["Azul Pizarra - XS","Azul Pizarra - S","Azul Pizarra - M","Azul Pizarra - L","Azul Pizarra - XL","Azul Pizarra - XXL"],
     usos:["Uso casual","Streetwear","Uniformes","Bordado","Serigrafia"],
     unit:"pza",is_prenda:true
   }
@@ -852,7 +849,7 @@ function openProductModal(id) {
   });
   usosHtml += "</div>";
 
-  var colLabel = isP ? "Seleccionar talla" : "Seleccionar color";
+  var colLabel = "Seleccionar talla";
   var colList = isP ? PRENDA_DB[id].colores : (p.colores||[]);
   var colOpts = "<option value=\"\">" + colLabel + "</option>";
   colList.forEach(function(c) { colOpts += "<option value=\"" + c + "\">" + c + "</option>"; });
