@@ -387,41 +387,10 @@ h2.section-h.light { color: #fff; }
 
 
 .cart-order-summary{background:#1E0F08;border-radius:6px;padding:1rem 1.2rem;margin-bottom:1.2rem}
-@media(max-width:600px){
-  .cart-order-summary{padding:1.2rem;margin-bottom:1rem;border:1px solid rgba(192,90,58,.3)}
-  .cos-title{font-size:1.1rem;margin-bottom:.75rem}
-  .cos-item{padding:.3rem 0;border-bottom:1px solid rgba(192,90,58,.1)}
-  .cos-item:last-child{border-bottom:none}
-  .cos-item-name{font-size:.88rem}
-  .cos-item-qty{font-size:.9rem;font-weight:800}
-}
-.cos-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.1em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:.6rem;padding-bottom:.5rem;border-bottom:1px solid rgba(192,90,58,.2)}
-.cos-items{display:flex;flex-direction:column;gap:.4rem}
-.cos-item{display:flex;justify-content:space-between;align-items:center;font-size:.82rem}
-.cos-item-name{color:rgba(255,255,255,.7);flex:1;margin-right:.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
-.cos-item-qty{color:#C05A3A;font-weight:700;white-space:nowrap}
-.cos-empty{font-size:.82rem;color:rgba(255,255,255,.28);text-align:center;padding:.3rem 0}
 
-.wa-fab{position:fixed;bottom:2rem;left:2rem;z-index:800;
-  background:#25D366;color:#fff;display:flex;align-items:center;gap:.5rem;
-  padding:.55rem 1.1rem .55rem .9rem;border-radius:30px;
-  box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s,background .2s,box-shadow .2s}
-.wa-fab:hover{transform:translateY(-2px);background:#1ebe5d;box-shadow:0 8px 28px rgba(37,211,102,.5)}
-.wa-fab-label{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.12em;white-space:nowrap}
-@media(max-width:480px){.wa-fab-label{display:none}.wa-fab{padding:.65rem;border-radius:50%}}
-
-@media(max-width:600px){
-  .cart-drawer{width:100vw !important;height:100dvh !important;display:flex;flex-direction:column;border-radius:0}
-  .cart-head{flex-shrink:0}
-  .cart-items-wrap{flex-shrink:0;overflow-y:auto;-webkit-overflow-scrolling:touch;max-height:30vh}
-  .cart-foot{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0;padding-bottom:2rem}
-}
-</style>
-<style>
-/* ══ HERO ══ */
-.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:100vh;background:var(--dark);padding-top:72px;overflow:hidden;align-items:stretch}
-@media(max-width:900px){.hero{grid-template-columns:1fr}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(30,15,8,.92) 0%,rgba(30,15,8,.6) 40%,rgba(30,15,8,.15) 70%,rgba(30,15,8,.05) 100%);z-index:1;pointer-events:none}
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:100vh;background:var(--dark);padding-top:72px;overflow:hidden}
+@media(max-width:900px){.hero{grid-template-columns:1fr;grid-template-rows:auto 1fr}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(30,15,8,1) 0%,rgba(30,15,8,.75) 45%,rgba(30,15,8,.05) 100%);z-index:1;pointer-events:none}
 .hero-grain{position:absolute;inset:0;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:2;pointer-events:none}
 .hero-content{position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;padding:5rem 5% 5rem 8%;min-height:calc(100vh - 72px)}
 @media(max-width:900px){.hero-content{padding:4rem 6% 3rem;min-height:auto}}
@@ -440,7 +409,7 @@ h2.section-h.light { color: #fff; }
 .hero-img-col{position:relative;z-index:2;overflow:hidden}
 @media(max-width:900px){.hero-img-col{height:100vw;min-height:460px;max-height:900px}}
 .hero-img-col img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.05);animation:zoomOut 1.5s 0.3s forwards}
-.hero-img-col::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(30,15,8,.85) 0%,rgba(30,15,8,.15) 25%,transparent 50%)}
+.hero-img-col::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(30,15,8,1) 0%,rgba(30,15,8,.25) 30%,transparent 60%)}
 .hero-img-col::after{content:'';position:absolute;bottom:0;left:0;right:0;z-index:1;height:30%;background:linear-gradient(to top,rgba(30,15,8,1),transparent)}
 .hero-scroll{position:absolute;bottom:2.5rem;left:8%;z-index:4;display:flex;align-items:center;gap:.75rem;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);opacity:0;animation:fadeUp .8s 1.2s forwards}
 .hero-scroll::after{content:'';width:40px;height:1px;background:rgba(255,255,255,.2)}
@@ -587,6 +556,39 @@ h2.section-h.light { color: #fff; }
 .faq-item.open .faq-q::after{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;font-size:1rem;color:var(--muted);line-height:1.85;padding:0 1.6rem;transition:max-height .35s var(--ease),padding .35s var(--ease)}
 .faq-item.open .faq-a{padding:0 1.6rem 1.4rem}
+
+/* CART DRAWER REDISEÑADO */
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100vw;z-index:902;background:var(--off);box-shadow:-8px 0 40px rgba(30,15,8,.3);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.cart-drawer.open{transform:translateX(0)}
+.cart-body-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column}
+.cart-summary-section{background:#1E0F08;padding:1.2rem 1.8rem;flex-shrink:0}
+.css-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(192,90,58,.7);margin-bottom:.85rem}
+.cart-form-sep{display:flex;align-items:center;gap:1rem;padding:.9rem 1.8rem;background:#fff;border-top:2px solid var(--rl);border-bottom:1px solid var(--border);flex-shrink:0}
+.cart-form-sep span{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.cart-form-sep::before,.cart-form-sep::after{content:'';flex:1;height:1px;background:var(--border)}
+.cart-form-section{padding:1.5rem 1.8rem;background:#fff;flex:1}
+/* Móvil: pantalla completa con scroll único */
+@media(max-width:600px){
+  .cart-drawer{width:100vw !important;height:100dvh !important;border-radius:0}
+  .cart-head{padding:1rem 1.4rem}
+  .cart-summary-section{padding:1rem 1.4rem}
+  .cart-form-section{padding:1.2rem 1.4rem}
+}
+/* Items dentro del resumen oscuro */
+.cart-item{display:grid;grid-template-columns:1fr auto;gap:.65rem;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.cart-item-name{font-weight:600;font-size:.92rem;color:#fff;margin-bottom:.2rem}
+.cart-item-detail{font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:.5rem}
+.cart-item-qty{display:flex;align-items:center;gap:.45rem}
+.qty-btn{width:28px;height:28px;border-radius:2px;background:rgba(192,90,58,.2);border:1px solid rgba(192,90,58,.35);cursor:pointer;font-size:1rem;color:#C05A3A;display:flex;align-items:center;justify-content:center;transition:background .2s;font-weight:600}
+.qty-btn:hover{background:rgba(192,90,58,.5);color:#fff}
+.qty-val{font-size:.88rem;font-weight:700;min-width:52px;text-align:center;color:rgba(255,255,255,.85)}
+.cart-rm{align-self:start;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.2);transition:color .2s;padding:4px}
+.cart-rm:hover{color:#C05A3A}
+.cart-empty{text-align:center;padding:2.5rem 0;color:rgba(255,255,255,.3)}
+.cart-empty svg{stroke:rgba(255,255,255,.15);fill:none;width:48px;height:48px;margin:0 auto 1rem}
+.cart-empty p{font-size:.88rem;line-height:1.7}
+.cart-empty a{color:#C05A3A}
+
 </style>
 </head>
 <body>
@@ -941,13 +943,27 @@ h2.section-h.light { color: #fff; }
 <div class="cart-ov" id="cart-ov"></div>
 <div class="cart-drawer" id="cart-drawer">
   <div class="cart-head">
-    <span class="cart-ttl">Mi Cotización</span>
+    <div>
+      <span class="cart-ttl">Mi Cotización</span>
+      <div style="font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.2rem" id="cart-head-count"></div>
+    </div>
     <button class="cart-close" onclick="closeCart()">×</button>
   </div>
-  <div class="cart-items-wrap" id="cart-items-list"></div>
-  <div class="cart-foot">
-    <p class="cart-sum">Completa tus datos y te enviamos una propuesta personalizada en menos de <strong>24 horas hábiles</strong> sin ningún compromiso.</p>
-    <form class="cot-form" id="cot-form">
+  <!-- CUERPO ÚNICO CON SCROLL -->
+  <div class="cart-body-scroll" id="cart-body-scroll">
+    <!-- RESUMEN DEL PEDIDO (items con +/-) -->
+    <div class="cart-summary-section">
+      <div class="css-label">Productos en tu cotización</div>
+      <div id="cart-items-list"></div>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="cart-form-sep">
+      <span>Completa tus datos</span>
+    </div>
+    <!-- FORMULARIO -->
+    <div class="cart-form-section">
+      <p class="cart-sum">Te enviamos una propuesta personalizada en menos de <strong>24 horas hábiles</strong>.</p>
+      <form class="cot-form" id="cot-form">
       <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
       <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
       <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
@@ -965,8 +981,9 @@ h2.section-h.light { color: #fff; }
       <div><label>Notas adicionales</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1.1rem">Enviar cotizacion</button>
     </form>
+    </div>
   </div>
-</div>
+</div>>
 <script>
 /* TEXTILES BEITEX - JS GLOBAL */
 document.documentElement.classList.add('js-ready');
@@ -1091,23 +1108,43 @@ function renderCart() {
   var el = document.getElementById('cart-items-list');
   if (!el) return;
   var c = getCart();
+  var hc = document.getElementById('cart-head-count');
+  if(hc) hc.textContent = c.length ? c.length + ' producto' + (c.length>1?'s':'') : '';
   if (!c.length) {
     el.innerHTML = '<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>Tu cotizacion esta vacia.<br>Visita el <a href="catalogo.html">catalogo</a> para agregar telas.</p></div>';
-    renderOrderSummary([]);
     return;
   }
   var html = '';
   c.forEach(function(x) {
-    html += '<div class="cart-item"><div><div class="cart-item-name">' + x.name + '</div><div class="cart-item-detail">' + (x.color ? 'Color: ' + x.color + ' - ' : '') + 'Por ' + x.unit + '</div><div class="cart-item-qty"><button class="qty-btn" onclick="updateQty(\'' + x.id + '\',\'' + x.color + '\',-1)">-</button><span class="qty-val">' + x.qty + ' ' + x.unit + '</span><button class="qty-btn" onclick="updateQty(\'' + x.id + '\',\'' + x.color + '\',1)">+</button></div></div><button class="cart-rm" onclick="removeFromCart(\'' + x.id + '\',\'' + x.color + '\')" title="Eliminar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg></button></div>';
+    var eid = x.id.replace(/'/g, "\\'");
+    var ecol = x.color.replace(/'/g, "\\'");
+    html += '<div class="cart-item">' +
+      '<div><div class="cart-item-name">' + x.name + '</div>' +
+      '<div class="cart-item-detail">' + (x.color || '') + '</div>' +
+      '<div class="cart-item-qty">' +
+      '<button class="qty-btn" onclick="updateQty(\'' + eid + '\',\'' + ecol + '\',-1)">&#8722;</button>' +
+      '<span class="qty-val">' + x.qty + ' ' + x.unit + '</span>' +
+      '<button class="qty-btn" onclick="updateQty(\'' + eid + '\',\'' + ecol + '\',1)">+</button>' +
+      '</div></div>' +
+      '<button class="cart-rm" onclick="removeFromCart(\'' + eid + '\',\'' + ecol + '\')" title="Eliminar">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg>' +
+      '</button></div>';
   });
   el.innerHTML = html;
-  renderOrderSummary(c);
+  var body = document.getElementById('cart-body-scroll');
+  if(body) body.scrollTop = 0;
 }
 
 function openCart() {
-  document.getElementById('cart-drawer') && document.getElementById('cart-drawer').classList.add('open');
-  document.getElementById('cart-ov') && document.getElementById('cart-ov').classList.add('show');
-  document.body.style.overflow = 'hidden'; renderCart();
+  var drawer = document.getElementById('cart-drawer');
+  if(drawer) drawer.classList.add('open');
+  var ov = document.getElementById('cart-ov');
+  if(ov) ov.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  renderCart();
+  // Scroll al inicio al abrir
+  var body = document.getElementById('cart-body-scroll');
+  if(body) setTimeout(function(){ body.scrollTop = 0; }, 50);
 }
 
 function closeCart() {
