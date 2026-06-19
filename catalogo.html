@@ -285,6 +285,35 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
 .cart-empty svg{stroke:rgba(255,255,255,.15);fill:none;width:48px;height:48px;margin:0 auto 1rem}
 .cart-empty p{font-size:.88rem;line-height:1.7}
 .cart-empty a{color:#C05A3A}
+
+/* ══ TESTIMONIOS SLIDER ══ */
+.testimonios-section{background:var(--dark);padding:4rem 5%;overflow:hidden}
+.testimonios-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(192,90,58,.6);text-align:center;margin-bottom:.6rem;display:flex;align-items:center;justify-content:center;gap:.75rem}
+.testimonios-eyebrow::before,.testimonios-eyebrow::after{content:'';width:28px;height:1px;background:rgba(192,90,58,.3)}
+.testimonios-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3rem);letter-spacing:.05em;color:#fff;text-align:center;margin-bottom:3rem}
+.testimonios-title span{color:var(--rl)}
+.t-slider-wrap{position:relative;max-width:860px;margin:0 auto}
+.t-slider{display:grid;grid-template-columns:1fr;position:relative;min-height:220px}
+.t-card{position:absolute;inset:0;opacity:0;transform:translateX(40px);transition:opacity .5s ease,transform .5s ease;pointer-events:none;display:flex;flex-direction:column;justify-content:center}
+.t-card.active{opacity:1;transform:translateX(0);pointer-events:auto}
+.t-card.out{opacity:0;transform:translateX(-40px)}
+.t-quote{font-size:1.3rem;font-style:italic;color:rgba(255,255,255,.88);line-height:1.75;margin-bottom:1.8rem;position:relative;padding-left:1.8rem}
+.t-quote::before{content:'"';position:absolute;left:0;top:-.3rem;font-size:3.5rem;line-height:1;color:rgba(192,90,58,.35);font-family:'DM Serif Display',serif}
+.t-meta{display:flex;align-items:center;gap:1rem;padding-left:1.8rem}
+.t-avatar{width:44px;height:44px;border-radius:50%;background:rgba(192,90,58,.18);border:2px solid rgba(192,90,58,.4);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--rl);flex-shrink:0}
+.t-info{}
+.t-name{font-weight:700;font-size:.9rem;color:#fff;margin-bottom:.15rem}
+.t-detail{font-size:.75rem;color:rgba(255,255,255,.35);letter-spacing:.06em}
+.t-product-tag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(192,90,58,.12);border:1px solid rgba(192,90,58,.25);border-radius:20px;padding:.3rem .85rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rl);margin-bottom:1rem;margin-left:1.8rem}
+.t-stars{color:#C05A3A;font-size:.85rem;letter-spacing:.1em;margin-bottom:.5rem;padding-left:1.8rem}
+.t-dots{display:flex;justify-content:center;gap:.6rem;margin-top:2.5rem}
+.t-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);cursor:pointer;transition:background .3s,transform .3s;border:none;padding:0}
+.t-dot.active{background:var(--rl);transform:scale(1.3)}
+.t-nav{display:flex;justify-content:center;gap:1rem;margin-top:1.2rem}
+.t-btn{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.4);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.t-btn:hover{border-color:var(--rl);color:var(--rl)}
+@media(max-width:600px){.t-quote{font-size:1.05rem}.testimonios-section{padding:3rem 6%}}
+
 </style>
 </head>
 <body>
@@ -367,7 +396,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
         <span class="cat-badge badge-solid">★ Nacional</span>
         <div class="cat-hover-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Cotizar</div>
       </button>
-      <div class="cat-info"><div class="cat-name">Felpa Nacional</div><div class="cat-detail">100% Poliéster · Por mt</div></div>
+      <div class="cat-info"><div class="cat-name">Felpa Nacional</div><div class="cat-detail">100% Poliéster · Por kg</div></div>
     </div>
     <div class="cat-card" data-cat="deportivo" id="card-micropique">
       <button class="cat-img-btn" onclick="openProductModal('micropique')" aria-label="Ver Micropiqué">
@@ -375,7 +404,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
         <span class="cat-badge badge-outline">Textura Fina</span>
         <div class="cat-hover-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Cotizar</div>
       </button>
-      <div class="cat-info"><div class="cat-name">Micropiqué</div><div class="cat-detail">100% Poliéster · Por mt</div></div>
+      <div class="cat-info"><div class="cat-name">Micropiqué</div><div class="cat-detail">100% Poliéster · Por kg</div></div>
     </div>
     <div class="cat-card" data-cat="basica" id="card-premiere">
       <button class="cat-img-btn" onclick="openProductModal('premiere')" aria-label="Ver Tela Premiere">
@@ -401,7 +430,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
         <span class="cat-badge badge-outline">Versátil</span>
         <div class="cat-hover-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Cotizar</div>
       </button>
-      <div class="cat-info"><div class="cat-name">Interlock 50/50</div><div class="cat-detail">100% Poliéster · Por mt</div></div>
+      <div class="cat-info"><div class="cat-name">Interlock 50/50</div><div class="cat-detail">50% Poliéster 50% Algodón · Por kg</div></div>
     </div>
     <div class="cat-card" data-cat="deportivo" id="card-pique">
       <button class="cat-img-btn" onclick="openProductModal('pique')" aria-label="Ver Piqué 50/50">
@@ -409,7 +438,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
         <span class="cat-badge badge-solid">Popular</span>
         <div class="cat-hover-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Cotizar</div>
       </button>
-      <div class="cat-info"><div class="cat-name">Piqué 50/50</div><div class="cat-detail">100% Poliéster · Por mt</div></div>
+      <div class="cat-info"><div class="cat-name">Piqué 50/50</div><div class="cat-detail">50% Poliéster 50% Algodón · Por kg</div></div>
     </div>
     <div class="cat-card" data-cat="forro" id="card-forro-millenium">
       <button class="cat-img-btn" onclick="openProductModal('forro-millenium')" aria-label="Ver Forro Millenium">
@@ -425,7 +454,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
         <span class="cat-badge badge-solid">Elástica</span>
         <div class="cat-hover-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Cotizar</div>
       </button>
-      <div class="cat-info"><div class="cat-name">Licra Brush</div><div class="cat-detail">92% Poliéster · 8% Spandex · Por kg</div></div>
+      <div class="cat-info"><div class="cat-name">Licra Brush</div><div class="cat-detail">100% Poliéster · Por mt</div></div>
     </div>
     <div class="cat-card" data-cat="ligero" id="card-bombay">
       <button class="cat-img-btn" onclick="openProductModal('bombay')" aria-label="Ver Bombay">
@@ -441,7 +470,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
         <span class="cat-badge badge-outline">Formal</span>
         <div class="cat-hover-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Cotizar</div>
       </button>
-      <div class="cat-info"><div class="cat-name">Dublín</div><div class="cat-detail">100% Poliéster · Por mt</div></div>
+      <div class="cat-info"><div class="cat-name">Dublín</div><div class="cat-detail">100% Poliéster · Por kg</div></div>
     </div>
     <div class="cat-card" data-cat="felpa" id="card-felpa-china">
       <button class="cat-img-btn" onclick="openProductModal('felpa-china')" aria-label="Ver Felpa China">
@@ -449,7 +478,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
         <span class="cat-badge badge-solid">Importada</span>
         <div class="cat-hover-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Cotizar</div>
       </button>
-      <div class="cat-info"><div class="cat-name">Felpa China</div><div class="cat-detail">100% Poliéster · Por mt</div></div>
+      <div class="cat-info"><div class="cat-name">Felpa China</div><div class="cat-detail">95% Poliéster 5% Spandex · Por kg</div></div>
     </div>
   </div>
 </section>
@@ -470,7 +499,9 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
     </div>
     <div class="cat-card" data-cat="prenda" id="card-playera-premiere">
       <button class="cat-img-btn" onclick="openProductModal('playera-premiere')" aria-label="Ver Playera Premiere Slim Fit">
-        <img src="data:image/jpeg;base64,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" alt="Playera Premiere Slim Fit" loading="lazy" style="object-fit:contain;padding:.5rem;background:#f5f5f5"/>
+        <img src="data:image/jpeg;base64,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" alt="Playera Premiere Slim Fit" loading="lazy" style="object-fit:contain;padding:.5rem;background:#f5f5f5"/>
         <div class="cat-overlay" style="opacity:.08"></div>
         <span class="cat-badge badge-outline">Prenda Terminada</span>
         <div class="cat-hover-hint"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Cotizar</div>
@@ -482,11 +513,204 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
     </div>
   </div>
 </section>
+<section class="testimonios-section">
+  <div class="testimonios-eyebrow">Lo que dicen nuestros clientes</div>
+  <div class="testimonios-title">Opiniones <span>reales</span></div>
+  <div class="t-slider-wrap">
+    <div class="t-slider" id="t-slider">
+
+      <div class="t-card active">
+        <div class="t-product-tag">★ Felpa Nacional · Gris Jaspe</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">Compramos 30 kg en gris jaspe para una línea de sudaderas escolares. La tela llegó impecable, el color es uniforme en todo el rollo y no ha botado nada después de varios lavados. Definitivamente seguiremos comprando aquí.</p>
+        <div class="t-meta">
+          <div class="t-avatar">MR</div>
+          <div class="t-info">
+            <div class="t-name">María R.</div>
+            <div class="t-detail">Manufacturera textil · CDMX</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-product-tag">★ Tela Premiere · Blanco</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">Pedí 15 kg de Premiere en blanco para playeras de sublimación. La tela absorbe perfectamente la tinta y el acabado es de primera. El precio de mayoreo no lo encuentras en otro lado en el Centro.</p>
+        <div class="t-meta">
+          <div class="t-avatar">JL</div>
+          <div class="t-info">
+            <div class="t-name">Jorge L.</div>
+            <div class="t-detail">Sublimador de playeras · Ecatepec</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-product-tag">★ Sportock · Azul Marino</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">Llevamos años comprando el Sportock en azul marino para uniformes deportivos de escuelas. Siempre tienen existencia y el servicio es muy ágil. El asesor nos ayudó a calcular exactamente cuántos kilos necesitábamos.</p>
+        <div class="t-meta">
+          <div class="t-avatar">CG</div>
+          <div class="t-info">
+            <div class="t-name">Carlos G.</div>
+            <div class="t-detail">Proveedor de uniformes · Toluca</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-product-tag">★ Micropiqué · Negro</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">El micropiqué en negro es lo mejor para polos corporativos. Calidad consistente en cada pedido, y el proceso de cotización por la página fue muy sencillo. En menos de 24 horas ya tenía precio y me confirmaron existencias.</p>
+        <div class="t-meta">
+          <div class="t-avatar">AL</div>
+          <div class="t-info">
+            <div class="t-name">Alejandra L.</div>
+            <div class="t-detail">Bordadora corporativa · Guadalajara</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-product-tag">★ Felpa China · Vino</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">Excelente calidad en la Felpa China color vino. Suavísima al tacto, sin bolitas y con muy buen caído. El color es profundo e igual en todo el rollo. Ya hice el segundo pedido sin pensarlo.</p>
+        <div class="t-meta">
+          <div class="t-avatar">PC</div>
+          <div class="t-info">
+            <div class="t-name">Patricia C.</div>
+            <div class="t-detail">Diseñadora de moda · Monterrey</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-product-tag">★ Interlock 50/50 · Blanco</div>
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">Compramos el interlock blanco para ropa de bebé y cumplió perfectamente. Suave, no irrita la piel y resiste el lavado diario. El asesor de Beitex nos orientó muy bien sobre el gramaje que necesitábamos para prendas infantiles.</p>
+        <div class="t-meta">
+          <div class="t-avatar">SR</div>
+          <div class="t-info">
+            <div class="t-name">Sandra R.</div>
+            <div class="t-detail">Taller de ropa infantil · Puebla</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="t-dots" id="t-dots">
+      <button class="t-dot active" onclick="goToSlide(0)"></button>
+      <button class="t-dot" onclick="goToSlide(1)"></button>
+      <button class="t-dot" onclick="goToSlide(2)"></button>
+      <button class="t-dot" onclick="goToSlide(3)"></button>
+      <button class="t-dot" onclick="goToSlide(4)"></button>
+      <button class="t-dot" onclick="goToSlide(5)"></button>
+    </div>
+    <div class="t-nav">
+      <button class="t-btn" onclick="prevSlide()" aria-label="Anterior">&#8592;</button>
+      <button class="t-btn" onclick="nextSlide()" aria-label="Siguiente">&#8594;</button>
+    </div>
+  </div>
+</section>
+
 <section class="cta-bottom">
   <div class="cta-bottom-ttl">¿NECESITAS <span>MAYOREO?</span></div>
   <p class="cta-bottom-sub">Para pedidos de +100 kg contáctanos para precios especiales y asesor personal.</p>
   <a href="contacto.html" class="btn-primary">Solicitar cotización mayoreo →</a>
 </section>
+<section style="display:grid;grid-template-columns:1fr 1fr;min-height:400px;background:var(--dark)">
+  <div style="position:relative;overflow:hidden">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.0!2d-99.1332!3d19.4326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92d5f8b4b4b%3A0x1!2sMargil+6%2C+Centro+Hist%C3%B3rico%2C+CDMX!5e0!3m2!1ses!2smx!4v1"
+      width="100%" height="100%" style="border:0;position:absolute;inset:0" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" title="Textiles Beitex ubicacion"></iframe>
+  </div>
+  <div style="padding:3.5rem 5%;display:flex;flex-direction:column;justify-content:center;background:var(--mid)">
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(192,90,58,.6);margin-bottom:.6rem">Visítanos</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;line-height:.95;color:#fff;margin-bottom:1.8rem">TEXTILES<br/><span style="color:var(--rl)">BEITEX</span></div>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div style="display:flex;gap:.85rem;align-items:flex-start">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:.1rem"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span style="color:rgba(255,255,255,.75);font-size:.92rem;line-height:1.6">Margil #6 Local-1, Centro Histórico<br/>Ciudad de México, CDMX 06060</span>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:flex-start">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:.1rem"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span style="color:rgba(255,255,255,.75);font-size:.92rem;line-height:1.6">Lun–Vie 9:30am – 6:00pm<br/>Sábado 9:30am – 3:00pm</span>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.62 4.49 2 2 0 0 1 3.6 2.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 17z"/></svg>
+        <a href="tel:5554911568" style="color:rgba(255,255,255,.75);font-size:.92rem">55-5491-1568</a>
+      </div>
+      <div style="display:flex;gap:.85rem;align-items:center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:ventas@textilesbeitex.mx" style="color:rgba(255,255,255,.75);font-size:.92rem">ventas@textilesbeitex.mx</a>
+      </div>
+    </div>
+    <a href="contacto.html" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1.8rem;background:var(--rl);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;border-radius:2px;width:fit-content">Solicitar Cotización →</a>
+  </div>
+</section>
+@media(max-width:768px){section.map-contact{grid-template-columns:1fr}}
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">TEXTILES BEITEX</div>
+      <div class="footer-brand-sub">La Casa del Textil · CDMX</div>
+      <p class="footer-brand-desc">Fabricantes y distribuidores directos de telas en Centro Histórico CDMX desde 2003. Envíos a toda la república mexicana.</p>
+      <div class="footer-brand-contacts">
+        <a href="tel:5554911568">55-5491-1568</a>
+        <a href="mailto:ventas@textilesbeitex.mx">ventas@textilesbeitex.mx</a>
+        <span>Margil #6 Local-1, Centro Histórico CDMX</span>
+        <span>Lun–Vie 9:30–18:00 · Sáb 9:30–15:00</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-ttl">Navegación</div>
+      <div class="footer-col-links">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="blog.html">Blog</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="index.html#nosotros">Quiénes somos</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-ttl">Nuestras telas</div>
+      <div class="footer-col-links">
+        <a href="catalogo.html">Felpa Nacional 50/50</a>
+        <a href="catalogo.html">Tela Premiere</a>
+        <a href="catalogo.html">Sportock</a>
+        <a href="catalogo.html">Piqué 50/50</a>
+        <a href="catalogo.html">Dublín</a>
+        <a href="catalogo.html">Ver todas →</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-ttl">Horario</div>
+      <div class="footer-col-links">
+        <span>Lun–Vie 9:30am – 6:00pm</span>
+        <span>Sábado 9:30am – 3:00pm</span>
+        <span>Domingo Cerrado</span>
+      </div>
+      <div class="footer-col-ttl" style="margin-top:1.5rem">Servicios</div>
+      <div class="footer-col-links">
+        <a href="blog/tenido-de-textiles.html">Teñido a la medida</a>
+        <a href="blog/capitonados.html">Maquila capitonados</a>
+        <a href="blog/fabricacion-sobre-pedido.html">Fabricación</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 TEXTILES BEITEX SA de CV · Ciudad de México</span>
+    <div class="footer-policy"><a href="privacidad.html">Aviso de Privacidad</a><a href="no-cambios.html">No Cambios ni Devoluciones</a><a href="#">Términos</a><a href="#">Reembolso</a></div>
+  </div>
+</footer>
+<a href="https://wa.me/525553513925" target="_blank" rel="noopener noreferrer"
+   class="wa-fab" title="Contactar por WhatsApp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.12 1.529 5.845L.057 23.927l6.244-1.638A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.51-5.184-1.4l-.37-.22-3.853 1.01 1.029-3.762-.241-.387A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg><span class="wa-fab-label">WhatsApp</span>
+</a>
+
 <div class="modal-overlay" id="modal-overlay"></div>
 <div class="product-modal" id="product-modal">
   <div class="modal-header">
@@ -516,109 +740,8 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
     <button class="modal-add-btn" id="modal-add-btn">+ Agregar a cotizacion</button>
   </div>
 </div>
-  <div class="modal-specs" id="modal-specs"></div>
-  <div class="modal-usos" id="modal-usos"></div>
-  <div class="modal-actions">
-    <select class="modal-select" id="modal-color" onchange="toggleOtroColor(this)"><option value="">Seleccionar color</option></select>
-    <select class="modal-select" id="modal-talla" style="display:none;margin-top:.4rem"><option value="">Seleccionar talla</option></select>
-    <div id="modal-otro-color-wrap" style="display:none;margin-top:.4rem">
-      <input type="text" id="modal-otro-color-input" placeholder="Describe el color que buscas..."
-        style="width:100%;border:1.5px solid #C05A3A;border-radius:3px;padding:.65rem .9rem;font-family:'DM Sans',sans-serif;font-size:.88rem;color:#1E0F08;outline:none"
-        oninput="syncOtroColor(this)"/>
-    </div>
-    <div class="modal-qty-row">
-      <button class="mq-btn" onclick="modalQtyChange(-1)">−</button>
-      <input class="mq-inp" type="number" id="modal-qty" value="5" min="0.5" step="0.5"/>
-      <span class="mq-unit" id="modal-unit">kg</span>
-      <button class="mq-btn" onclick="modalQtyChange(1)">+</button>
-    </div>
-    <div id="modal-min-note"></div>
-    <button class="modal-add-btn" id="modal-add-btn">+ Agregar a cotización</button>
-  </div>
-</div>
-<div class="footer-map-section">
-  <div class="footer-map-wrap">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661793!2d-99.139268!3d19.432608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f96c1dc0a24d%3A0x4d9c3ca3b7bcd0f5!2sMargil%206%2C%20Centro%20Hist%C3%B3rico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1700000000000" allowfullscreen loading="lazy" title="Ubicación Textiles Beitex"></iframe>
-  </div>
-  <div class="footer-map-info">
-    <div class="fmi-tag">Visítanos</div>
-    <div class="fmi-title">TEXTILES<br/><span>BEITEX</span></div>
-    <div class="fmi-items">
-      <div class="fmi-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Margil #6 Local-1, Centro Histórico<br/>Ciudad de México, CDMX 06060</span></div>
-      <div class="fmi-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Lun–Vie 9:30am – 6:00pm<br/>Sábado 9:30am – 3:00pm</span></div>
-      <div class="fmi-row"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:5554911568">55-5491-1568</a></div>
-      <div class="fmi-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:ventas@textilesbeitex.mx">ventas@textilesbeitex.mx</a></div>
-    </div>
-    <a href="contacto.html" class="fmi-btn">Solicitar cotización →</a>
-  </div>
-</div>
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div><div class="footer-brand-name">TEXTILES BEITEX</div><div class="footer-brand-sub">La Casa del Textil · CDMX</div><p class="footer-brand-desc">Fabricantes y distribuidores directos de telas en Centro Histórico CDMX desde 2003. Envíos a toda la república.</p></div>
-    <div><div class="footer-col-ttl">Navegación</div><div class="footer-col-links"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="blog.html">Blog</a><a href="contacto.html">Contacto</a></div></div>
-    <div><div class="footer-col-ttl">Telas</div><div class="footer-col-links"><a href="catalogo.html">Felpa Nacional</a><a href="catalogo.html">Sportock</a><a href="catalogo.html">Premiere</a><a href="catalogo.html">Ver todas →</a></div></div>
-    <div><div class="footer-col-ttl">Legal</div><div class="footer-col-links"><a href="privacidad.html">Aviso de Privacidad</a><a href="contacto.html">Contacto</a><span>Lun–Vie 9:30–18:00</span><span>Sáb 9:30–15:00</span></div></div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 TEXTILES BEITEX SA de CV · Ciudad de México</span>
-    <div class="footer-policy"><a href="privacidad.html">Aviso de Privacidad</a><a href="no-cambios.html">No Cambios ni Devoluciones</a><a href="#">Términos</a></div>
-  </div>
-</footer>
-<div class="notif" id="bx-notif" style="opacity:0;transform:translateX(130%)"></div>
-<a href="https://wa.me/525553513925" target="_blank" rel="noopener noreferrer"
-   class="wa-fab" title="Contactar por WhatsApp" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.12 1.529 5.845L.057 23.927l6.244-1.638A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.51-5.184-1.4l-.37-.22-3.853 1.01 1.029-3.762-.241-.387A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-  </svg><span class="wa-fab-label">WhatsApp</span>
-</a>
-<button class="cart-fab" onclick="openCart()" aria-label="Ver cotización">
-  <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-  <span class="cart-badge" id="cart-badge-main"></span>
-</button>
-<div class="cart-ov" id="cart-ov"></div>
-<div class="cart-drawer" id="cart-drawer">
-  <div class="cart-head">
-    <div>
-      <span class="cart-ttl">Mi Cotización</span>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.2rem" id="cart-head-count"></div>
-    </div>
-    <button class="cart-close" onclick="closeCart()">×</button>
-  </div>
-  <!-- CUERPO ÚNICO CON SCROLL -->
-  <div class="cart-body-scroll" id="cart-body-scroll">
-    <!-- RESUMEN DEL PEDIDO (items con +/-) -->
-    <div class="cart-summary-section">
-      <div class="css-label">Productos en tu cotización</div>
-      <div id="cart-items-list"></div>
-    </div>
-    <!-- SEPARADOR -->
-    <div class="cart-form-sep">
-      <span>Completa tus datos</span>
-    </div>
-    <!-- FORMULARIO -->
-    <div class="cart-form-section">
-      <p class="cart-sum">Te enviamos una propuesta personalizada en menos de <strong>24 horas hábiles</strong>.</p>
-      <form class="cot-form" id="cot-form">
-      <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
-      <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
-      <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
-      <div style="display:flex;flex-direction:column;gap:.35rem">
-        <label style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A7060">Requieres factura?</label>
-        <div style="display:flex;gap:.75rem">
-          <label class="fac-opt" id="fac-no-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #C05A3A;border-radius:3px;flex:1;background:rgba(192,90,58,.07);transition:all .2s">
-            <input type="radio" name="factura" value="No" style="accent-color:#C05A3A;width:16px;height:16px" checked/> No
-          </label>
-          <label class="fac-opt" id="fac-si-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #DDD5C8;border-radius:3px;flex:1;background:#fff;transition:all .2s">
-            <input type="radio" name="factura" value="Si" style="accent-color:#C05A3A;width:16px;height:16px"/> Si
-          </label>
-        </div>
-      </div>
-      <div><label>Notas adicionales</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1.1rem">Enviar cotizacion</button>
-    </form>
-    </div>
-  </div>
-</div>
+
+
 
 <script>
 
@@ -1101,3 +1224,302 @@ window.addEventListener("load", function() {
 });
 
 </script>
+<script>
+var PRODUCTS_DB = {"felpa-nacional": {"id": "felpa-nacional", "name": "Felpa Nacional", "badge": "\u2605 Nacional", "btype": "solid", "unit": "kg", "cat": "felpa", "comp": "100% Poli\u00e9ster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.5 mt/kg", "desc": "La favorita para pants y sudaderas. Suave al tacto, sin bolitas, excelente ca\u00edda.", "usos": ["Pants", "Sudaderas", "Chamarras", "Uniformes escolares", "Hoodies"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "venta": "Por kilogramo (kg)"}, "micropique": {"id": "micropique", "name": "Micropiqu\u00e9", "badge": "Deportivo", "btype": "outline", "unit": "kg", "cat": "deportivo", "comp": "100% Poli\u00e9ster", "peso": "145 gsm", "ancho": "1.60 m", "rend": "4.2 mt/kg", "desc": "Textura fina ideal para playeras tipo polo y uniformes deportivos de alto rendimiento.", "usos": ["Playeras tipo polo", "Uniformes corporativos", "Ropa deportiva", "Escolares", "Camisas"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "venta": "Por kilogramo (kg)"}, "premiere": {"id": "premiere", "name": "Tela Premiere", "badge": "\u2605 Top Ventas", "btype": "solid", "unit": "kg", "cat": "basica", "comp": "100% Poli\u00e9ster", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Nuestra tela m\u00e1s popular. Acabado suave, vers\u00e1til y perfecta para todo tipo de playeras y uniformes.", "usos": ["Playeras escolares", "Playeras casuales", "Uniformes", "Ropa deportiva", "Camisetas"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"]}, "sportock": {"id": "sportock", "name": "Sportock", "badge": "Deportivo", "btype": "solid", "unit": "kg", "cat": "deportivo", "comp": "100% Poli\u00e9ster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.50 mt/kg", "desc": "Tela satinada de alto rendimiento para conjuntos deportivos y chamarras escolares.", "usos": ["Pants deportivos", "Chamarras escolares", "Conjuntos deportivos", "Uniformes de equipo"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"]}, "polar-fleece": {"id": "polar-fleece", "name": "Polar Fleece", "badge": "Forro", "btype": "outline", "unit": "kg", "cat": "forro", "comp": "100% Poli\u00e9ster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.50 mt/kg", "desc": "Tela suave y c\u00e1lida ideal para temporada de fr\u00edo. Excelente como forro o prenda exterior.", "usos": ["Forros de chamarras", "Cobijas", "Chamarras de invierno", "Forros interiores", "Accesorios"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"]}, "forro-capitonado": {"id": "forro-capitonado", "name": "Forro Capitonado", "badge": "Invierno", "btype": "outline", "unit": "mt", "cat": "forro", "comp": "100% Poli\u00e9ster", "peso": "Variable", "ancho": "1.50 m", "rend": "Por metro", "desc": "Forro acolchado de alta calidad. Proporciona calidez excepcional en chamarras y colchas. Dise\u00f1o a tu elecci\u00f3n.", "usos": ["Chamarras acolchadas", "Colchas", "Colchonetas", "Forros de invierno", "Sacos"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "has_dibujo": true}, "interlock": {"id": "interlock", "name": "Interlock 50/50", "badge": "Vers\u00e1til", "btype": "outline", "unit": "kg", "cat": "basica", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n Peinado", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Tela interlock suave con buena elasticidad. C\u00f3moda para uso diario y prendas de contacto con la piel.", "usos": ["Playeras b\u00e1sicas", "Ropa interior", "Uniformes escolares", "Prendas de beb\u00e9", "Camisetas"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "venta": "Por kilogramo (kg)"}, "pique": {"id": "pique", "name": "Piqu\u00e9 50/50", "badge": "Popular", "btype": "solid", "unit": "kg", "cat": "deportivo", "comp": "50% Poli\u00e9ster \u00b7 50% Algod\u00f3n Peinado", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Cl\u00e1sico piqu\u00e9 con textura waffle. Fresco y resistente, ideal para playeras tipo polo y uniformes.", "usos": ["Playeras tipo polo", "Uniformes corporativos", "Ropa deportiva", "Camisas escolares"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "venta": "Por kilogramo (kg)"}, "forro-millenium": {"id": "forro-millenium", "name": "Forro Millenium", "badge": "Forro", "btype": "solid", "unit": "mt", "cat": "forro", "comp": "100% Poli\u00e9ster", "peso": "90 gsm", "ancho": "1.50 m", "rend": "Por metro", "desc": "Forro ligero y transpirable. Acabado liso y elegante, perfecto para el interior de chamarras y sacos.", "usos": ["Forros de chamarras", "Forros de sacos", "Uniformes de f\u00fatbol", "Ropa t\u00e9cnica", "Forros elegantes"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"]}, "licra-brush": {"id": "licra-brush", "name": "Licra DTY Brush", "badge": "El\u00e1stica", "btype": "solid", "unit": "mt", "cat": "elastica", "comp": "100% Poli\u00e9ster", "peso": "135 gsm", "ancho": "1.60 m", "rend": "4.6 mt/kg", "desc": "Licra con acabado brush suave al tacto. Alta elasticidad en 4 direcciones, ideal para ropa deportiva y ajustada.", "usos": ["Leggins y mallas", "Ropa deportiva", "Shorts", "Playeras ajustadas", "Ropa de yoga"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "venta": "Por metro (mt)"}, "bombay": {"id": "bombay", "name": "Bombay", "badge": "Ligero", "btype": "outline", "unit": "mt", "cat": "ligero", "comp": "100% Poli\u00e9ster", "peso": "105 gsm", "ancho": "1.60 m", "rend": "5.95 mt/kg", "desc": "Tela ultra ligera y fresca. Excelente para sublimaci\u00f3n, playeras de campa\u00f1a y decoraci\u00f3n de eventos.", "usos": ["Playeras de campa\u00f1a", "Sublimaci\u00f3n", "Decoraci\u00f3n de eventos", "Manteler\u00eda", "Playeras promocionales"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "venta": "Por metro (mt)"}, "dublin": {"id": "dublin", "name": "Dubl\u00edn", "badge": "Formal", "btype": "outline", "unit": "kg", "cat": "formal", "comp": "100% Poli\u00e9ster", "peso": "230 gsm", "ancho": "1.55 m", "rend": "2.8 mt/kg", "desc": "Tela resistente con acabado liso y formal. Preferida para uniformes de beisbol, americano y manteados.", "usos": ["Uniformes de beisbol", "Americano", "Manteados de tianguis", "Ropa formal", "Uniformes industriales"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "venta": "Por kilogramo (kg)"}, "felpa-china": {"id": "felpa-china", "name": "Felpa China", "badge": "Importada", "btype": "solid", "unit": "kg", "cat": "felpa", "comp": "95% Poli\u00e9ster \u00b7 5% Spandex", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.5 mt/kg", "desc": "Felpa importada con elasticidad superior. Sin bolitas, excelente resistencia al lavado intensivo.", "usos": ["Sudaderas con capucha", "Hoodies", "Pants de invierno", "Chamarras", "Ropa casual premium"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "venta": "Por kilogramo (kg)"}};
+var PRENDA_DB = {
+  "playera-premiere":{
+    id:"playera-premiere",name:"Playera Premiere Slim Fit",
+    desc:"Playera cuello redondo en tela Premiere 100% Poliéster. Corte slim fit moderno, acabado suave y fresco.",
+    specs:[["Composicion","100% Poliester"],["Gramaje","240 gsm"],["Corte","Slim Fit"],["Cuello","Redondo"],["Minimo","25 piezas por articulo"]],
+    colores:["Blanco","Negro","Azul Marino"],
+    tallas:["XS","S","M","L","XL","XXL"],
+    usos:["Uniformes","Playera casual","Deportivo","Sublimacion","Bordado"],
+    unit:"pza",is_prenda:true
+  },
+  "sudadera-azul":{
+    id:"sudadera-azul",name:"Sudadera Crew Neck Azul Pizarra",
+    desc:"Sudadera cuello redondo en felpa azul pizarra. Corte oversized, sin capucha. 100% Algodon.",
+    specs:[["Composicion","100% Algodon"],["Gramaje","250 gsm"],["Color","Azul Pizarra"],["Corte","Oversized Crew Neck"],["Minimo","25 piezas totales"]],
+    colores:["Azul Pizarra"],
+    tallas:["XS","S","M","L","XL","XXL"],
+    usos:["Uso casual","Streetwear","Uniformes","Bordado","Serigrafia"],
+    unit:"pza",is_prenda:true
+  }
+};
+
+function openProductModal(id) {
+  var p = PRODUCTS_DB[id] || PRENDA_DB[id];
+  if (!p) return;
+  var isP = !!PRENDA_DB[id];
+  var unit = isP ? "pza" : p.unit;
+  var defQ = isP ? 25 : 5;
+
+  var specRows = "";
+  if (isP) {
+    (PRENDA_DB[id].specs || []).forEach(function(sp) {
+      var hl = sp[0] === "Minimo" ? " style=\"color:#C05A3A;font-weight:700\"" : "";
+      specRows += "<div class=\"ms-row\"><span class=\"ms-lbl\">" + sp[0] + "</span><span class=\"ms-val\"" + hl + ">" + sp[1] + "</span></div>";
+    });
+  } else {
+    [["Composicion",p.comp],["Gramaje",p.peso],["Ancho",p.ancho],["Rendimiento",p.rend],["Venta","Por "+p.unit]].forEach(function(sp) {
+      specRows += "<div class=\"ms-row\"><span class=\"ms-lbl\">" + sp[0] + "</span><span class=\"ms-val\">" + sp[1] + "</span></div>";
+    });
+  }
+
+  var usosHtml = "<div class=\"ms-usos-ttl\">Uso recomendado</div><div class=\"ms-chips\">";
+  (isP ? (PRENDA_DB[id].usos || []) : (p.usos || [])).forEach(function(u) {
+    usosHtml += "<span class=\"ms-chip\">" + u + "</span>";
+  });
+  usosHtml += "</div>";
+
+  var colList = isP ? PRENDA_DB[id].colores : (p.colores || []);
+  var colOpts = "<option value=\"\">Seleccionar color</option>";
+  colList.forEach(function(c) { colOpts += "<option value=\"" + c + "\">" + c + "</option>"; });
+  if (!isP && colList.indexOf("Otro color") < 0) {
+    colOpts += "<option value=\"Otro color\">Otro color...</option>";
+  }
+
+  var dibujoHtml = "";
+  if (id === "forro-capitonado") {
+    dibujoHtml = "<div style=\"margin-top:.5rem\"><label style=\"font-size:.68rem;font-weight:700;text-transform:uppercase;color:#8A7060;display:block;margin-bottom:.3rem\">Dibujo</label><input id=\"modal-dibujo\" type=\"text\" placeholder=\"Ej: rombos, rayas...\" style=\"width:100%;border:1.5px solid #DDD5C8;border-radius:3px;padding:.6rem;font-size:.88rem;color:#1E0F08;outline:none\" /></div>";
+  }
+
+  document.getElementById("modal-title").textContent = p.name.toUpperCase();
+  document.getElementById("modal-desc").textContent = p.desc || "";
+  document.getElementById("modal-specs").innerHTML = specRows;
+  document.getElementById("modal-usos").innerHTML = usosHtml;
+  document.getElementById("modal-color").innerHTML = colOpts;
+
+  var tallaEl = document.getElementById("modal-talla");
+  if (tallaEl) {
+    if (isP && PRENDA_DB[id].tallas) {
+      var tOpts = "<option value=\"\">Seleccionar talla</option>";
+      PRENDA_DB[id].tallas.forEach(function(t) { tOpts += "<option value=\"" + t + "\">" + t + "</option>"; });
+      tallaEl.innerHTML = tOpts;
+      tallaEl.style.display = "block";
+    } else {
+      tallaEl.innerHTML = ""; tallaEl.style.display = "none";
+    }
+  }
+
+  var dw = document.getElementById("modal-dibujo-wrap");
+  if (dw) dw.innerHTML = dibujoHtml;
+
+  var ow = document.getElementById("modal-otro-color-wrap");
+  if (ow) ow.style.display = "none";
+
+  var qi = document.getElementById("modal-qty");
+  qi.value = defQ; qi.min = 1; qi.step = 1;
+  document.getElementById("modal-unit").textContent = unit;
+  document.getElementById("modal-min-note").innerHTML = isP ? "<div class=\"ms-min-note\">Minimo 25 piezas en total</div>" : "";
+
+  var uw = document.getElementById("modal-unit-select-wrap");
+  if (uw) {
+    var ss = "border:1.5px solid #DDD5C8;border-radius:3px;padding:.5rem .7rem;font-size:.82rem;color:#1E0F08;background:#fff;outline:none;cursor:pointer;width:100%;margin-top:.3rem";
+    if (!isP && unit === "kg") {
+      uw.innerHTML = "<select id=\"modal-unit-sel\" onchange=\"switchUnit(this)\" style=\"" + ss + "\"><option value=\"kg\">Kilogramos (kg)</option><option value=\"rollo\">Rollo completo</option></select>";
+    } else if (!isP && unit === "mt") {
+      uw.innerHTML = "<select id=\"modal-unit-sel\" onchange=\"switchUnit(this)\" style=\"" + ss + "\"><option value=\"mt\">Metros (mt)</option><option value=\"rollo\">Rollo completo</option></select>";
+    } else {
+      uw.innerHTML = "";
+    }
+  }
+
+  var btn = document.getElementById("modal-add-btn");
+  btn.dataset.id = id; btn.dataset.name = p.name; btn.dataset.unit = unit; btn.dataset.prenda = isP ? "1" : "0";
+  document.getElementById("product-modal").classList.add("open");
+  document.getElementById("modal-overlay").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeProductModal() {
+  var pm = document.getElementById("product-modal");
+  var mo = document.getElementById("modal-overlay");
+  if (pm) pm.classList.remove("open");
+  if (mo) mo.classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function modalQtyChange(delta) {
+  var qi = document.getElementById("modal-qty");
+  qi.value = Math.max(1, Math.round(parseFloat(qi.value) + delta));
+}
+
+function switchUnit(sel) {
+  var u = sel.value;
+  var us = document.getElementById("modal-unit");
+  var qi = document.getElementById("modal-qty");
+  var btn = document.getElementById("modal-add-btn");
+  if (us) us.textContent = u;
+  if (qi) { qi.value = u === "rollo" ? 1 : 5; qi.min = 1; }
+  if (btn) btn.dataset.unit = u;
+}
+
+function toggleOtroColor(sel) {
+  var w = document.getElementById("modal-otro-color-wrap");
+  if (w) w.style.display = sel.value === "Otro color" ? "block" : "none";
+}
+
+function showModalErr(msg) {
+  var e = document.getElementById("modal-err");
+  if (!e) {
+    e = document.createElement("div"); e.id = "modal-err";
+    e.style.cssText = "background:rgba(192,90,58,.1);color:#C05A3A;font-size:.85rem;font-weight:600;padding:.5rem 1rem;border-radius:4px;text-align:center;margin-top:.3rem;border:1px solid rgba(192,90,58,.3)";
+    var ab = document.getElementById("modal-add-btn");
+    if (ab) ab.after(e);
+  }
+  e.textContent = msg;
+  setTimeout(function() { if (e) e.textContent = ""; }, 3000);
+}
+
+function filterCat(cat, btn) {
+  document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
+  btn.classList.add("active");
+  document.querySelectorAll(".cat-card").forEach(function(c) {
+    c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none";
+  });
+}
+
+function toggleEnvioOpts() {
+  var noR = document.querySelector("input[name=\"requiere_envio\"][value=\"No\"]");
+  var siR = document.querySelector("input[name=\"requiere_envio\"][value=\"Si\"]");
+  var cpBlock = document.getElementById("envio-cp-block");
+  var noLbl = document.getElementById("envio-no-lbl");
+  var siLbl = document.getElementById("envio-si-lbl");
+  if (noR && siR) {
+    if (noLbl) { noLbl.style.borderColor = noR.checked ? "#C05A3A" : "var(--border)"; noLbl.style.background = noR.checked ? "rgba(192,90,58,.07)" : "#fff"; }
+    if (siLbl) { siLbl.style.borderColor = siR.checked ? "#C05A3A" : "var(--border)"; siLbl.style.background = siR.checked ? "rgba(192,90,58,.07)" : "#fff"; }
+    if (cpBlock) { cpBlock.style.display = siR.checked ? "flex" : "none"; }
+  }
+}
+
+// Registrar listeners al cargar la página
+window.addEventListener("load", function() {
+  // Botón agregar al carrito
+  var addBtn = document.getElementById("modal-add-btn");
+  if (addBtn) {
+    addBtn.addEventListener("click", function() {
+      var id = this.dataset.id, name = this.dataset.name, unit = this.dataset.unit, isP = this.dataset.prenda === "1";
+      var colorSel = document.getElementById("modal-color").value;
+      var otroInp = document.getElementById("modal-otro-color-input");
+      var tallaEl = document.getElementById("modal-talla");
+      var talla = (tallaEl && tallaEl.style.display !== "none") ? tallaEl.value : "";
+      var color = (colorSel === "Otro color" && otroInp && otroInp.value.trim()) ? "Otro: " + otroInp.value.trim() : colorSel;
+      var qty = parseInt(document.getElementById("modal-qty").value) || 1;
+      var dInp = document.getElementById("modal-dibujo");
+      var dibujo = dInp ? dInp.value : "";
+      if (!color) { showModalErr("Selecciona un color."); return; }
+      if (isP && !talla) { showModalErr("Selecciona una talla."); return; }
+      var colorFinal = color + (talla ? " - " + talla : "") + (dibujo ? " | Dibujo: " + dibujo : "");
+      addToCart({ id: id, name: name, color: colorFinal, qty: qty.toString(), unit: unit });
+      closeProductModal();
+      openCart();
+    });
+  }
+
+  // Overlay cierra modal
+  var mo = document.getElementById("modal-overlay");
+  if (mo) mo.addEventListener("click", closeProductModal);
+
+  // Escape cierra modal
+  document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeProductModal(); });
+
+  // Filtros de categoría
+  document.querySelectorAll(".filter-btn").forEach(function(b) {
+    b.addEventListener("click", function() {
+      document.querySelectorAll(".filter-btn").forEach(function(x) { x.classList.remove("active"); });
+      this.classList.add("active");
+      var cat = this.dataset.cat || "all";
+      document.querySelectorAll(".cat-card").forEach(function(c) {
+        c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none";
+      });
+    });
+  });
+
+  // Factura radio highlight
+  document.querySelectorAll("input[name=\"factura\"]").forEach(function(radio) {
+    radio.addEventListener("change", function() {
+      document.querySelectorAll(".fac-opt").forEach(function(lbl) {
+        var inp = lbl.querySelector("input");
+        lbl.style.borderColor = inp && inp.checked ? "#C05A3A" : "#DDD5C8";
+        lbl.style.background  = inp && inp.checked ? "rgba(192,90,58,.07)" : "#fff";
+      });
+    });
+  });
+});
+
+// ══ SLIDER DE TESTIMONIOS ══
+var tCurrent = 0;
+var tCards = null;
+var tDots = null;
+var tInterval = null;
+
+function initTestimonios() {
+  tCards = document.querySelectorAll('.t-card');
+  tDots = document.querySelectorAll('.t-dot');
+  if (!tCards.length) return;
+  startAutoSlide();
+}
+
+function goToSlide(n) {
+  if (!tCards) return;
+  tCards[tCurrent].classList.remove('active');
+  tCards[tCurrent].classList.add('out');
+  tDots[tCurrent] && tDots[tCurrent].classList.remove('active');
+  setTimeout(function() {
+    tCards[tCurrent] && tCards[tCurrent].classList.remove('out');
+    tCurrent = (n + tCards.length) % tCards.length;
+    tCards[tCurrent].classList.add('active');
+    tDots[tCurrent] && tDots[tCurrent].classList.add('active');
+  }, 300);
+  tCurrent = (n + tCards.length) % tCards.length;
+}
+
+function nextSlide() {
+  if (!tCards) return;
+  var next = (tCurrent + 1) % tCards.length;
+  tCards[tCurrent].classList.remove('active');
+  tCards[tCurrent].classList.add('out');
+  tDots[tCurrent] && tDots[tCurrent].classList.remove('active');
+  var prev = tCurrent;
+  tCurrent = next;
+  setTimeout(function() {
+    tCards[prev] && tCards[prev].classList.remove('out');
+    tCards[tCurrent].classList.add('active');
+    tDots[tCurrent] && tDots[tCurrent].classList.add('active');
+  }, 300);
+}
+
+function prevSlide() {
+  if (!tCards) return;
+  var prev = (tCurrent - 1 + tCards.length) % tCards.length;
+  tCards[tCurrent].classList.remove('active');
+  tCards[tCurrent].classList.add('out');
+  tDots[tCurrent] && tDots[tCurrent].classList.remove('active');
+  var old = tCurrent;
+  tCurrent = prev;
+  setTimeout(function() {
+    tCards[old] && tCards[old].classList.remove('out');
+    tCards[tCurrent].classList.add('active');
+    tDots[tCurrent] && tDots[tCurrent].classList.add('active');
+  }, 300);
+}
+
+function startAutoSlide() {
+  clearInterval(tInterval);
+  tInterval = setInterval(function() { nextSlide(); }, 5000);
+}
+
+window.addEventListener('load', function() {
+  initTestimonios();
+  // Pausar al pasar el mouse
+  var wrap = document.getElementById('t-slider');
+  if (wrap) {
+    wrap.addEventListener('mouseenter', function() { clearInterval(tInterval); });
+    wrap.addEventListener('mouseleave', function() { startAutoSlide(); });
+  }
+});
+
+</script>
+</body>
+</html>
