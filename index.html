@@ -978,6 +978,12 @@ h2.section-h.light { color: #fff; }
           </label>
         </div>
       </div>
+      <div style="display:flex;flex-direction:column;gap:.35rem">
+        <label style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A7060">Código postal de entrega <span style="font-weight:400;font-style:italic;text-transform:none;letter-spacing:0">(opcional, si requieres envío)</span></label>
+        <input type="text" name="cp_envio" id="cp-envio-input" placeholder="Ej: 64000, 45000, 06600..." maxlength="10"
+          style="border:1.5px solid var(--border);border-radius:3px;padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--dark);background:#fff;outline:none;transition:border-color .2s;width:100%"
+          onfocus="this.style.borderColor='#C05A3A'" onblur="this.style.borderColor='var(--border)'"/>
+      </div>
       <div><label>Notas adicionales</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1.1rem">Enviar cotizacion</button>
     </form>
@@ -1157,47 +1163,69 @@ async function submitCotizacion(e) {
   e.preventDefault();
   var c = getCart();
   if (!c.length) { alert('Agrega al menos una tela a tu cotizacion.'); return; }
-  // Validar minimo 25 piezas para prendas
-  var prendaTotal = 0;
-  var hasPrenda = false;
-  c.forEach(function(x) { if(x.unit === 'pza') { hasPrenda = true; prendaTotal += parseInt(x.qty)||0; } });
-  if(hasPrenda && prendaTotal < 25) {
-    alert('El minimo de prendas terminadas es 25 piezas en total entre todas las tallas. Actualmente tienes ' + prendaTotal + ' pza.');
-    return;
-  }
+  var prendaTotal = 0, hasPrenda = false;
+  c.forEach(function(x) { if(x.unit==='pza'){hasPrenda=true;prendaTotal+=parseInt(x.qty)||0;} });
+  if(hasPrenda && prendaTotal < 25) { alert('El minimo de prendas es 25 piezas en total. Actualmente tienes '+prendaTotal+' pza.'); return; }
+
   var f = new FormData(e.target);
-  var nombre = f.get('cn') || '';
-  var correo = f.get('ce') || '';
-  var tel = f.get('ct') || 'No proporcionado';
-  var notas = f.get('co') || '';
-  var envio = f.get('envio') || 'No especificado';
+  var nombre   = f.get('cn') || '';
+  var correo   = f.get('ce') || '';
+  var tel      = f.get('ct') || 'No proporcionado';
+  var factura  = f.get('factura') || 'No';
+  var req_env  = f.get('requiere_envio') || 'No';
+  var cp       = f.get('cp_envio') || '';
+  var notas    = f.get('co') || '';
+
+  // Productos detallados
   var listaParts = [];
-  c.forEach(function(x) { listaParts.push('- ' + x.name + (x.color ? ' (' + x.color + ')' : '') + ': ' + x.qty + ' ' + x.unit); });
-  var lista = listaParts.join('; ');
-  var infoEnvio = 'Envio: ' + envio;
+  c.forEach(function(x) {
+    listaParts.push('- ' + x.name + (x.color ? ' | Color: ' + x.color : '') + ' | Cantidad: ' + x.qty + ' ' + x.unit);
+  });
+  var lista = listaParts.join('\n');
+
+  // Envío info
+  var envioInfo = req_env === 'Si' ? ('Sí' + (cp ? ' — C.P.: ' + cp : ' (sin C.P. proporcionado)')) : 'No requiere envío';
+
+  // Payload para Formspree — campos explícitos aparecen como filas en el correo
+  var payload = {
+    _subject: 'Nueva Cotizacion Beitex — ' + nombre,
+    _replyto: correo,
+    '01_Nombre':    nombre,
+    '02_Correo':    correo,
+    '03_Telefono':  tel,
+    '04_Factura':   factura === 'Si' ? 'Sí requiere factura' : 'No requiere factura',
+    '05_Envio':     envioInfo,
+    '06_Productos': lista,
+    '07_Notas':     notas || 'Sin notas adicionales',
+  };
+
   var btn = e.target.querySelector('[type="submit"]');
-  if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+  if(btn) { btn.disabled=true; btn.textContent='Enviando...'; }
+
   var ok = false;
-  try {
-    var res = await fetch('https://formspree.io/f/mzdweadd', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, productos: lista, envio: envio, notas: notas, _subject: 'Cotizacion Beitex - ' + nombre, _replyto: correo })
-    });
+  fetch('https://formspree.io/f/mzdweadd', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(function(res) {
     ok = res.ok;
-  } catch(err) { console.warn('Formspree error:', err); }
-  if (!ok) {
-    var body = 'Nombre: ' + nombre + '\nTelefono: ' + tel + '\nCorreo: ' + correo + '\n\nProductos:\n' + lista + (notas ? '\n\nNotas: ' + notas : '');
-    window.location.href = 'mailto:ventas@textilesbeitex.mx?subject=Cotizacion - ' + encodeURIComponent(nombre) + '&body=' + encodeURIComponent(body);
-  } else {
-    var il = document.getElementById('cart-items-list');
-    if (il) {
-      il.innerHTML = '<div style="text-align:center;padding:2.5rem 1rem"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div style="font-family:Bebas Neue,sans-serif;font-size:1.5rem;letter-spacing:.08em;color:#1E0F08;margin-bottom:.5rem">COTIZACION ENVIADA</div><p style="font-size:.92rem;color:#8A7060;line-height:1.7">Recibimos tu solicitud.<br>Te contactaremos a <strong style="color:#C05A3A">' + correo + '</strong><br>en menos de <strong>24 horas habiles</strong>.</p></div>';
+    if(ok) {
+      var il = document.getElementById('cart-items-list');
+      if(il) {
+        il.innerHTML = '<div style="text-align:center;padding:2.5rem 1rem"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div style="font-family:Bebas Neue,sans-serif;font-size:1.5rem;letter-spacing:.08em;color:#1E0F08;margin-bottom:.5rem">COTIZACION ENVIADA</div><p style="font-size:.9rem;color:#8A7060;line-height:1.7">Gracias <strong>' + nombre + '</strong>, te contactamos en menos de 24 horas hábiles.</p></div>';
+      }
+      saveCart([]);
+      updateBadge();
+    } else {
+      if(btn) { btn.disabled=false; btn.textContent='Enviar cotizacion'; }
+      alert('Hubo un problema al enviar. Intenta de nuevo o escríbenos directo a ventas@textilesbeitex.mx');
     }
-    e.target.reset(); localStorage.removeItem(CK); updateBadge(); renderOrderSummary([]);
-    setTimeout(function() { closeCart(); }, 3500);
-  }
-  if (btn) { btn.disabled = false; btn.textContent = 'Enviar cotizacion'; }
+  }).catch(function() {
+    // Fallback mailto
+    var body = 'Nombre: '+nombre+'\nCorreo: '+correo+'\nTelefono: '+tel+'\nFactura: '+factura+'\nEnvio: '+envioInfo+'\n\nProductos:\n'+lista+(notas?'\n\nNotas: '+notas:'');
+    window.location.href = 'mailto:ventas@textilesbeitex.mx?subject=Cotizacion - '+encodeURIComponent(nombre)+'&body='+encodeURIComponent(body);
+    if(btn) { btn.disabled=false; btn.textContent='Enviar cotizacion'; }
+  });
 }
 
 // INIT
