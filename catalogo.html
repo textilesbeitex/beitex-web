@@ -1098,60 +1098,7 @@ function toggleEnvioOpts() {
   }
 }
 
-// Registrar listeners al cargar la página
-window.addEventListener("load", function() {
-  // Botón agregar al carrito
-  var addBtn = document.getElementById("modal-add-btn");
-  if (addBtn) {
-    addBtn.addEventListener("click", function() {
-      var id = this.dataset.id, name = this.dataset.name, unit = this.dataset.unit, isP = this.dataset.prenda === "1";
-      var colorSel = document.getElementById("modal-color").value;
-      var otroInp = document.getElementById("modal-otro-color-input");
-      var tallaEl = document.getElementById("modal-talla");
-      var talla = (tallaEl && tallaEl.style.display !== "none") ? tallaEl.value : "";
-      var color = (colorSel === "Otro color" && otroInp && otroInp.value.trim()) ? "Otro: " + otroInp.value.trim() : colorSel;
-      var qty = parseInt(document.getElementById("modal-qty").value) || 1;
-      var dInp = document.getElementById("modal-dibujo");
-      var dibujo = dInp ? dInp.value : "";
-      if (!color) { showModalErr("Selecciona un color."); return; }
-      if (isP && !talla) { showModalErr("Selecciona una talla."); return; }
-      var colorFinal = color + (talla ? " - " + talla : "") + (dibujo ? " | Dibujo: " + dibujo : "");
-      addToCart({ id: id, name: name, color: colorFinal, qty: qty.toString(), unit: unit });
-      closeProductModal();
-      openCart();
-    });
-  }
-
-  // Overlay cierra modal
-  var mo = document.getElementById("modal-overlay");
-  if (mo) mo.addEventListener("click", closeProductModal);
-
-  // Escape cierra modal
-  document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeProductModal(); });
-
-  // Filtros de categoría
-  document.querySelectorAll(".filter-btn").forEach(function(b) {
-    b.addEventListener("click", function() {
-      document.querySelectorAll(".filter-btn").forEach(function(x) { x.classList.remove("active"); });
-      this.classList.add("active");
-      var cat = this.dataset.cat || "all";
-      document.querySelectorAll(".cat-card").forEach(function(c) {
-        c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none";
-      });
-    });
-  });
-
-  // Factura radio highlight
-  document.querySelectorAll("input[name=\"factura\"]").forEach(function(radio) {
-    radio.addEventListener("change", function() {
-      document.querySelectorAll(".fac-opt").forEach(function(lbl) {
-        var inp = lbl.querySelector("input");
-        lbl.style.borderColor = inp && inp.checked ? "#C05A3A" : "#DDD5C8";
-        lbl.style.background  = inp && inp.checked ? "rgba(192,90,58,.07)" : "#fff";
-      });
-    });
-  });
-});
+;
 
 </script>
 <script>
