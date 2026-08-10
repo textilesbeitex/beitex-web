@@ -779,7 +779,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
     <!-- FORMULARIO -->
     <div class="cart-form-section">
       <p class="cart-sum">Te enviamos una propuesta personalizada en menos de <strong>24 horas hábiles</strong>.</p>
-      <form class="cot-form" id="cot-form">
+      <form class="cot-form" id="cot-form" onsubmit="submitCotizacion(event)">
       <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
       <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
       <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
@@ -982,7 +982,7 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
-async function submitCotizacion(e) {
+function submitCotizacion(e) {
   e.preventDefault();
   var c = getCart();
   if (!c.length) { alert('Agrega al menos una tela a tu cotizacion.'); return; }
