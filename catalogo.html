@@ -1012,37 +1012,36 @@ async function submitCotizacion(e) {
   });
 
   var payload = {
-    email:    correo,
-    name:     nombre,
-    _subject: 'Cotizacion Beitex - '+nombre,
-    Nombre:   nombre,
-    Correo:   correo,
-    Telefono: tel,
-    Factura:  factura==='Si'?'Si requiere factura':'No requiere factura',
-    Envio:    envioInfo,
-    Productos:listaParts.join(' | '),
-    Notas:    notas||'Sin notas',
-    message:  'Productos: '+listaParts.join(', ')+' | Tel: '+tel+' | Factura: '+factura+' | Envio: '+envioInfo+(notas?' | Notas: '+notas:'')
+    access_key: '40337e2a-322a-47a2-91eb-873abf2c7eee',
+    subject:    'Cotizacion Beitex - '+nombre,
+    from_name:  'Textiles Beitex Web',
+    replyto:    correo,
+    Nombre:     nombre,
+    Correo:     correo,
+    Telefono:   tel,
+    Factura:    factura==='Si'?'Si requiere factura':'No requiere factura',
+    Envio:      envioInfo,
+    Productos:  listaParts.join(' | '),
+    Notas:      notas||'Sin notas'
   };
 
   var btn = form.querySelector('[type="submit"]');
   if(btn){btn.disabled=true;btn.textContent='Enviando...';}
 
-  fetch('https://formspree.io/f/mzdweadd',{
+  fetch('https://api.web3forms.com/submit',{
     method:'POST',
     headers:{'Content-Type':'application/json','Accept':'application/json'},
     body:JSON.stringify(payload)
-  }).then(function(res){
-    return res.json().then(function(data){return{ok:res.ok,data:data};});
-  }).then(function(r){
-    if(r.ok){
+  }).then(function(res){return res.json();})
+  .then(function(data){
+    if(data.success){
       showConfirmBanner(nombre, correo);
       saveCart([]);
       updateBadge();
       closeCart();
     } else {
       if(btn){btn.disabled=false;btn.textContent='Enviar cotizacion';}
-      console.error('Formspree error:', r.data);
+      console.error('Web3Forms error:', data);
       fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas);
     }
   }).catch(function(err){
@@ -1079,6 +1078,10 @@ function showConfirmBanner(nombre, correo){
   banner.appendChild(inner);
   document.body.appendChild(banner);
 }
+
+
+
+
 
 function fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas){
   var body='Nombre: '+nombre+'\nCorreo: '+correo+'\nTelefono: '+tel+'\nFactura: '+factura+'\nEnvio: '+envioInfo+'\n\nProductos:\n'+listaParts.join('\n')+(notas?'\n\nNotas: '+notas:'');
