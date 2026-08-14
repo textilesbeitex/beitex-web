@@ -1,46 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- PÁGINAS PRINCIPALES -->
   <url>
     <loc>https://textilesbeitex.mx/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://textilesbeitex.mx/catalogo.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://textilesbeitex.mx/contacto.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://textilesbeitex.mx/blog.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
+
+  <!-- BLOG ARTÍCULOS -->
   <url>
     <loc>https://textilesbeitex.mx/blog/capitonados.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://textilesbeitex.mx/blog/tenido-de-textiles.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://textilesbeitex.mx/blog/fabricacion-sobre-pedido.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.60</priority>
+  </url>
+
+  <!-- PRODUCTOS DEL CATÁLOGO (anclas SEO) -->
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-bombay</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-dublin</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-felpa-china</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-felpa-nacional</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-jurly</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-micropique</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-premiere</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-sportock</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-licra-saludable</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://textilesbeitex.mx/catalogo.html#card-tela-diablo</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
   </url>
 </urlset>
