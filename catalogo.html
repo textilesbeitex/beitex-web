@@ -1279,9 +1279,15 @@ function switchUnit(sel) {
   if (btn) btn.dataset.unit = u;
 }
 
+function esOtroColor(v) {
+  // Distintos productos usan "OTROS COLORES" u "Otro color" como valor del select.
+  // Se normaliza aqui para no perder el texto libre que escribe el cliente.
+  return v === "OTROS COLORES" || v === "Otro color";
+}
+
 function toggleOtroColor(sel) {
   var w = document.getElementById("modal-otro-color-wrap");
-  if (w) w.style.display = sel.value === "OTROS COLORES" ? "block" : "none";
+  if (w) w.style.display = esOtroColor(sel.value) ? "block" : "none";
 }
 
 function showModalErr(msg) {
@@ -1328,7 +1334,7 @@ window.addEventListener("load", function() {
       var otroInp = document.getElementById("modal-otro-color-input");
       var tallaEl = document.getElementById("modal-talla");
       var talla = (tallaEl && tallaEl.style.display !== "none") ? tallaEl.value : "";
-      var color = (colorSel === "Otro color" && otroInp && otroInp.value.trim()) ? "Otro: " + otroInp.value.trim() : colorSel;
+      var color = (esOtroColor(colorSel) && otroInp && otroInp.value.trim()) ? colorSel + " - " + otroInp.value.trim() : colorSel;
       var qty = parseInt(document.getElementById("modal-qty").value) || 1;
       var dInp = document.getElementById("modal-dibujo");
       var dibujo = dInp ? dInp.value : "";
