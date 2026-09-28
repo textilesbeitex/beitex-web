@@ -1329,7 +1329,7 @@ window.addEventListener("load", function() {
       var otroInp = document.getElementById("modal-otro-color-input");
       var tallaEl = document.getElementById("modal-talla");
       var talla = (tallaEl && tallaEl.style.display !== "none") ? tallaEl.value : "";
-      var color = (colorSel === "Otro color" && otroInp && otroInp.value.trim()) ? "Otro: " + otroInp.value.trim() : colorSel;
+      var color = (colorSel === "OTROS COLORES" && otroInp && otroInp.value.trim()) ? otroInp.value.trim().toUpperCase() : colorSel;
       var qty = parseInt(document.getElementById("modal-qty").value) || 1;
       var dInp = document.getElementById("modal-dibujo");
       var dibujo = dInp ? dInp.value : "";
