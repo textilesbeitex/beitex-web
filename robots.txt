@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Bloquear archivos innecesarios
-Disallow: /assets/
-Disallow: /*.json$
-
 Sitemap: https://textilesbeitex.mx/sitemap.xml
