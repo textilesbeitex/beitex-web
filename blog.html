@@ -1,561 +1,952 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8"/>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32.png"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-32.png"/>
-  <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png"/>
-    <!-- SEO Optimizado -->
-  <title>Blog Textil | Guías de Telas, Capitonados, Teñido y Fabricación — Textiles Beitex</title>
-  <meta name="description" content="Blog especializado en el mundo textil: guías sobre capitonados, teñido de telas, fabricación sobre pedido, tipos de tela al mayoreo y consejos para maquiladoras y costureros de México."/>
-  <meta name="keywords" content="blog textil Mexico, tipos de tela mayoreo, capitonados tela guia, tenido de textiles como funciona, fabricacion telas sobre pedido, guia felpa nacional, guia micropique, telas para uniformes escolares"/>
-  <link rel="canonical" href="https://textilesbeitex.mx/blog.html"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://textilesbeitex.mx/blog.html"/>
-  <meta property="og:title" content="Blog Textil | Guías de Telas, Capitonados, Teñido y Fabricación — Textiles Beitex"/>
-  <meta property="og:description" content="Blog especializado en el mundo textil: guías sobre capitonados, teñido de telas, fabricación sobre pedido, tipos de tela al mayoreo y consejos para maquiladoras y costureros de México."/>
-  <meta property="og:locale" content="es_MX"/>
-  <meta property="og:site_name" content="Textiles Beitex"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Blog Textil | Guías de Telas, Capitonados, Teñido y Fabricación — Textiles Beitex"/>
-  <meta name="twitter:description" content="Blog especializado en el mundo textil: guías sobre capitonados, teñido de telas, fabricación sobre pedido, tipos de tela al mayoreo y consejos para maquiladoras y costureros de México."/>
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
-  <meta name="author" content="Textiles Beitex SA de CV"/>
-  <meta name="geo.region" content="MX-CMX"/>
-  <meta name="geo.placename" content="Ciudad de México"/>
-  <meta name="geo.position" content="19.4326;-99.1332"/>
-  <script type="application/ld+json">{
-  "@context":"https://schema.org",
-  "@type":"Blog",
-  "name":"Blog Textiles Beitex",
-  "url":"https://textilesbeitex.mx/blog.html",
-  "description":"Blog especializado en el mundo textil: guías, consejos y novedades de Textiles Beitex"
-}</script>
-  <meta name="msapplication-TileImage" content="img/icons/favicon-32.png"/>
-  <link rel="canonical" href="https://textilesbeitex.mx/blog.html"/>
-  <meta property="og:url" content="https://textilesbeitex.mx/blog.html"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
-<style>
-/* === RESET & BASE === */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:#F7F3EF;color:#1E0F08;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
-a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-style:none}
+<html lang="es-MX"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAD00lEQVR42tVXMU8cVxD+Zt6+vTtxOI5SmT+RSCnMHZHXOLZlifosOCNZoMRFOi6Fy+U6N4d7W0oVBSlXWlGkyITbCGKKYIHkNm0k3IRgH3d7+96bFNxGgGKzC3bsvGpXGr3vm2++nZkF/s9nNQi81SDw3gm4APRvz/8JsIRgAOjcqsx3blXmAUBC8FsnIgClkkf1SmtrLpCtuUCieqWVliQvCcolea3G1G7bqF5plX3deDEwFgBGfU+9HCRLwXdPvpZaTaHddgRIlns5L3hnprI04utGL7FORPZFZL+XWDfi60ZnprJE7bZFrZa5HJwFvBMEKgUvF/RC3xirmHoMucqQq4qp1zfGlgt6ISXRCQKVhQTlybxc0As9YywT9bvGTl1f3ogA4KeZ8WDEUz84kWLJ89TLOLl/eflJI0s5KA943xhLh8BTQ05GkUlJiEixmIMEZTHciK8baeaxsVNXhuCTUWRS909Gkfl5ZjwoHFKim8GYfGLmvm70EuNS2Y+DpwqsBoF3ZXkj6ho7xUT9XmJcOYMx+VWGi+qV1rmCXthPjFHE3fiQ7IfBj5O4vrwRxcZOKeLufmLMuYJeiOqVVhZj0ve1mkqbzNO5S9KpVwfrsxODx9MXrwHAb3c+1Se5Oo15PH3x2vrsxKBTrw6ezl36p1kNMei4AhSGoJvDzEd93diLTUwEHVtnSx5vSwh+dGHTnkTg0YVNKyG45PF2Yp0lgt6LTTzq60ZUr7Rutts2DEEpCT7o4yEtLkJW69V7ZV839gZGtOKCAGCQUvBGqAmXub024RTsCEBKAGjFhb2BkbKvG6v16r3FRYiE4QGBMARTs+lWbo+PlTy+Swfi7CTWrhUVAxBrnXF554Z1ygFii4qRWLsGYIcIKHl8d+X2+Bg1my4MwdxswglA54vJ835iH0LwzDLdIMFKyVMAyJ1+fJEreQokWLFMNyB4Fhv34HwxeS4ANZtw3rAZCB5sJgDu1ADVBmynXv3CydknqBNAiD76/Nv17RrwSRuwr/wMwxD8VRCQhGA6FniWQ4CV4d1heBTzyEtzaLQ8hstjzMMYucbx2zzvnECmjdawZQnBHYAXw9fHpjG//G4Z1nszBD6A6g5rmMUbDgC2ZlV39ywKSDo6CbRr+OOV6Yk/HFtmp15LIo3ZNRgDCx25KxcBgRZxBhACy48KgAIB/HoRjsUkIs6IQJ+iBLRT9rVnAU/R6dZ9K6LKvsZfsdvJvJIJQATI2nx11MX4EsCHIuIElHPfFyEiBvAnF/Dws29+fZHe/V79X9JJ6/ibALkcRfa9yzw9fwOLgjrowSdkjgAAAABJRU5ErkJggg=="/>
+  <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAD00lEQVR42tVXMU8cVxD+Zt6+vTtxOI5SmT+RSCnMHZHXOLZlifosOCNZoMRFOi6Fy+U6N4d7W0oVBSlXWlGkyITbCGKKYIHkNm0k3IRgH3d7+96bFNxGgGKzC3bsvGpXGr3vm2++nZkF/s9nNQi81SDw3gm4APRvz/8JsIRgAOjcqsx3blXmAUBC8FsnIgClkkf1SmtrLpCtuUCieqWVliQvCcolea3G1G7bqF5plX3deDEwFgBGfU+9HCRLwXdPvpZaTaHddgRIlns5L3hnprI04utGL7FORPZFZL+XWDfi60ZnprJE7bZFrZa5HJwFvBMEKgUvF/RC3xirmHoMucqQq4qp1zfGlgt6ISXRCQKVhQTlybxc0As9YywT9bvGTl1f3ogA4KeZ8WDEUz84kWLJ89TLOLl/eflJI0s5KA943xhLh8BTQ05GkUlJiEixmIMEZTHciK8baeaxsVNXhuCTUWRS909Gkfl5ZjwoHFKim8GYfGLmvm70EuNS2Y+DpwqsBoF3ZXkj6ho7xUT9XmJcOYMx+VWGi+qV1rmCXthPjFHE3fiQ7IfBj5O4vrwRxcZOKeLufmLMuYJeiOqVVhZj0ve1mkqbzNO5S9KpVwfrsxODx9MXrwHAb3c+1Se5Oo15PH3x2vrsxKBTrw6ezl36p1kNMei4AhSGoJvDzEd93diLTUwEHVtnSx5vSwh+dGHTnkTg0YVNKyG45PF2Yp0lgt6LTTzq60ZUr7Rutts2DEEpCT7o4yEtLkJW69V7ZV839gZGtOKCAGCQUvBGqAmXub024RTsCEBKAGjFhb2BkbKvG6v16r3FRYiE4QGBMARTs+lWbo+PlTy+Swfi7CTWrhUVAxBrnXF554Z1ygFii4qRWLsGYIcIKHl8d+X2+Bg1my4MwdxswglA54vJ835iH0LwzDLdIMFKyVMAyJ1+fJEreQokWLFMNyB4Fhv34HwxeS4ANZtw3rAZCB5sJgDu1ADVBmynXv3CydknqBNAiD76/Nv17RrwSRuwr/wMwxD8VRCQhGA6FniWQ4CV4d1heBTzyEtzaLQ8hstjzMMYucbx2zzvnECmjdawZQnBHYAXw9fHpjG//G4Z1nszBD6A6g5rmMUbDgC2ZlV39ywKSDo6CbRr+OOV6Yk/HFtmp15LIo3ZNRgDCx25KxcBgRZxBhACy48KgAIB/HoRjsUkIs6IQJ+iBLRT9rVnAU/R6dZ9K6LKvsZfsdvJvJIJQATI2nx11MX4EsCHIuIElHPfFyEiBvAnF/Dws29+fZHe/V79X9JJ6/ibALkcRfa9yzw9fwOLgjrowSdkjgAAAABJRU5ErkJggg=="/>
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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"/>
+    
 
-/* === TOKENS === */
+
+
+
+<title>Blog Textil — Guías y Consejos | Textiles Beitex</title>
+<meta name="description" content="Blog de Textiles Beitex: guías sobre capitonados, teñido de telas y fabricación sobre pedido en CDMX."/>
+<link rel="canonical" href="https://textilesbeitex.mx/blog.html"/>
+<meta property="og:type" content="website"/><meta property="og:title" content="Blog Textil — Guías y Consejos | Textiles Beitex"/>
+<meta name="robots" content="index,follow"/><meta name="geo.region" content="MX-CMX"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+
 :root{
-  --rust:#8B3A2A;--rl:#C05A3A;--dark:#1E0F08;--mid:#2C1F17;
-  --off:#F7F3EF;--warm:#EDE5DA;--border:#DDD5C8;--muted:#8A7060;
-  --fd:'Bebas Neue',sans-serif;--fs:'DM Serif Display',serif;
-  --shadow:0 16px 48px rgba(30,15,8,.18);
+  --rust:#8B3A2A;--rl:#C05A3A;
+  --dark:#1E0F08;--mid:#2C1F17;
+  --off:#F7F3EF;--warm:#EDE5DA;
+  --border:#DDD5C8;--muted:#8A7060;
+  --card-bg:#241409;--card-border:rgba(192,90,58,.18)
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ── NAV ── */
+.site-nav{
+  position:sticky;top:0;z-index:999;height:68px;
+  padding:0 5%;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(30,15,8,.97);backdrop-filter:blur(20px);
+  border-bottom:2px solid var(--rl);box-shadow:0 2px 20px rgba(0,0,0,.4)
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.18em;color:#fff}
+.nav-logo span{color:var(--rl)}
+.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:.2s}
+.nav-links a:hover{color:var(--rl)}
+.nav-cta{background:var(--rl);color:#fff!important;padding:.45rem 1.3rem;border-radius:2px}
+.nav-cta:hover{background:var(--rust)!important}
+.nav-icons{display:flex;align-items:center;gap:.8rem}
+.nav-icon-btn{background:none;border:1.5px solid rgba(255,255,255,.15);width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:.2s;position:relative}
+.nav-icon-btn:hover{border-color:var(--rl);color:var(--rl)}
+.cart-badge{position:absolute;top:-5px;right:-5px;background:var(--rl);color:#fff;border-radius:50%;width:17px;height:17px;font-size:.58rem;font-weight:700;display:none;align-items:center;justify-content:center}
+.cart-badge.show{display:flex}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
+.ham span{width:22px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;transition:.3s}
+.mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(30,15,8,.98);padding:1.3rem 5%;z-index:998;flex-direction:column;gap:.9rem;border-bottom:2px solid rgba(192,90,58,.25)}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+
+/* ── STICKY SCROLL CTA ── */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:888;
+  background:rgba(30,15,8,.96);backdrop-filter:blur(12px);
+  border-top:2px solid var(--rl);padding:.9rem 5%;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1)
+}
+.sticky-cta.visible{transform:translateY(0)}
+.sticky-cta-txt{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.06em;color:rgba(255,255,255,.7)}
+.sticky-cta-txt strong{color:#fff}
+.sticky-cta-btns{display:flex;gap:.7rem;flex-shrink:0}
+
+
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden;min-height:90vh;display:flex;align-items:center;background:var(--dark)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(115deg,rgba(30,15,8,.97) 0%,rgba(30,15,8,.75) 45%,rgba(30,15,8,.2) 100%)}
+.hero-inner{position:relative;z-index:2;padding:0 8%;max-width:820px}
+.hero-kicker{font-size:.66rem;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.3rem;display:flex;align-items:center;gap:.75rem}
+.hero-kicker::before{content:'';width:26px;height:1.5px;background:var(--rl)}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.8rem,7.5vw,7.2rem);line-height:.88;letter-spacing:.02em;color:#fff;margin-bottom:1.4rem}
+.hero-h1 em{color:var(--rl);font-style:normal;display:block}
+.hero-p{font-size:clamp(.9rem,1.3vw,1.05rem);color:rgba(255,255,255,.5);line-height:1.8;max-width:480px;margin-bottom:2.5rem;font-weight:300}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-p{display:inline-flex;align-items:center;gap:.5rem;background:var(--rl);color:#fff;padding:.88rem 2rem;border-radius:2px;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.14em;transition:.2s;cursor:pointer;border:none}
+.btn-p:hover{background:var(--rust);transform:translateY(-1px)}
+.btn-o{display:inline-flex;align-items:center;gap:.5rem;border:2px solid rgba(255,255,255,.22);color:rgba(255,255,255,.75);padding:.88rem 1.7rem;border-radius:2px;font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.14em;transition:.2s;cursor:pointer;background:none}
+.btn-o:hover{border-color:var(--rl);color:var(--rl)}
+/* Mini stats en hero */
+.hero-mini-stats{display:flex;gap:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1)}
+.hms{text-align:left}
+.hms-n{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:#fff;line-height:1}
+.hms-n span{color:var(--rl)}
+.hms-l{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--rl);padding:.9rem 5%;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.ti{display:flex;align-items:center;gap:.55rem;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.ti svg{opacity:.82}
+.t-sep{width:1px;height:18px;background:rgba(255,255,255,.22)}
+
+/* ── SECTIONS ── */
+.sec{padding:5.5rem 5%}
+.sec-dark{background:var(--dark)}
+.sec-mid{background:var(--mid)}
+.sec-card{background:var(--card-bg)}
+.wrap{max-width:1320px;margin:0 auto}
+.eyebrow{font-size:.64rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--rl);margin-bottom:.65rem;display:flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:'';width:20px;height:1.5px;background:var(--rl)}
+.sec-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.4rem);line-height:.93;letter-spacing:.03em;color:#fff}
+.sec-h em{color:var(--rl);font-style:normal}
+.sec-lead{font-size:.96rem;color:rgba(255,255,255,.45);line-height:1.78;font-weight:300;margin-top:.7rem;max-width:540px}
+.sec-head{margin-bottom:3rem}
+.sec-head.center{text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head.center .eyebrow::before{display:none}
+.sec-head.center .sec-lead{margin:0 auto;margin-top:.7rem}
+
+/* ── FILTER TABS ── */
+.filter-wrap{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.filter-btn{font-family:'Bebas Neue',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);border:1.5px solid rgba(255,255,255,.1);padding:.45rem 1.1rem;border-radius:2px;cursor:pointer;transition:.2s}
+.filter-btn:hover{border-color:var(--rl);color:rgba(255,255,255,.85)}
+.filter-btn.active{background:var(--rl);border-color:var(--rl);color:#fff}
+
+/* ── PRODUCT GRID ── */
+.p-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.p-card{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .25s,box-shadow .25s,transform .25s}
+.p-card:hover{border-color:var(--rl);box-shadow:0 8px 30px rgba(192,90,58,.15);transform:translateY(-3px)}
+.p-card.hidden{display:none}
+.p-img-wrap{position:relative;aspect-ratio:1;overflow:hidden}
+.p-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.p-card:hover .p-img-wrap img{transform:scale(1.06)}
+.p-tag{position:absolute;top:.55rem;left:.55rem;font-family:'Bebas Neue',sans-serif;font-size:.6rem;letter-spacing:.14em;color:#fff;padding:.2rem .55rem;border-radius:2px;z-index:2}
+.p-overlay{position:absolute;inset:0;background:rgba(30,15,8,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s}
+.p-card:hover .p-overlay{opacity:1}
+.p-cot-btn{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:.16em;background:var(--rl);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:2px;cursor:pointer;transition:.2s}
+.p-cot-btn:hover{background:var(--rust)}
+.p-body{padding:.85rem .9rem .95rem}
+.p-nombre{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.05em;color:#fff;margin-bottom:.15rem;line-height:1.1}
+.p-comp{font-size:.65rem;color:rgba(255,255,255,.4);line-height:1.35;margin-bottom:.55rem}
+.p-footer{display:flex;align-items:center;justify-content:space-between}
+.p-precio{font-family:'Bebas Neue',sans-serif;font-size:1.12rem;color:var(--rl);letter-spacing:.04em}
+.p-col{font-size:.62rem;color:rgba(255,255,255,.35);font-weight:600;letter-spacing:.06em}
+
+/* ── CATEGORÍAS VISUALES ── */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cat-card{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:3/4;display:block;border:1.5px solid var(--card-border);transition:.3s}
+.cat-card:hover{border-color:var(--rl);transform:translateY(-3px)}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cat-card:hover img{transform:scale(1.07)}
+.cat-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(30,15,8,.92) 0%,rgba(30,15,8,.3) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.3rem 1.1rem}
+.cat-ttl{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.06em;color:#fff;line-height:1;margin-bottom:.3rem}
+.cat-sub{font-size:.7rem;color:rgba(255,255,255,.55);line-height:1.4;margin-bottom:.7rem}
+.cat-link{display:inline-flex;align-items:center;gap:.35rem;font-family:'Bebas Neue',sans-serif;font-size:.7rem;letter-spacing:.14em;color:var(--rl);transition:.2s}
+.cat-card:hover .cat-link{color:#fff}
+
+/* ── ABOUT ── */
+.about-wrap{max-width:760px;margin:0 auto;text-align:left}
+.about-tabs{display:flex;gap:.5rem;margin-bottom:2rem}
+.atab{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:.14em;background:rgba(255,255,255,.06);color:rgba(255,255,255,.45);border:1.5px solid rgba(255,255,255,.1);padding:.45rem 1.1rem;border-radius:2px;cursor:pointer;transition:.2s}
+.atab.active{background:var(--rl);border-color:var(--rl);color:#fff}
+.atab:hover:not(.active){border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.8)}
+.atab-panel{display:none}
+.atab-panel.active{display:block}
+.about-q{font-family:'DM Serif Display',serif;font-size:1.2rem;font-style:italic;color:rgba(192,90,58,.85);line-height:1.58;margin-bottom:1.3rem;padding-left:1.1rem;border-left:3px solid var(--rl)}
+.about-p{font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.82;margin-bottom:1.3rem}
+.checks{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.8rem}
+.ch{display:flex;align-items:center;gap:.65rem;font-size:.84rem;font-weight:500;color:rgba(255,255,255,.65)}
+.ch svg{color:var(--rl);flex-shrink:0}
+.info-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.ic{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:8px;padding:1.3rem}
+.ic-icon{color:var(--rl);margin-bottom:.65rem}
+.ic-title{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.08em;color:#fff;margin-bottom:.3rem}
+.ic-text{font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.6}
+
+/* ── NÚMEROS (contador animado) ── */
+.nums-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid rgba(192,90,58,.2);border-radius:10px;overflow:hidden}
+.num-cell{text-align:center;padding:2.8rem 1rem;border-right:1px solid rgba(192,90,58,.15);transition:.3s}
+.num-cell:last-child{border-right:none}
+.num-cell:hover{background:rgba(192,90,58,.06)}
+.num-v{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--rl);line-height:1}
+.num-l{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.35rem}
+
+/* ── MAYOREO ── */
+.mayoreo-wrap{position:relative;border-radius:12px;overflow:hidden;min-height:420px;display:flex;align-items:center;border:1.5px solid rgba(192,90,58,.2)}
+.mayoreo-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mayoreo-ov{position:absolute;inset:0;background:linear-gradient(108deg,rgba(30,15,8,.95) 0%,rgba(30,15,8,.72) 52%,rgba(30,15,8,.18) 100%)}
+.mayoreo-content{position:relative;z-index:2;padding:3.2rem}
+.pps{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:1.6rem}
+.pp{background:rgba(255,255,255,.07);border:1px solid rgba(192,90,58,.3);border-radius:5px;padding:.85rem 1.2rem;text-align:center;backdrop-filter:blur(4px);transition:.2s}
+.pp:hover{background:rgba(192,90,58,.15);border-color:var(--rl)}
+.pp-v{font-family:'Bebas Neue',sans-serif;font-size:1.65rem;color:var(--rl);letter-spacing:.04em;line-height:1}
+.pp-l{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:.2rem}
+
+/* ── TICKER ── */
+.ticker{background:rgba(255,255,255,.03);overflow:hidden;padding:.5rem 0;border-top:1px solid rgba(192,90,58,.12);border-bottom:1px solid rgba(192,90,58,.12)}
+.ticker-t{display:flex;width:max-content;animation:tk 26s linear infinite}
+.ticker-t:hover{animation-play-state:paused}
+.ticker-i{font-family:'Bebas Neue',sans-serif;font-size:.75rem;letter-spacing:.22em;color:rgba(255,255,255,.28);padding:0 1.8rem;white-space:nowrap}
+.ticker-d{color:var(--rl)}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── TESTIMONIOS ── */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.rev-card{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:9px;padding:1.7rem 1.5rem;transition:.3s}
+.rev-card:hover{border-color:rgba(192,90,58,.4)}
+.rev-stars{color:var(--rl);font-size:.82rem;margin-bottom:.65rem}
+.rev-text{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:1rem;font-style:italic}
+.rev-name{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.rev-tela{font-size:.66rem;color:rgba(255,255,255,.3);margin-top:.1rem}
+
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.blog-card{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:9px;overflow:hidden;transition:.3s;display:block}
+.blog-card:hover{border-color:rgba(192,90,58,.4);transform:translateY(-3px)}
+.blog-body{padding:1.4rem}
+.blog-cat{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rl);margin-bottom:.5rem}
+.blog-t{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;color:#fff;margin-bottom:.4rem;line-height:1.12}
+.blog-ex{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:.8rem}
+.blog-lnk{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rl)}
+
+/* ── CONTACTO ── */
+.cto-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.map-wrap{border-radius:9px;overflow:hidden;border:1.5px solid var(--card-border)}
+.info-list{display:flex;flex-direction:column;gap:.9rem}
+.info-row{display:flex;gap:.85rem;align-items:flex-start}
+.info-ico{width:38px;height:38px;background:rgba(192,90,58,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--rl)}
+.info-l{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.14rem}
+.info-v{font-size:.86rem;font-weight:500;color:rgba(255,255,255,.75)}
+
+/* ── FAQ ── */
+.faq-list{max-width:740px;margin:0 auto;display:flex;flex-direction:column;gap:.6rem}
+.faq-item{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:7px;overflow:hidden;transition:.2s}
+.faq-item:hover{border-color:rgba(192,90,58,.3)}
+.faq-item.open{border-color:rgba(192,90,58,.5)}
+.faq-q{padding:.95rem 1.2rem;font-weight:600;font-size:.86rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;color:rgba(255,255,255,.75);transition:.2s}
+.faq-q:hover{color:#fff}
+.faq-q svg{color:var(--rl);flex-shrink:0;transition:.3s}
+.faq-a{display:none;padding:0 1.2rem .85rem;font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.72}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-item.open .faq-q{color:#fff}
+
+/* ── CTA FINAL ── */
+.cta-final{text-align:center;padding:5.5rem 5%;background:var(--mid)}
+
+/* ── FOOTER ── */
+footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192,90,58,.2)}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.f-name{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.18em;color:#fff}
+.f-name span{color:var(--rl)}
+.f-tag{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:.8rem}
+.f-desc{font-size:.76rem;color:rgba(255,255,255,.3);line-height:1.72}
+.f-col h4{font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:.85rem}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:.46rem}
+.f-col a{font-size:.76rem;color:rgba(255,255,255,.38);transition:.2s}
+.f-col a:hover{color:var(--rl)}
+.f-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.f-copy{font-size:.68rem;color:rgba(255,255,255,.2)}
+.f-leg{display:flex;gap:1.3rem}
+.f-leg a{font-size:.66rem;color:rgba(255,255,255,.2);transition:.2s}
+.f-leg a:hover{color:var(--rl)}
+
+/* ── FLOATING BUTTONS ── */
+.float-btns{position:fixed;right:1.5rem;bottom:5rem;display:flex;flex-direction:column;gap:.7rem;z-index:889}
+.float-btn{width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:.25s}
+.float-btn:hover{transform:scale(1.1)}
+.wha-btn{background:#25D366}
+.top-btn{background:var(--rl);opacity:0;pointer-events:none}
+.top-btn.visible{opacity:1;pointer-events:all}
+
+/* ── CART / MODAL ── */
+.cart-ov{position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.65);opacity:0;pointer-events:none;transition:.3s}
+.cart-ov.show{opacity:1;pointer-events:all}
+.cart-drawer{position:fixed;top:0;right:-420px;width:420px;max-width:95vw;height:100vh;background:var(--mid);z-index:1002;display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.4);transition:right .35s cubic-bezier(.4,0,.2,1)}
+.cart-drawer.open{right:0}
+.cart-head{padding:1rem 1.2rem;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;background:var(--dark)}
+.cart-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.08em;color:#fff}
+.cart-close{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.5);font-size:1.3rem;line-height:1;transition:.2s}
+.cart-close:hover{color:#fff}
+.cart-items{flex:1;overflow-y:auto;padding:.85rem}
+.cart-item{display:flex;gap:.65rem;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.08);align-items:center}
+.cart-item-name{font-weight:600;font-size:.8rem;color:#fff}
+.cart-item-color{font-size:.7rem;color:rgba(255,255,255,.45)}
+.cart-item-qty{display:flex;align-items:center;gap:.35rem;margin-top:.22rem}
+.qty-btn{width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);cursor:pointer;font-size:.75rem;display:flex;align-items:center;justify-content:center;color:#fff;transition:.2s}
+.qty-btn:hover{background:var(--rl);border-color:var(--rl)}
+.qty-val{font-size:.78rem;font-weight:600;min-width:18px;text-align:center;color:#fff}
+.cart-remove{margin-left:auto;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.2);font-size:.95rem;transition:.2s}
+.cart-remove:hover{color:var(--rl)}
+.cart-empty{text-align:center;padding:2.5rem 1rem;color:rgba(255,255,255,.3);font-size:.85rem}
+.cart-form-section{padding:.85rem 1.2rem;border-top:2px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2)}
+.cot-form label{font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.22rem;display:block}
+.cot-form input,.cot-form select,.cot-form textarea{width:100%;border:1.5px solid rgba(255,255,255,.12);border-radius:3px;padding:.5rem .72rem;font-size:.82rem;font-family:'DM Sans',sans-serif;color:#fff;background:rgba(255,255,255,.06);transition:.2s;margin-bottom:.55rem}
+.cot-form input:focus,.cot-form select:focus,.cot-form textarea:focus{outline:none;border-color:var(--rl)}
+.cot-form select option{background:var(--dark);color:#fff}
+.cot-form .rg{display:flex;gap:.85rem;margin-bottom:.55rem}
+.cot-form .rg label{font-size:.78rem;font-weight:400;text-transform:none;letter-spacing:0;display:flex;align-items:center;gap:.28rem;cursor:pointer;color:rgba(255,255,255,.6)}
+.btn-full{width:100%;background:var(--rl);color:#fff;padding:.82rem;border:none;border-radius:3px;font-weight:700;font-size:.86rem;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif}
+.btn-full:hover{background:var(--rust)}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:950;background:rgba(0,0,0,.75);opacity:0;pointer-events:none;transition:.3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.product-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-48%) scale(.96);z-index:951;width:90vw;max-width:720px;max-height:88vh;overflow-y:auto;background:var(--mid);border-radius:10px;padding:1.7rem;border:1.5px solid rgba(192,90,58,.2);box-shadow:0 20px 60px rgba(0,0,0,.5);transition:.3s;opacity:0;pointer-events:none}
+.product-modal.open{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:all}
+.modal-close{position:absolute;top:.85rem;right:.85rem;background:rgba(255,255,255,.08);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:.2s}
+.modal-close:hover{background:var(--rl);color:#fff}
+.modal-sheet{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.modal-img{aspect-ratio:1;border-radius:7px;overflow:hidden}
+.modal-img img{width:100%;height:100%;object-fit:cover}
+.modal-name{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:.04em;color:#fff;margin-bottom:.22rem}
+.modal-comp{font-size:.73rem;color:rgba(255,255,255,.4);margin-bottom:.85rem}
+.ms-row{display:flex;justify-content:space-between;padding:.32rem 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.77rem}
+.ms-lbl{color:rgba(255,255,255,.4)}.ms-val{font-weight:600;color:#fff}
+.ms-usos-ttl{font-size:.61rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin:.85rem 0 .42rem}
+.ms-chips{display:flex;flex-wrap:wrap;gap:.32rem}
+.ms-chip{font-size:.64rem;background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);padding:.2rem .52rem;border-radius:2px;border:1px solid rgba(255,255,255,.1)}
+.modal-col-lbl{font-size:.61rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin:.85rem 0 .38rem}
+.modal-col-select{width:100%;border:1.5px solid rgba(255,255,255,.14);border-radius:3px;padding:.45rem .62rem;font-size:.8rem;font-family:'DM Sans',sans-serif;background:rgba(255,255,255,.07);color:#fff;margin-bottom:.42rem}
+.modal-col-select option{background:var(--dark)}
+.modal-otro-color-wrap{display:none;margin-bottom:.42rem}
+.modal-otro-color-input{width:100%;border:1.5px solid var(--rl);border-radius:3px;padding:.45rem .62rem;font-size:.8rem;font-family:'DM Sans',sans-serif;background:rgba(192,90,58,.1);color:#fff}
+.modal-qty-row{display:flex;align-items:center;gap:.72rem;margin:.85rem 0}
+.modal-qty-lbl{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.modal-qty-input{width:72px;border:1.5px solid rgba(255,255,255,.14);border-radius:3px;padding:.4rem .62rem;font-size:.86rem;text-align:center;background:rgba(255,255,255,.07);color:#fff}
+.modal-qty-unit{font-size:.74rem;color:rgba(255,255,255,.4);font-weight:600}
+.modal-add-btn{width:100%;background:var(--rl);color:#fff;border:none;border-radius:3px;padding:.82rem;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:.2s;margin-top:.38rem}
+.modal-add-btn:hover{background:var(--rust)}
+.modal-err{font-size:.72rem;color:var(--rl);margin-top:.22rem;min-height:.85rem}
+.modal-min-note{font-size:.66rem;color:rgba(255,255,255,.35);margin-bottom:.22rem}
+/* CONFIRM */
+#confirm-banner{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:2rem;animation:cbIn .32s ease}
+@keyframes cbIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.cb-inner{background:var(--mid);border:1.5px solid rgba(192,90,58,.3);border-radius:11px;padding:2.8rem 2.2rem;max-width:490px;width:100%;text-align:center;position:relative}
+.cb-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--rust),var(--rl));border-radius:11px 11px 0 0}
+.cb-icon svg{stroke:var(--rl)}
+.cb-title{font-family:'Bebas Neue',sans-serif;font-size:1.85rem;letter-spacing:.08em;color:#fff;margin:1rem 0 .65rem}
+.cb-sub{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:.85rem}.cb-sub strong{color:var(--rl)}
+.cb-note{font-size:.74rem;color:rgba(255,255,255,.35);margin-bottom:1.3rem;line-height:1.6}
+.cb-note a{color:var(--rl);font-weight:600}
+.cb-close{background:var(--rl);color:#fff;border:none;padding:.68rem 2rem;border-radius:3px;font-family:'Bebas Neue',sans-serif;font-size:.92rem;letter-spacing:.12em;cursor:pointer;transition:.2s}
+.cb-close:hover{background:var(--rust)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){.p-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){.p-grid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(2,1fr)}.f-grid{grid-template-columns:1fr 1fr}.nums-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .site-nav .nav-links{display:none}.ham{display:flex}
+  .hero{min-height:82vh}.hero-mini-stats{display:none}
+  .sec{padding:3.5rem 5%}.about-wrap{padding:0}
+  .rev-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}
+  .cto-grid{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr}
+  .modal-sheet{grid-template-columns:1fr}.p-grid{grid-template-columns:repeat(2,1fr)}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}.nums-grid{grid-template-columns:1fr 1fr}
+  .sticky-cta{padding:.8rem 4%}.sticky-cta-txt{font-size:.88rem}
+  .info-cards{grid-template-columns:1fr}
+}
+@media(max-width:480px){.hero-h1{font-size:3.2rem}.p-grid{grid-template-columns:repeat(2,1fr)}.nums-grid{grid-template-columns:1fr 1fr}}
+
+/* ── SELLOS ── */
+.seals-section{background:var(--mid);padding:2.8rem 5%;border-top:1px solid rgba(192,90,58,.15);border-bottom:1px solid rgba(192,90,58,.15)}
+.seals-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:nowrap;overflow:hidden}
+.seal{opacity:0;transform:scale(.7) translateY(20px);transition:opacity .6s ease,transform .6s cubic-bezier(.34,1.56,.64,1);transition-delay:var(--delay,0s)}
+.seal.visible{opacity:1;transform:scale(1) translateY(0)}
+.seal-ring{position:relative;width:108px;height:108px;display:flex;align-items:center;justify-content:center}
+.seal-svg{position:absolute;inset:0;width:100%;height:100%;animation:sealSpin 20s linear infinite}
+@keyframes sealSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.seal:hover .seal-svg{animation-play-state:paused}
+.seal-inner{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.seal-inner svg{margin-bottom:.2rem}
+.seal-num{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#fff;letter-spacing:.05em;line-height:1}
+.seal-txt{font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);line-height:1.35;text-align:center}
+.seal:hover .seal-num{color:var(--rl);transition:.2s}
+@media(max-width:600px){.seal-ring{width:62px;height:62px}.seal-num{font-size:1rem}.seal-inner svg{width:18px;height:18px}.seal-txt{font-size:.45rem;letter-spacing:.06em}}
+
+/* ── ANIMACIONES SCROLL ── */
+/* Reveal base */
+.rv{opacity:0;transition:opacity .75s ease,transform .75s cubic-bezier(.25,.46,.45,.94)}
+.rv-up{transform:translateY(50px)}
+.rv-left{transform:translateX(-60px)}
+.rv-right{transform:translateX(60px)}
+.rv-scale{transform:scale(.88)}
+.rv-rot{transform:translateY(40px) rotate(-3deg)}
+.rv.in{opacity:1;transform:none}
+
+/* Stagger para grids */
+.rv-stagger > *{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s cubic-bezier(.25,.46,.45,.94)}
+.rv-stagger.in > *:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.rv-stagger.in > *:nth-child(2){opacity:1;transform:none;transition-delay:.12s}
+.rv-stagger.in > *:nth-child(3){opacity:1;transform:none;transition-delay:.19s}
+.rv-stagger.in > *:nth-child(4){opacity:1;transform:none;transition-delay:.26s}
+.rv-stagger.in > *:nth-child(5){opacity:1;transform:none;transition-delay:.33s}
+.rv-stagger.in > *:nth-child(n+6){opacity:1;transform:none;transition-delay:.38s}
+
+/* Parallax hero */
+.hero-bg{will-change:transform}
+
+/* Línea decorativa animada */
+.sec-h-line{display:inline-block;position:relative;overflow:hidden}
+.sec-h-line::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--rl);transition:width .9s cubic-bezier(.25,.46,.45,.94) .3s}
+.sec-h-line.in::after{width:100%}
+
+/* Split title */
+.split-title{overflow:hidden;display:block}
+.split-title span{display:inline-block;transform:translateY(110%);transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.split-title.in span{transform:translateY(0)}
+.split-title.in span:nth-child(2){transition-delay:.08s}
+.split-title.in span:nth-child(3){transition-delay:.14s}
+
+/* Número animado marquee */
+@keyframes countUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+
+/* Progress bar decorativa en sección mayoreo */
+.progress-bar-wrap{margin-top:1.4rem;display:flex;flex-direction:column;gap:.6rem}
+.pbar{display:flex;align-items:center;gap:.8rem}
+.pbar-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);min-width:120px}
+.pbar-track{flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.pbar-fill{height:100%;background:linear-gradient(90deg,var(--rl),#E88060);border-radius:2px;width:0;transition:width 1.4s cubic-bezier(.25,.46,.45,.94)}
+.pbar-val{font-family:'Bebas Neue',sans-serif;font-size:.85rem;color:var(--rl);min-width:36px;text-align:right}
+
+/* Imagen parallax en categorías */
+.cat-card .cat-card-img-wrap{overflow:hidden;width:100%;height:100%}
+.cat-card img{transition:transform .6s ease}
+.cat-card:hover img{transform:scale(1.09)}
+
+/* Borde animado en cards hover */
+.p-card::before{content:'';position:absolute;inset:-1px;border-radius:9px;background:linear-gradient(135deg,var(--rl),transparent,var(--rl));opacity:0;transition:opacity .3s;z-index:-1}
+.p-card:hover::before{opacity:.4}
+.p-card{position:relative}
+
+
+/* ── CARRUSEL PRODUCTOS ── */
+.cr-wrap{position:relative;overflow:hidden;touch-action:pan-y;margin:0 -1rem}
+.cr-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);will-change:transform}
+.cr-slide{flex:0 0 calc(100%/4);min-width:calc(100%/4);padding:0 .5rem;box-sizing:border-box}
+.cr-btn{position:absolute;top:38%;transform:translateY(-50%);background:rgba(30,15,8,.75);border:1.5px solid rgba(192,90,58,.35);color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(4px);transition:.2s;padding:0}
+.cr-btn:hover{background:var(--rl);border-color:var(--rl)}
+.cr-prev{left:.2rem}.cr-next{right:.2rem}
+.cr-dots{display:flex;justify-content:center;gap:.4rem;margin-top:1.2rem;flex-wrap:wrap}
+.cr-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.15);border:none;cursor:pointer;padding:0;transition:.3s}
+.cr-dot.active{background:var(--rl);transform:scale(1.35)}
+@media(max-width:900px){.cr-slide{flex:0 0 calc(100%/3);min-width:calc(100%/3)}}
+@media(max-width:600px){.cr-slide{flex:0 0 calc(100%/2);min-width:calc(100%/2)}}
+
+
+@media(max-width:700px){
+  #contacto .wrap > div:nth-child(2){grid-template-columns:1fr!important}
 }
 
-/* === NAV === */
-.site-nav{position:sticky;top:0;z-index:900;height:72px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(30,15,8,.97);border-bottom:2px solid var(--rl)}
-.nav-logo{display:flex;align-items:center;gap:.8rem}
-.nav-logo svg{width:36px;height:36px;flex-shrink:0}
-.logo-text{display:flex;flex-direction:column;line-height:1}
-.logo-main{font-family:var(--fd);font-size:1.3rem;letter-spacing:.16em;color:var(--rl)}
-.logo-sub{font-family:var(--fd);font-size:.5rem;letter-spacing:.22em;color:var(--rl);margin-top:.1rem;opacity:.7}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-family:var(--fd);font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--rl)}
-.nav-cta{background:var(--rl);color:#fff;font-family:var(--fd);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem 1.6rem;border-radius:2px;transition:background .2s}
-.nav-cta:hover{background:var(--rust)}
-.nav-hb{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.nav-hb span{width:26px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;display:block}
-.nav-mob{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--off);z-index:899;flex-direction:column;padding:2rem 6%;overflow-y:auto}
-.nav-mob.open{display:flex}
-.nav-mob a{font-family:var(--fd);font-size:2rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);padding:1rem 0;border-bottom:1px solid var(--border)}
-.nav-mob a:hover,.nav-mob a.active{color:var(--rl)}
-.nav-mob-cta{margin-top:1.5rem;background:var(--rl)!important;color:#fff!important;text-align:center;border-radius:4px}
-@media(max-width:768px){.nav-links,.nav-cta{display:none}.nav-hb{display:flex}}
 
-/* === MAPA + INFO FOOTER === */
-.footer-map-section{display:grid;grid-template-columns:1fr 1fr;background:var(--dark);min-height:320px}
-@media(max-width:768px){.footer-map-section{grid-template-columns:1fr}}
-.footer-map-wrap{overflow:hidden}
-.footer-map-wrap iframe{width:100%;height:100%;min-height:320px;border:0;display:block;filter:grayscale(20%) sepia(15%)}
-.footer-map-info{padding:3rem 3rem;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(192,90,58,.2)}
-@media(max-width:768px){.footer-map-info{padding:2.5rem 6%;border-left:none;border-top:1px solid rgba(192,90,58,.2)}}
-.fmi-tag{font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--rl);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
-.fmi-tag::before{content:'';width:24px;height:2px;background:var(--rl);flex-shrink:0}
-.fmi-title{font-family:var(--fd);font-size:2.8rem;line-height:.92;letter-spacing:.04em;color:#fff;margin-bottom:1.5rem}
-.fmi-title span{color:var(--rl)}
-.fmi-items{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.8rem}
-.fmi-row{display:flex;align-items:flex-start;gap:.85rem;font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.5}
-.fmi-row svg{width:18px;height:18px;flex-shrink:0;stroke:var(--rl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:.15rem}
-.fmi-row a{color:rgba(255,255,255,.55);transition:color .2s}
-.fmi-row a:hover{color:var(--rl)}
-.fmi-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--rl);color:#fff;font-family:var(--fd);font-size:1rem;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.8rem;border-radius:2px;transition:background .2s;align-self:flex-start}
-.fmi-btn:hover{background:var(--rust)}
-
-/* === FOOTER === */
-.site-footer{background:var(--dark);border-top:1px solid rgba(192,90,58,.15)}
-.footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:3rem;padding:4rem 5% 3rem}
-@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
-@media(max-width:500px){.footer-grid{grid-template-columns:1fr;gap:2rem;padding:2.5rem 5%}}
-.footer-brand-name{font-family:var(--fd);font-size:1.8rem;letter-spacing:.15em;color:var(--rl);margin-bottom:.3rem}
-.footer-brand-sub{font-family:var(--fd);font-size:.52rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:1rem}
-.footer-brand-desc{font-size:.85rem;color:rgba(255,255,255,.28);line-height:1.8}
-.footer-col-ttl{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:1rem}
-.footer-col-links{display:flex;flex-direction:column;gap:.55rem}
-.footer-col-links a,.footer-col-links span{font-size:.85rem;color:rgba(255,255,255,.28)}
-.footer-col-links a:hover{color:var(--rl)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1.2rem 5%;border-top:1px solid rgba(192,90,58,.08)}
-.footer-copy{font-size:.73rem;color:rgba(255,255,255,.18)}
-.footer-policy{display:flex;gap:1.5rem}
-.footer-policy a{font-size:.73rem;color:rgba(255,255,255,.22)}
-.footer-policy a:hover{color:var(--rl)}
-
-/* === CARRITO === */
-.cart-fab{position:fixed;bottom:2rem;right:2rem;z-index:1100;width:60px;height:60px;border-radius:50%;background:var(--rl);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(192,90,58,.55);transition:transform .2s,background .2s}
-.cart-fab:hover{transform:scale(1.1);background:var(--rust)}
-.cart-fab svg{width:25px;height:25px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.cart-badge{position:absolute;top:-5px;right:-5px;width:24px;height:24px;border-radius:50%;background:var(--dark);color:var(--rl);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid var(--rl);opacity:0;transform:scale(0);transition:all .2s}
-.cart-badge.show{opacity:1;transform:scale(1)}
-.cart-ov{position:fixed;inset:0;z-index:900;background:rgba(30,15,8,.65);opacity:0;pointer-events:none;transition:opacity .3s}
-.cart-ov.show{opacity:1;pointer-events:all}
-.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100vw;z-index:1001;background:var(--off);box-shadow:-8px 0 40px rgba(30,15,8,.3);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
-.cart-drawer.open{transform:translateX(0)}
-.cart-head{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 1.8rem;border-bottom:1px solid var(--border);background:var(--dark);flex-shrink:0}
-.cart-ttl{font-family:var(--fd);font-size:1.5rem;letter-spacing:.12em;color:#fff}
-.cart-close{width:36px;height:36px;border-radius:50%;background:rgba(192,90,58,.15);border:none;cursor:pointer;color:var(--rl);font-size:1.5rem;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1}
-.cart-close:hover{background:rgba(192,90,58,.3)}
-.cart-items-wrap{flex:1;overflow-y:auto;padding:1.5rem 1.8rem}
-.cart-empty{text-align:center;padding:3rem 0;color:var(--muted)}
-.cart-empty svg{width:52px;height:52px;stroke:var(--border);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 1rem}
-.cart-empty p{font-size:.95rem;line-height:1.7}
-.cart-empty a{color:var(--rl);font-weight:600}
-.cart-item{display:grid;grid-template-columns:1fr auto;gap:.75rem;padding:1.1rem 0;border-bottom:1px solid var(--border)}
-.cart-item-name{font-weight:600;font-size:.97rem;color:var(--dark);margin-bottom:.25rem}
-.cart-item-detail{font-size:.8rem;color:var(--muted);margin-bottom:.55rem}
-.cart-item-qty{display:flex;align-items:center;gap:.5rem}
-.qty-btn{width:30px;height:30px;border-radius:2px;background:var(--warm);border:none;cursor:pointer;font-size:1.1rem;color:var(--mid);transition:background .2s;display:flex;align-items:center;justify-content:center;font-weight:500}
-.qty-btn:hover{background:var(--rl);color:#fff}
-.qty-val{font-size:.95rem;font-weight:700;min-width:54px;text-align:center}
-.cart-rm{align-self:start;background:none;border:none;cursor:pointer;color:var(--border);transition:color .2s;padding:4px}
-.cart-rm:hover{color:var(--rust)}
-.cart-foot{padding:1.5rem 1.8rem;border-top:1px solid var(--border);background:#fff;flex-shrink:0}
-.cart-sum{font-size:.85rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.65;border-left:3px solid var(--rl);padding-left:.85rem}
-.cot-form{display:flex;flex-direction:column;gap:.9rem}
-.cot-form>div{display:flex;flex-direction:column;gap:.32rem}
-.cot-form label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.cot-form input,.cot-form textarea{border:1.5px solid var(--border);border-radius:3px;padding:.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--dark);background:#fff;outline:none;transition:border-color .2s}
-.cot-form input:focus,.cot-form textarea:focus{border-color:var(--rl)}
-.cot-form input::placeholder,.cot-form textarea::placeholder{color:var(--border)}
-.cot-form textarea{min-height:72px;resize:vertical}
-.btn-primary-cot{width:100%;background:var(--rl);color:#fff;font-family:var(--fd);font-size:1rem;letter-spacing:.14em;text-transform:uppercase;padding:1rem;border-radius:2px;border:none;cursor:pointer;transition:background .2s}
-.btn-primary-cot:hover{background:var(--rust)}
-.notif{position:fixed;bottom:7rem;right:2rem;z-index:1100;background:var(--dark);color:#fff;padding:1rem 1.5rem;border-radius:6px;font-size:.9rem;border-left:3px solid var(--rl);box-shadow:0 8px 32px rgba(0,0,0,.3);transform:translateX(130%);opacity:0;transition:transform .3s,opacity .3s;max-width:280px;line-height:1.5;pointer-events:none}
-.notif.show{transform:translateX(0);opacity:1;pointer-events:auto}
-
-/* === BTNS GENERALES === */
-.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--rl);color:#fff;font-family:var(--fd);font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2.2rem;border-radius:2px;border:none;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 4px 16px rgba(192,90,58,.35)}
-.btn-primary:hover{background:var(--rust);transform:translateY(-1px)}
-.btn-outline{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--rl);font-family:var(--fd);font-size:1rem;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 2rem;border-radius:2px;border:2px solid var(--rl);cursor:pointer;transition:all .2s}
-.btn-outline:hover{background:var(--rl);color:#fff}
-.eyebrow{display:inline-flex;align-items:center;gap:.75rem;font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--rl);margin-bottom:.85rem}
-.eyebrow::before{content:'';width:28px;height:2px;background:var(--rl);flex-shrink:0}
-.section-h{font-family:var(--fs);font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1.08;color:var(--dark);margin-bottom:1rem}
-.section-h em{font-style:italic;color:var(--rl)}
-.section-h.light{color:#fff}
-.lead{font-size:1.05rem;color:var(--muted);line-height:1.9;max-width:540px}
-.center-block{display:flex;flex-direction:column;align-items:center;text-align:center}
-.section{padding:5rem 5%}
-.breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:rgba(255,255,255,.32);margin-bottom:1.2rem;flex-wrap:wrap}
-.breadcrumb a{color:rgba(255,255,255,.32)}
-.breadcrumb a:hover,.breadcrumb .cur{color:var(--rl)}
-.ticker{background:var(--rl);overflow:hidden;padding:.65rem 0}
-.ticker-track{display:flex;animation:ticker 32s linear infinite;width:max-content}
-.ticker-track:hover{animation-play-state:paused}
-.ticker-item{display:flex;align-items:center;gap:1.5rem;font-family:var(--fd);font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.92);padding:0 2.8rem;white-space:nowrap}
-.ticker-dot{color:rgba(255,255,255,.3);font-size:.4rem}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s}
-.reveal.up{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
-.cta-band{background:var(--rl);padding:4rem 5%;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.cta-band-ttl{font-family:var(--fd);font-size:clamp(2rem,4vw,3.2rem);color:#fff;letter-spacing:.04em;line-height:1}
-.cta-band-sub{font-size:1rem;color:rgba(255,255,255,.65);margin-top:.35rem}
-.page-hero{background:var(--dark);padding:5rem 5% 4rem;position:relative;overflow:hidden}
-.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,90,58,.08),transparent)}
-.page-hero-inner{position:relative;z-index:1}
-
-.blog-hero{background:#1E0F08;padding:5rem 5% 4rem;position:relative;overflow:hidden}
-.blog-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,90,58,.08),transparent)}
-.blog-hero-inner{position:relative;z-index:1}
-.blog-page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem}
-@media(max-width:600px){.blog-page-grid{grid-template-columns:1fr}}
-.blog-page-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #DDD5C8;transition:transform .25s,box-shadow .25s;display:block}
-.blog-page-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(30,15,8,.14)}
-.blog-page-img{aspect-ratio:16/9;overflow:hidden}
-.blog-page-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.blog-page-card:hover .blog-page-img img{transform:scale(1.04)}
-.blog-page-body{padding:1.8rem}
-.blog-page-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:.85rem;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.blog-page-cat{color:#C05A3A}
-.blog-page-date{color:#8A7060}
-.blog-page-title{font-family:'DM Serif Display',serif;font-size:1.35rem;color:#1E0F08;line-height:1.35;margin-bottom:.8rem}
-.blog-page-exc{font-size:.92rem;color:#8A7060;line-height:1.7;margin-bottom:1.2rem}
-.blog-page-read{font-size:.85rem;font-weight:700;color:#C05A3A}
-
-.wa-fab{position:fixed;bottom:2rem;left:2rem;z-index:800;width:56px;height:56px;border-radius:50%;
-  background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s,background .2s}
-.wa-fab:hover{transform:scale(1.1);background:#1ebe5d}
-</style>
-</head>
-<body>
+.ph{background:var(--dark);padding:3.8rem 5% 2.8rem;border-bottom:1px solid rgba(192,90,58,.15)}
+.ph-inner{max-width:960px;margin:0 auto}
+.bc{display:flex;align-items:center;gap:.45rem;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1rem;flex-wrap:wrap}
+.bc a{color:rgba(255,255,255,.28);text-decoration:none;transition:.2s}.bc a:hover{color:var(--rl)}
+.bc-sep{color:rgba(255,255,255,.15)}
+.ph-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,5vw,4.2rem);letter-spacing:.03em;color:#fff;line-height:.92;margin-bottom:.7rem}
+.ph-h1 em{color:var(--rl);font-style:normal}
+.ph-lead{font-size:.96rem;color:rgba(255,255,255,.45);line-height:1.8;font-weight:300;max-width:600px}
+.pb{background:var(--dark);padding:3.5rem 5% 5rem}
+.pb-inner{max-width:960px;margin:0 auto}
+.pb-inner h2{font-family:'Bebas Neue',sans-serif;font-size:1.85rem;letter-spacing:.04em;color:#fff;margin:2.2rem 0 .7rem;padding-bottom:.5rem;border-bottom:1px solid rgba(192,90,58,.15)}
+.pb-inner h2 em{color:var(--rl);font-style:normal}
+.pb-inner h3{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:.04em;color:rgba(255,255,255,.8);margin:1.6rem 0 .5rem}
+.pb-inner p{font-size:.92rem;color:rgba(255,255,255,.5);line-height:1.88;margin-bottom:1.1rem}
+.pb-inner ul,.pb-inner ol{margin:.5rem 0 1rem 1.3rem;display:flex;flex-direction:column;gap:.45rem}
+.pb-inner li{font-size:.9rem;color:rgba(255,255,255,.48);line-height:1.72}
+.pb-inner strong{color:rgba(255,255,255,.82);font-weight:600}
+.pb-inner a{color:var(--rl)}
+.pb-inner hr{border:none;border-top:1px solid rgba(255,255,255,.07);margin:2rem 0}
+.blog-card-lg{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:10px;overflow:hidden;transition:.3s;display:block;text-decoration:none;margin-bottom:1.4rem}
+.blog-card-lg:hover{border-color:rgba(192,90,58,.5);transform:translateY(-2px)}
+.blog-card-lg-body{padding:1.6rem 1.5rem}
+.blog-card-lg-cat{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rl);margin-bottom:.5rem}
+.blog-card-lg-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.04em;color:#fff;margin-bottom:.45rem;line-height:1.1}
+.blog-card-lg-excerpt{font-size:.84rem;color:rgba(255,255,255,.45);line-height:1.65;margin-bottom:.9rem}
+.blog-card-lg-link{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--rl)}
+/* artículo blog */
+.article-body{max-width:740px}
+.article-body h2{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:.04em;color:#fff;margin:2.2rem 0 .65rem;padding-bottom:.4rem;border-bottom:1px solid rgba(192,90,58,.12)}
+.article-body h2 em{color:var(--rl);font-style:normal}
+.article-body h3{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;color:rgba(255,255,255,.8);margin:1.5rem 0 .5rem}
+.article-body p{font-size:.93rem;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:1.1rem}
+.article-body ul,.article-body ol{margin:.5rem 0 1.1rem 1.3rem;display:flex;flex-direction:column;gap:.45rem}
+.article-body li{font-size:.9rem;color:rgba(255,255,255,.48);line-height:1.72}
+.article-body strong{color:rgba(255,255,255,.82)}
+.article-body a{color:var(--rl)}
+.article-body blockquote{border-left:3px solid var(--rl);padding:.8rem 1.2rem;margin:1.5rem 0;background:rgba(192,90,58,.06);border-radius:0 6px 6px 0}
+.article-body blockquote p{color:rgba(255,255,255,.6);font-style:italic;margin:0}
+.info-card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:1.5rem 0}
+.ic2{background:var(--card-bg);border:1.5px solid var(--card-border);border-radius:9px;padding:1.4rem 1.3rem}
+.ic2-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.07em;color:#fff;margin-bottom:.45rem}
+.ic2-text{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65}
+@media(max-width:600px){.info-card-grid{grid-template-columns:1fr}}
+</style></head><body>
 <nav class="site-nav">
-  <a href="index.html" class="nav-logo">
-    <svg viewBox="0 0 100 100" fill="none"><polyline points="10,52 50,12 90,52" stroke="#C05A3A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,44 22,88 78,88 78,44" stroke="#C05A3A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div class="logo-text"><div class="logo-main">BEITEX</div><div class="logo-sub">LA CASA DEL TEXTIL</div></div>
-  </a>
-  <ul class="nav-links"><li><a href="index.html">Inicio</a></li><li><a href="catalogo.html">Catálogo</a></li><li><a href="blog.html" class="active">Blog</a></li><li><a href="contacto.html">Contacto</a></li></ul>
-  <a href="contacto.html" class="nav-cta">Mayoreo</a>
-  <button class="nav-hb" id="nav-hb"><span></span><span></span><span></span></button>
+  <a href="./index.html" class="nav-logo">BEITEX<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="./index.html" style="color:var(--rl)">Inicio</a></li>
+    <li><a href="./catalogo.html">Catálogo</a></li>
+    <li><a href="./blog.html">Blog</a></li>
+    <li><a href="./contacto.html">Contacto</a></li>
+    <li><a href="./catalogo.html" class="nav-cta">Cotizar →</a></li>
+  </ul>
+  <div class="nav-icons">
+    <button class="nav-icon-btn" onclick="openCart()" aria-label="Cotización">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge" id="cart-badge">0</span>
+    </button>
+    <button class="ham" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
-<nav class="nav-mob" id="nav-mob"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="blog.html" class="active">Blog</a><a href="contacto.html">Contacto</a><a href="contacto.html" class="nav-mob-cta">Mayoreo</a></nav>
-<section class="blog-hero">
-  <div class="blog-hero-inner">
-    <div class="eyebrow" style="color:rgba(192,90,58,.6)">Noticias y consejos</div>
-    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,5.5rem);line-height:.9;letter-spacing:.03em;color:#fff;margin-top:.4rem">EL BLOG<br/><span style="color:#C05A3A">DE BEITEX</span></h1>
-    <p style="font-size:1rem;color:rgba(255,255,255,.42);margin-top:1rem;max-width:480px;line-height:1.8">Guías, procesos y novedades del mundo textil. Aprende con quienes fabrican.</p>
-  </div>
-</section>
-<section class="section" style="background:#F7F3EF">
-  <div class="blog-page-grid">
-    <a href="blog/tenido-de-textiles.html" class="blog-page-card reveal">
-      <div class="blog-page-img"><img src="img/blog/tenido-de-textiles.webp" alt="Teñido de textiles" loading="lazy"/></div>
-      <div class="blog-page-body">
-        <div class="blog-page-meta"><span class="blog-page-cat">Procesos</span><span>·</span><span class="blog-page-date">Marzo 2025</span></div>
-        <h2 class="blog-page-title">Teñido de textiles a la medida</h2>
-        <p class="blog-page-exc">Garantizamos precisión total en el color que necesites, sobre cualquier tipo de tela. Pedido mínimo 500 kg por tono.</p>
-        <span class="blog-page-read">Leer artículo →</span>
-      </div>
-    </a>
-    <a href="blog/capitonados.html" class="blog-page-card reveal d1">
-      <div class="blog-page-img"><img src="img/blog/capitonados.jpg" alt="Capitonados" loading="lazy"/></div>
-      <div class="blog-page-body">
-        <div class="blog-page-meta"><span class="blog-page-cat">Productos</span><span>·</span><span class="blog-page-date">Noviembre 2024</span></div>
-        <h2 class="blog-page-title">Capitonados a tu medida</h2>
-        <p class="blog-page-exc">Forros capitonados con hilo o ultrasonido para colchas, chamarras y más prendas de invierno con diseños a tu elección.</p>
-        <span class="blog-page-read">Leer artículo →</span>
-      </div>
-    </a>
-    <a href="blog/fabricacion-sobre-pedido.html" class="blog-page-card reveal d2">
-      <div class="blog-page-img"><img src="img/blog/fabricacion-sobre-pedido.webp" alt="Fabricación de telas" loading="lazy"/></div>
-      <div class="blog-page-body">
-        <div class="blog-page-meta"><span class="blog-page-cat">Fabricación</span><span>·</span><span class="blog-page-date">Julio 2024</span></div>
-        <h2 class="blog-page-title">Fabricamos tus telas favoritas</h2>
-        <p class="blog-page-exc">¿Necesitas una tela específica? Podemos fabricarla sobre pedido con tus especificaciones exactas de gramaje y composición.</p>
-        <span class="blog-page-read">Leer artículo →</span>
-      </div>
-    </a>
-  </div>
-</section>
-<div class="footer-map-section">
-  <div class="footer-map-wrap">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661793!2d-99.139268!3d19.432608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f96c1dc0a24d%3A0x4d9c3ca3b7bcd0f5!2sMargil%206%2C%20Centro%20Hist%C3%B3rico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1700000000000" allowfullscreen loading="lazy" title="Ubicación Textiles Beitex"></iframe>
-  </div>
-  <div class="footer-map-info">
-    <div class="fmi-tag">Visítanos</div>
-    <div class="fmi-title">TEXTILES<br/><span>BEITEX</span></div>
-    <div class="fmi-items">
-      <div class="fmi-row"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Margil #6 Local-1, Centro Histórico<br/>Ciudad de México, CDMX 06060</span></div>
-      <div class="fmi-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Lun–Vie 9:30am – 6:00pm<br/>Sábado 9:30am – 3:00pm</span></div>
-      <div class="fmi-row"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:5554911568">55-5491-1568</a></div>
-      <div class="fmi-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:ventas@textilesbeitex.mx">ventas@textilesbeitex.mx</a></div>
-    </div>
-    <a href="contacto.html" class="fmi-btn">Solicitar cotización →</a>
+<div class="mob-nav" id="mob">
+  <a href="./index.html">Inicio</a><a href="./catalogo.html">Catálogo</a>
+  <a href="./blog.html">Blog</a><a href="./contacto.html">Contacto</a>
+  <a href="./catalogo.html" style="color:var(--rl)">Cotizar ahora →</a>
+</div>
+
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta-txt"><strong>Textiles Beitex</strong> · Telas al mayoreo directo de fábrica</div>
+  <div class="sticky-cta-btns">
+    <a href="./catalogo.html" class="btn-p" style="padding:.65rem 1.4rem;font-size:.82rem">Ver catálogo →</a>
+    <a href="https://wa.me/525553513925?text=Hola%2C+me+interesa+cotizar+telas+al+mayoreo" target="_blank" class="btn-o" style="padding:.65rem 1.2rem;font-size:.82rem;border-color:rgba(255,255,255,.18)">WhatsApp</a>
   </div>
 </div>
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div><div class="footer-brand-name">TEXTILES BEITEX</div><div class="footer-brand-sub">La Casa del Textil · CDMX</div><p class="footer-brand-desc">Fabricantes y distribuidores directos de telas en Centro Histórico CDMX desde 2003. Envíos a toda la república.</p></div>
-    <div><div class="footer-col-ttl">Navegación</div><div class="footer-col-links"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="blog.html">Blog</a><a href="contacto.html">Contacto</a></div></div>
-    <div><div class="footer-col-ttl">Telas</div><div class="footer-col-links"><a href="catalogo.html">Felpa Nacional</a><a href="catalogo.html">Sportock</a><a href="catalogo.html">Premiere</a><a href="catalogo.html">Ver todas →</a></div></div>
-    <div><div class="footer-col-ttl">Legal</div><div class="footer-col-links"><a href="privacidad.html">Aviso de Privacidad</a><a href="no-cambios.html">No Cambios ni Devoluciones</a><a href="contacto.html">Contacto</a><span>Lun–Vie 9:30–18:00</span><span>Sáb 9:30–15:00</span></div></div>
+
+<div class="ph" id="hero"><div class="ph-inner">
+  <div class="bc"><a href="./index.html">Inicio</a><span class="bc-sep">›</span>Blog</div>
+  <h1 class="ph-h1">Blog <em>textil</em></h1>
+  <p class="ph-lead">Guías, consejos y todo lo que necesitas saber sobre telas al mayoreo.</p>
+</div></div>
+<div class="pb"><div class="pb-inner">
+<div class="blog-card-lg" href="./capitonados.html">
+  <a href="./capitonados.html" class="blog-card-lg" style="display:block">
+    <div class="blog-card-lg-body">
+      <div class="blog-card-lg-cat">Guía textil</div>
+      <div class="blog-card-lg-title">Capitonados a tu Medida: Todo lo que Necesitas Saber</div>
+      <p class="blog-card-lg-excerpt">Aprende todo sobre los capitonados textiles: qué son, los tipos de maquila disponibles, los dibujos más populares y cómo cotizarlos al mayoreo en CDMX.</p>
+      <div class="blog-card-lg-link">Leer artículo →</div>
+    </div>
+  </a>
+</div>
+<div class="blog-card-lg">
+  <a href="./tenido-de-textiles.html" class="blog-card-lg" style="display:block">
+    <div class="blog-card-lg-body">
+      <div class="blog-card-lg-cat">Proceso textil</div>
+      <div class="blog-card-lg-title">Teñido de Textiles: Cómo se Producen los Colores</div>
+      <p class="blog-card-lg-excerpt">Guía completa sobre el proceso de teñido industrial en telas de poliéster. Conoce cómo se logra la consistencia de color rollo a rollo.</p>
+      <div class="blog-card-lg-link">Leer artículo →</div>
+    </div>
+  </a>
+</div>
+<div class="blog-card-lg">
+  <a href="./fabricacion-sobre-pedido.html" class="blog-card-lg" style="display:block">
+    <div class="blog-card-lg-body">
+      <div class="blog-card-lg-cat">Producción</div>
+      <div class="blog-card-lg-title">Fabricación de Telas sobre Pedido en CDMX</div>
+      <p class="blog-card-lg-excerpt">Descubre cómo funciona la fabricación de telas sobre pedido y las ventajas de comprar directo al fabricante sin intermediarios.</p>
+      <div class="blog-card-lg-link">Leer artículo →</div>
+    </div>
+  </a>
+</div>
+</div></div>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap" style="padding:0">
+    <div class="f-grid">
+      <div><div class="f-name">BEITEX<span>.</span></div><div class="f-tag">La Casa del Textil · Desde 2003</div><p class="f-desc">Fabricantes y distribuidores directos de telas al mayoreo en Centro Histórico CDMX.</p></div>
+      <div class="f-col"><h4>Catálogo</h4><ul><li><a href="./telas/felpa-nacional.html">Felpa Nacional</a></li><li><a href="./telas/sportock.html">Sportock</a></li><li><a href="./telas/micropique.html">Micropiqué</a></li><li><a href="./telas/jurly.html">Fourway / Jurly</a></li><li><a href="./catalogo.html">Ver todas →</a></li></ul></div>
+      <div class="f-col"><h4>Empresa</h4><ul><li><a href="./blog.html">Blog textil</a></li><li><a href="./contacto.html">Contacto</a></li><li><a href="./privacidad.html">Aviso de privacidad</a></li><li><a href="./no-cambios.html">No devoluciones</a></li></ul></div>
+      <div class="f-col"><h4>Contacto</h4><ul><li><a href="tel:5554911568">55-5491-1568</a></li><li><a href="mailto:ventas@textilesbeitex.mx">ventas@textilesbeitex.mx</a></li><li style="color:rgba(255,255,255,.28);font-size:.74rem">Margil #6 Local-1, Centro Histórico<br/>Lun–Vie 9:30–18:00 · Sáb 9:30–15:00</li></ul></div>
+    </div>
+    <div class="f-bot"><div class="f-copy">© 2025 Textiles Beitex · Todos los derechos reservados</div><div class="f-leg"><a href="./privacidad.html">Privacidad</a><a href="./no-cambios.html">No devoluciones</a></div></div>
   </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2026 TEXTILES BEITEX SA de CV · Ciudad de México</span>
-    <div class="footer-policy"><a href="privacidad.html">Aviso de Privacidad</a><a href="no-cambios.html">No Cambios ni Devoluciones</a><a href="#">Términos</a></div>
-  </div>
-</footer>
-<div class="notif" id="bx-notif" style="opacity:0;transform:translateX(130%)"></div>
-<a href="https://wa.me/525553513925" target="_blank" rel="noopener noreferrer"
-   class="wa-fab" title="Contactar por WhatsApp" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.12 1.529 5.845L.057 23.927l6.244-1.638A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.51-5.184-1.4l-.37-.22-3.853 1.01 1.029-3.762-.241-.387A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-  </svg>
-</a>
-<button class="cart-fab" onclick="openCart()" aria-label="Ver cotización">
-  <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-  <span class="cart-badge" id="cart-badge-main"></span>
-</button>
-<div class="cart-ov" id="cart-ov"></div>
+</footer><!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <button class="float-btn top-btn" id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Subir">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <a class="float-btn wha-btn" href="https://wa.me/525553513925?text=Hola%2C+me+interesa+cotizar+telas+al+mayoreo" target="_blank" aria-label="WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+<!-- CART DRAWER -->
+<div class="cart-ov" id="cart-ov" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cart-drawer">
-  <div class="cart-head"><span class="cart-ttl">Mi Cotización</span><button class="cart-close" onclick="closeCart()">×</button></div>
-  <div class="cart-items-wrap" id="cart-items-list"></div>
-  <div class="cart-foot">
-    <p class="cart-sum">Completa tus datos y te enviamos una propuesta en menos de <strong>24 horas hábiles</strong>.</p>
-    <form class="cot-form" id="cot-form">
-      <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
-      <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
-      <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
-            <div style="display:flex;flex-direction:column;gap:.35rem">
-        <label style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A7060">Requieres factura?</label>
-        <div style="display:flex;gap:.75rem">
-          <label class="fac-opt" id="fac-no-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #C05A3A;border-radius:3px;flex:1;background:rgba(192,90,58,.07);transition:all .2s">
-            <input type="radio" name="factura" value="No" style="accent-color:#C05A3A;width:16px;height:16px" checked/> No
-          </label>
-          <label class="fac-opt" id="fac-si-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #DDD5C8;border-radius:3px;flex:1;background:#fff;transition:all .2s">
-            <input type="radio" name="factura" value="Si" style="accent-color:#C05A3A;width:16px;height:16px"/> Si
-          </label>
-        </div>
+  <div class="cart-head"><div><span class="cart-title">Tu Cotización</span><div style="font-size:.62rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase">Agrega las telas que necesitas</div></div><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div id="cart-items-list" class="cart-items"></div>
+  <div class="cart-form-section">
+    <form class="cot-form" id="cot-form" onsubmit="submitCotizacion(event)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+        <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre"/></div>
+        <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
       </div>
-<div><label>Notas</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
-      <button type="submit" class="btn-primary-cot">Enviar cotización →</button>
+      <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+        <div><label>¿Factura?</label><div class="rg"><label><input type="radio" name="factura" value="Si"/> Sí</label><label><input type="radio" name="factura" value="No" checked/> No</label></div></div>
+        <div><label>¿Envío?</label><div class="rg"><label><input type="radio" name="requiere_envio" value="Si"/> Sí</label><label><input type="radio" name="requiere_envio" value="No" checked/> No</label></div></div>
+      </div>
+      <div id="cp-wrap" style="display:none"><label>C.P. de entrega</label><input type="text" name="cp_envio" placeholder="Código postal"/></div>
+      <div><label>Notas</label><textarea name="co" rows="2" placeholder="Cantidad aproximada, colores..."></textarea></div>
+      <button type="submit" class="btn-full">Enviar cotización →</button>
     </form>
   </div>
 </div>
+<!-- MODAL PRODUCTO -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeProductModal()"></div>
+<div class="product-modal" id="product-modal">
+  <button class="modal-close" onclick="closeProductModal()">✕</button>
+  <div class="modal-sheet">
+    <div><div class="modal-img"><img id="modal-img" src="" alt=""/></div></div>
+    <div>
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-comp" id="modal-comp"></div>
+      <div id="modal-specs"></div><div id="modal-usos"></div>
+      <div class="modal-col-lbl">Color / Tono</div>
+      <select class="modal-col-select" id="modal-color" onchange="toggleOtroColor(this)"></select>
+      <div class="modal-otro-color-wrap" id="modal-otro-color-wrap"><input class="modal-otro-color-input" id="modal-otro-color-input" type="text" placeholder="Escribe el color que necesitas..."/></div>
+      <div class="modal-qty-row"><span class="modal-qty-lbl">Cantidad</span><input class="modal-qty-input" id="modal-qty" type="number" value="5" min="1"/><span class="modal-qty-unit" id="modal-qty-unit">kg</span></div>
+      <div class="modal-min-note" id="modal-min-note"></div>
+      <button class="modal-add-btn" id="modal-add-btn">+ Agregar a cotización</button>
+      <div class="modal-err" id="modal-err"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-/* TEXTILES BEITEX - JS GLOBAL */
-document.documentElement.classList.add('js-ready');
 
-// REVEAL ON SCROLL
-var revealObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) { e.target.classList.add('up'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.08 });
+// Parallax suave en hero
+window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero-img-col img');
+  if (hero && window.scrollY < window.innerHeight) {
+    hero.style.transform = `scale(1) translateY(${window.scrollY * 0.08}px)`;
+  }
+});
 
-function initReveal() {
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) { revealObs.observe(el); });
-}
-
-// STAT COUNTER
-function initStats() {
-  var so = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (!e.isIntersecting) return;
-      var el = e.target, t = parseInt(el.dataset.t);
-      var c = 0, step = Math.max(1, Math.ceil(t/45));
-      var timer = setInterval(function() { c = Math.min(c+step,t); el.textContent = c; if(c>=t) clearInterval(timer); }, 40);
-      so.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-t]').forEach(function(el) { so.observe(el); });
-}
-
-// NAV
-function initNav() {
-  var hb = document.getElementById('nav-hb'), mob = document.getElementById('nav-mob');
-  if (!hb || !mob) return;
-  hb.addEventListener('click', function() {
-    mob.classList.toggle('open');
-    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
-  });
-  mob.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() { mob.classList.remove('open'); document.body.style.overflow = ''; });
-  });
-}
-
-// FAQ
-function initFaq() {
-  document.querySelectorAll('.faq-q').forEach(function(q) {
-    q.addEventListener('click', function() {
-      var item = q.closest('.faq-item'), isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function(i) {
-        i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0';
+// Factura radio highlight
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('input[name="factura"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('.fac-opt').forEach(function(lbl) {
+        var inp = lbl.querySelector('input');
+        lbl.style.borderColor = inp && inp.checked ? '#C05A3A' : '#DDD5C8';
+        lbl.style.background  = inp && inp.checked ? 'rgba(192,90,58,.07)' : '#fff';
       });
-      if (!isOpen) {
-        item.classList.add('open');
-        var ans = item.querySelector('.faq-a');
-        ans.style.maxHeight = ans.scrollHeight + 'px';
+    });
+  });
+});
+
+function toggleEnvioOpts() {
+  var noR = document.querySelector('input[name="requiere_envio"][value="No"]');
+  var siR = document.querySelector('input[name="requiere_envio"][value="Si"]');
+  var cpBlock = document.getElementById('envio-cp-block');
+  var noLbl = document.getElementById('envio-no-lbl');
+  var siLbl = document.getElementById('envio-si-lbl');
+  if(noR && siR) {
+    if(noLbl) { noLbl.style.borderColor = noR.checked ? '#C05A3A' : 'var(--border)'; noLbl.style.background = noR.checked ? 'rgba(192,90,58,.07)' : '#fff'; }
+    if(siLbl) { siLbl.style.borderColor = siR.checked ? '#C05A3A' : 'var(--border)'; siLbl.style.background = siR.checked ? 'rgba(192,90,58,.07)' : '#fff'; }
+    if(cpBlock) { cpBlock.style.display = siR.checked ? 'flex' : 'none'; }
+  }
+}
+
+</script>
+<script>
+document.querySelectorAll('#mob a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mob').classList.remove('open');});});
+var sc=document.getElementById('sticky-cta');
+window.addEventListener('scroll',function(){
+  if(sc)sc.classList.toggle('visible',window.scrollY>200);
+  var tb=document.getElementById('top-btn');if(tb)tb.classList.toggle('visible',window.scrollY>600);
+},{passive:true});
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var item=this.closest('.faq-item')||this.parentElement;var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});if(!open)item.classList.add('open');});});
+
+</script>
+<script>
+
+
+// ══ CARRUSEL TELAS ══
+(function(){
+  var track = document.getElementById('carousel-track');
+  if(!track) return;
+  var slides = track.querySelectorAll('.carousel-slide');
+  var total = slides.length;
+  var current = 0;
+  var timer = null;
+  var visible = 4;
+
+  function getVisible(){
+    if(window.innerWidth <= 380) return 1;
+    if(window.innerWidth <= 600) return 2;
+    if(window.innerWidth <= 900) return 3;
+    return 4;
+  }
+
+  function buildDots(){
+    var dots = document.getElementById('carousel-dots');
+    if(!dots) return;
+    dots.innerHTML = '';
+    var pages = Math.ceil(total / getVisible());
+    for(var i=0; i<pages; i++){
+      var d = document.createElement('button');
+      d.className = 'carousel-dot' + (i===0?' active':'');
+      d.setAttribute('aria-label','Página '+(i+1));
+      (function(idx){ d.addEventListener('click', function(){ goTo(idx); }); })(i);
+      dots.appendChild(d);
+    }
+  }
+
+  function updateDots(){
+    var dots = document.getElementById('carousel-dots');
+    if(!dots) return;
+    var v = getVisible();
+    var page = Math.floor(current / v);
+    dots.querySelectorAll('.carousel-dot').forEach(function(d,i){ d.classList.toggle('active', i===page); });
+  }
+
+  function goTo(page){
+    var v = getVisible();
+    current = page * v;
+    if(current >= total) current = 0;
+    var offset = current * (100 / total);
+    track.style.transform = 'translateX(-' + offset + '%)';
+    updateDots();
+    resetTimer();
+  }
+
+  function goToSlide(idx){
+    var v = getVisible();
+    if(idx < 0) idx = total - v;
+    if(idx > total - v) idx = 0;
+    current = idx;
+    var offset = current * (100 / total);
+    track.style.transform = 'translateX(-' + offset + '%)';
+    updateDots();
+    resetTimer();
+  }
+
+  window.carouselNext = function(){ goToSlide(current + getVisible()); };
+  window.carouselPrev = function(){ goToSlide(current - getVisible()); };
+
+  function resetTimer(){ clearInterval(timer); timer = setInterval(window.carouselNext, 3500); }
+
+  // Touch swipe
+  var startX = 0;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 50){ dx < 0 ? window.carouselNext() : window.carouselPrev(); }
+  }, {passive:true});
+
+  // Pausar al pasar el mouse
+  track.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  track.addEventListener('mouseleave', function(){ resetTimer(); });
+
+  window.addEventListener('resize', function(){ buildDots(); goToSlide(0); });
+
+  buildDots();
+  resetTimer();
+})();
+
+
+
+// ── SCROLL ANIMATIONS ──
+(function(){
+  // IntersectionObserver para animaciones de entrada
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
       }
     });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+
+  // Aplicar a elementos existentes
+  document.querySelectorAll('.sec-head, .cat-card, .rev-card, .blog-card, .faq-item, .about-wrap, .mayoreo-wrap, .nums-grid').forEach(function(el){
+    el.classList.add('rv','rv-up');
+    obs.observe(el);
   });
-}
 
-// CARRITO
-var CK = 'beitex_cot_v3';
-function getCart() { try { return JSON.parse(localStorage.getItem(CK)) || []; } catch(e) { return []; } }
-function saveCart(c) { localStorage.setItem(CK, JSON.stringify(c)); }
-
-function addToCart(item) {
-  var c = getCart();
-  var idx = c.findIndex(function(i) { return i.id === item.id && i.color === item.color; });
-  if (idx >= 0) {
-    c[idx].qty = (parseFloat(c[idx].qty) + parseFloat(item.qty)).toString();
-  } else {
-    c.push({ id: item.id, name: item.name, color: item.color, qty: parseFloat(item.qty).toString(), unit: item.unit });
-  }
-  saveCart(c); updateBadge(); showNotif(item.name, item.color);
-}
-
-function removeFromCart(id, color) {
-  saveCart(getCart().filter(function(i) { return !(i.id === id && i.color === color); }));
-  updateBadge(); renderCart();
-}
-
-function updateQty(id, color, delta) {
-  var c = getCart();
-  var idx = c.findIndex(function(i) { return i.id === id && i.color === color; });
-  if (idx < 0) return;
-  var nv = Math.max(1, Math.round(parseFloat(c[idx].qty) + delta));
-  c[idx].qty = nv.toString();
-  saveCart(c); renderCart();
-}
-
-function updateBadge() {
-  document.querySelectorAll('.cart-badge').forEach(function(b) {
-    var n = getCart().length; b.textContent = n; b.classList.toggle('show', n > 0);
+  // Stagger en grids
+  document.querySelectorAll('.cat-grid, .rev-grid, .blog-grid, .pps, .filter-wrap').forEach(function(el){
+    el.classList.add('rv-stagger');
+    obs.observe(el);
   });
-}
 
-function showNotif(name, color) {
-  var n = document.getElementById('bx-notif');
-  if (!n) {
-    n = document.createElement('div'); n.id = 'bx-notif'; n.className = 'notif';
-    document.body.appendChild(n);
-  }
-  n.innerHTML = '<strong style="color:var(--rl)">Agregado</strong><br>' + name + (color ? ' - ' + color : '');
-  n.classList.add('show');
-  clearTimeout(n._t);
-  n._t = setTimeout(function() { n.classList.remove('show'); }, 2800);
-}
-
-function renderOrderSummary(c) {
-  var el = document.getElementById('cos-items-summary');
-  if (!el) return;
-  if (!c || !c.length) {
-    el.innerHTML = '<div class="cos-empty">Sin productos aun</div>'; return;
-  }
-  var html = '';
-  c.forEach(function(x) {
-    html += '<div class="cos-item"><span class="cos-item-name">' + x.name + (x.color ? ' - ' + x.color : '') + '</span><span class="cos-item-qty">' + x.qty + ' ' + x.unit + '</span></div>';
-  });
-  el.innerHTML = html;
-}
-
-function renderCart() {
-  var el = document.getElementById('cart-items-list');
-  if (!el) return;
-  var c = getCart();
-  if (!c.length) {
-    el.innerHTML = '<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>Tu cotizacion esta vacia.<br>Visita el <a href="catalogo.html">catalogo</a> para agregar telas.</p></div>';
-    renderOrderSummary([]);
-    return;
-  }
-  var html = '';
-  c.forEach(function(x) {
-    html += '<div class="cart-item"><div><div class="cart-item-name">' + x.name + '</div><div class="cart-item-detail">' + (x.color ? 'Color: ' + x.color + ' - ' : '') + 'Por ' + x.unit + '</div><div class="cart-item-qty"><button class="qty-btn" onclick="updateQty(\'' + x.id + '\',\'' + x.color + '\',-1)">-</button><span class="qty-val">' + x.qty + ' ' + x.unit + '</span><button class="qty-btn" onclick="updateQty(\'' + x.id + '\',\'' + x.color + '\',1)">+</button></div></div><button class="cart-rm" onclick="removeFromCart(\'' + x.id + '\',\'' + x.color + '\')" title="Eliminar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg></button></div>';
-  });
-  el.innerHTML = html;
-  renderOrderSummary(c);
-}
-
-function openCart() {
-  document.getElementById('cart-drawer') && document.getElementById('cart-drawer').classList.add('open');
-  document.getElementById('cart-ov') && document.getElementById('cart-ov').classList.add('show');
-  document.body.style.overflow = 'hidden'; renderCart();
-}
-
-function closeCart() {
-  document.getElementById('cart-drawer') && document.getElementById('cart-drawer').classList.remove('open');
-  document.getElementById('cart-ov') && document.getElementById('cart-ov').classList.remove('show');
-  document.body.style.overflow = '';
-}
-
-async function submitCotizacion(e) {
-  e.preventDefault();
-  var c = getCart();
-  if (!c.length) { alert('Agrega al menos una tela a tu cotizacion.'); return; }
-  // Validar minimo 25 piezas para prendas
-  var prendaTotal = 0;
-  var hasPrenda = false;
-  c.forEach(function(x) { if(x.unit === 'pza') { hasPrenda = true; prendaTotal += parseInt(x.qty)||0; } });
-  if(hasPrenda && prendaTotal < 25) {
-    alert('El minimo de prendas terminadas es 25 piezas en total entre todas las tallas. Actualmente tienes ' + prendaTotal + ' pza.');
-    return;
-  }
-  var f = new FormData(e.target);
-  var nombre = f.get('cn') || '';
-  var correo = f.get('ce') || '';
-  var tel = f.get('ct') || 'No proporcionado';
-  var notas = f.get('co') || '';
-  var envio = f.get('envio') || 'No especificado';
-  var listaParts = [];
-  c.forEach(function(x) { listaParts.push('- ' + x.name + (x.color ? ' (' + x.color + ')' : '') + ': ' + x.qty + ' ' + x.unit); });
-  var lista = listaParts.join('; ');
-  var infoEnvio = 'Envio: ' + envio;
-  var btn = e.target.querySelector('[type="submit"]');
-  if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
-  var ok = false;
-  try {
-    var res = await fetch('https://formspree.io/f/mzdweadd', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, productos: lista, envio: envio, notas: notas, _subject: 'Cotizacion Beitex - ' + nombre, _replyto: correo })
-    });
-    ok = res.ok;
-  } catch(err) { console.warn('Formspree error:', err); }
-  if (!ok) {
-    var body = 'Nombre: ' + nombre + '\nTelefono: ' + tel + '\nCorreo: ' + correo + '\n\nProductos:\n' + lista + (notas ? '\n\nNotas: ' + notas : '');
-    window.location.href = 'mailto:ventas@textilesbeitex.mx?subject=Cotizacion - ' + encodeURIComponent(nombre) + '&body=' + encodeURIComponent(body);
-  } else {
-    var il = document.getElementById('cart-items-list');
-    if (il) {
-      il.innerHTML = '<div style="text-align:center;padding:2.5rem 1rem"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div style="font-family:Bebas Neue,sans-serif;font-size:1.5rem;letter-spacing:.08em;color:#1E0F08;margin-bottom:.5rem">COTIZACION ENVIADA</div><p style="font-size:.92rem;color:#8A7060;line-height:1.7">Recibimos tu solicitud.<br>Te contactaremos a <strong style="color:#C05A3A">' + correo + '</strong><br>en menos de <strong>24 horas habiles</strong>.</p></div>';
+  // Sellos
+  var sealObs = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){
+      document.querySelectorAll('.seal').forEach(function(s){ s.classList.add('visible'); });
+      sealObs.disconnect();
     }
-    e.target.reset(); localStorage.removeItem(CK); updateBadge(); renderOrderSummary([]);
-    setTimeout(function() { closeCart(); }, 3500);
-  }
-  if (btn) { btn.disabled = false; btn.textContent = 'Enviar cotizacion'; }
-}
+  }, {threshold:0.2});
+  var sealsSection = document.querySelector('.seals-section');
+  if(sealsSection) sealObs.observe(sealsSection);
 
-// INIT
-document.addEventListener('DOMContentLoaded', function() {
-  initReveal(); initStats(); initNav(); initFaq(); updateBadge();
-  var co = document.getElementById('cart-ov');
-  if (co) co.addEventListener('click', function(e) { if(e.target === co) closeCart(); });
-  var cf = document.getElementById('cot-form');
-  if (cf) cf.addEventListener('submit', submitCotizacion);
-  var contact = document.getElementById('contact-form');
-  if (contact) {
-    contact.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var f = new FormData(e.target);
-      var nombre = f.get('nombre') || '', tel = f.get('tel') || '', correo = f.get('email') || '', msg = f.get('msg') || '';
-      var btn = e.target.querySelector('[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
-      fetch('https://formspree.io/f/mzdweadd', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ nombre: nombre, email: correo, telefono: tel, mensaje: msg, _subject: 'Contacto Beitex - ' + nombre, _replyto: correo })
-      }).then(function(res) {
-        if (res.ok) {
-          e.target.innerHTML = '<div style="text-align:center;padding:2rem;background:rgba(192,90,58,.06);border-radius:8px;border:1px solid rgba(192,90,58,.2)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1rem;display:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p style="font-size:1rem;color:#2C1F17;font-weight:600">Mensaje enviado correctamente</p><p style="font-size:.9rem;color:#8A7060;margin-top:.5rem">Te contactaremos en menos de 24 horas habiles.</p></div>';
-        } else {
-          var body = 'Nombre: ' + nombre + '\nTelefono: ' + tel + '\nCorreo: ' + correo + '\n\nMensaje:\n' + msg;
-          window.location.href = 'mailto:ventas@textilesbeitex.mx?subject=Contacto Beitex&body=' + encodeURIComponent(body);
-        }
-        if (btn) { btn.disabled = false; }
-      }).catch(function() {
-        var body = 'Nombre: ' + nombre + '\nTelefono: ' + tel + '\nCorreo: ' + correo + '\n\nMensaje:\n' + msg;
-        window.location.href = 'mailto:ventas@textilesbeitex.mx?subject=Contacto Beitex&body=' + encodeURIComponent(body);
-        if (btn) { btn.disabled = false; }
+  // Progress bars en mayoreo
+  var pbarObs = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){
+      document.querySelectorAll('.pbar-fill').forEach(function(bar){
+        bar.style.width = bar.dataset.width;
       });
+      pbarObs.disconnect();
+    }
+  }, {threshold:0.3});
+  var mayoreo = document.querySelector('.mayoreo-wrap');
+  if(mayoreo) pbarObs.observe(mayoreo);
+
+  // Parallax en hero (sutil)
+  var heroBg = document.querySelector('.hero-bg');
+  if(heroBg){
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      heroBg.style.transform = 'translateY(' + (y * 0.25) + 'px)';
+    }, {passive:true});
+  }
+
+  // Stagger en product cards al cargar y al filtrar
+  function staggerCards(){
+    var visible = document.querySelectorAll('.p-card:not(.hidden)');
+    visible.forEach(function(card, i){
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(24px)';
+      card.style.transition = 'opacity .5s ease ' + (i * 0.04) + 's, transform .5s ease ' + (i * 0.04) + 's';
+      setTimeout(function(){
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+      }, 50);
     });
   }
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCart(); });
+  // Sobreescribir filterProducts para incluir stagger
+  var origFilter = window.filterProducts;
+  window.filterProducts = function(btn){
+    origFilter(btn);
+    setTimeout(staggerCards, 10);
+  };
+  setTimeout(staggerCards, 200);
+
+  // Hover 3D sutil en sellos
+  document.querySelectorAll('.seal').forEach(function(seal){
+    seal.addEventListener('mousemove', function(e){
+      var rect = seal.getBoundingClientRect();
+      var cx = rect.left + rect.width/2;
+      var cy = rect.top + rect.height/2;
+      var dx = (e.clientX - cx) / 8;
+      var dy = (e.clientY - cy) / 8;
+      seal.querySelector('.seal-ring').style.transform = 'rotateX(' + (-dy) + 'deg) rotateY(' + dx + 'deg) scale(1.06)';
+    });
+    seal.addEventListener('mouseleave', function(){
+      seal.querySelector('.seal-ring').style.transform = '';
+    });
+  });
+
+  // Cursor personalizado en cards (sutil)
+  document.querySelectorAll('.p-card, .cat-card').forEach(function(card){
+    card.style.cursor = 'pointer';
+  });
+})();
+
+
+// ── CARRUSEL PRODUCTOS ── loop infinito
+(function(){
+  var track = document.getElementById('cr-track');
+  if(!track) return;
+  var slides = track.querySelectorAll('.cr-slide');
+  var total = slides.length;
+  var current = 0;
+
+  function getVisible(){
+    var w = window.innerWidth;
+    if(w <= 600) return 2;
+    if(w <= 900) return 3;
+    return 4;
+  }
+
+  function maxIdx(){ return total - getVisible(); }
+
+  function goTo(idx, animate){
+    var mp = maxIdx();
+    if(idx < 0) idx = mp;
+    if(idx > mp) idx = 0;
+    current = idx;
+    if(animate === false){
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform .55s cubic-bezier(.4,0,.2,1)';
+    }
+    track.style.transform = 'translateX(-' + (current * 100 / total) + '%)';
+    buildDots();
+  }
+
+  function next(){ goTo(current + 1); }
+  function prev(){ goTo(current - 1); }
+
+  function buildDots(){
+    var dotsEl = document.getElementById('cr-dots');
+    if(!dotsEl) return;
+    var pages = maxIdx() + 1;
+    if(dotsEl.children.length !== pages){
+      dotsEl.innerHTML = '';
+      for(var i = 0; i < pages; i++){
+        var d = document.createElement('button');
+        d.className = 'cr-dot';
+        d.setAttribute('aria-label', 'Página ' + (i+1));
+        (function(idx){ d.addEventListener('click', function(){ goTo(idx); }); })(i);
+        dotsEl.appendChild(d);
+      }
+    }
+    Array.from(dotsEl.children).forEach(function(d,i){
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  // Botones manuales (no pausan)
+  var prevBtn = document.getElementById('cr-prev');
+  var nextBtn = document.getElementById('cr-next');
+  if(prevBtn) prevBtn.addEventListener('click', prev);
+  if(nextBtn) nextBtn.addEventListener('click', next);
+
+  // Touch swipe (no pausa el auto)
+  var startX = 0;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    var diff = e.changedTouches[0].clientX - startX;
+    if(Math.abs(diff) > 40){ diff < 0 ? next() : prev(); }
+  }, {passive:true});
+
+  // Resize
+  window.addEventListener('resize', function(){ buildDots(); goTo(Math.min(current, maxIdx()), false); });
+
+  // AUTO — avanza cada 2.2s, sin pausa, sin fin
+  buildDots();
+  goTo(0, false);
+  setInterval(next, 2200);
+})();
+
+
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = this.closest('.faq-item') || this.parentElement;
+    var isOpen = item.classList.contains('open');
+    // Cerrar todos
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    // Abrir este si estaba cerrado
+    if(!isOpen){ item.classList.add('open'); }
+  });
 });
 
 </script>
-
-</body>
-</html>
+</body></html>
