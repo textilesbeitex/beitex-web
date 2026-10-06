@@ -730,6 +730,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
   </div>
 </section>
 @media(max-width:768px){section.map-contact{grid-template-columns:1fr}}
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap" style="padding:0">
@@ -742,695 +743,399 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-st
     <div class="f-bot"><div class="f-copy">© 2025 Textiles Beitex · Todos los derechos reservados</div><div class="f-leg"><a href="./privacidad.html">Privacidad</a><a href="./no-cambios.html">No devoluciones</a></div></div>
   </div>
 </footer>
-<a href="https://wa.me/525553513925" target="_blank" rel="noopener noreferrer"
-   class="wa-fab" title="Contactar por WhatsApp" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.12 1.529 5.845L.057 23.927l6.244-1.638A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.51-5.184-1.4l-.37-.22-3.853 1.01 1.029-3.762-.241-.387A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-  </svg><span class="wa-fab-label">WhatsApp</span>
-</a>
-
-<div class="modal-overlay" id="modal-overlay"></div>
-<div class="product-modal" id="product-modal">
-  <div class="modal-header">
-    <button class="modal-close" onclick="closeProductModal()">&#215;</button>
-    <div class="modal-title" id="modal-title"></div>
-    <div class="modal-desc" id="modal-desc"></div>
-  </div>
-  <div class="modal-specs" id="modal-specs"></div>
-  <div class="modal-usos" id="modal-usos"></div>
-  <div class="modal-actions">
-    <select class="modal-select" id="modal-color" onchange="toggleOtroColor(this)"><option value="">Seleccionar color</option></select>
-    <select class="modal-select" id="modal-talla" style="display:none;margin-top:.4rem"><option value="">Seleccionar talla</option></select>
-    <div id="modal-otro-color-wrap" style="display:none;margin-top:.4rem">
-      <input type="text" id="modal-otro-color-input" placeholder="Describe el color que buscas..."
-        style="width:100%;border:1.5px solid #C05A3A;border-radius:3px;padding:.65rem .9rem;font-family:'DM Sans',sans-serif;font-size:.88rem;color:#1E0F08;outline:none"
-        oninput="syncOtroColor(this)"/>
-    </div>
-    <div id="modal-dibujo-wrap"></div>
-    <div id="modal-unit-select-wrap" style="margin-bottom:.3rem"></div>
-    <div class="modal-qty-row">
-      <button class="mq-btn" onclick="modalQtyChange(-1)">&#8722;</button>
-      <input class="mq-inp" type="number" id="modal-qty" value="5" min="1" step="1"/>
-      <span class="mq-unit" id="modal-unit">kg</span>
-      <button class="mq-btn" onclick="modalQtyChange(1)">+</button>
-    </div>
-    <div id="modal-min-note"></div>
-    <button class="modal-add-btn" id="modal-add-btn">+ Agregar a cotizacion</button>
-  </div>
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <button class="float-btn top-btn" id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Subir">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <a class="float-btn wha-btn" href="https://wa.me/525553513925?text=Hola%2C+me+interesa+cotizar+telas+al+mayoreo" target="_blank" aria-label="WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 </div>
-
-
-
-<div class="cart-ov" id="cart-ov"></div>
+<!-- CART DRAWER -->
+<div class="cart-ov" id="cart-ov" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cart-drawer">
-  <div class="cart-head">
-    <div>
-      <span class="cart-ttl">Mi Cotización</span>
-      <div style="font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.2rem" id="cart-head-count"></div>
-    </div>
-    <button class="cart-close" onclick="closeCart()">×</button>
-  </div>
-<!-- STICKY CTA -->
-<div class="sticky-cta" id="sticky-cta">
-  <div class="sticky-cta-txt"><strong>Textiles Beitex</strong> · Telas al mayoreo directo de fábrica</div>
-  <div class="sticky-cta-btns">
-    <a href="./catalogo.html" class="btn-p" style="padding:.65rem 1.4rem;font-size:.82rem">Ver catálogo →</a>
-    <a href="https://wa.me/525553513925?text=Hola%2C+me+interesa+cotizar+telas+al+mayoreo" target="_blank" class="btn-o" style="padding:.65rem 1.2rem;font-size:.82rem;border-color:rgba(255,255,255,.18)">WhatsApp</a>
-  </div>
-</div>
-
-  <!-- CUERPO ÚNICO CON SCROLL -->
-  <div class="cart-body-scroll" id="cart-body-scroll">
-    <!-- RESUMEN DEL PEDIDO (items con +/-) -->
-    <div class="cart-summary-section">
-      <div class="css-label">Productos en tu cotización</div>
-      <div id="cart-items-list"></div>
-    </div>
-    <!-- SEPARADOR -->
-    <div class="cart-form-sep">
-      <span>Completa tus datos</span>
-    </div>
-    <!-- FORMULARIO -->
-    <div class="cart-form-section">
-      <p class="cart-sum">Te enviamos una propuesta personalizada en menos de <strong>24 horas hábiles</strong>.</p>
-      <form class="cot-form" id="cot-form" onsubmit="submitCotizacion(event)">
-      <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre completo"/></div>
+  <div class="cart-head"><div><span class="cart-title">Tu Cotización</span><div style="font-size:.62rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase">Agrega las telas que necesitas</div></div><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div id="cart-items-list" class="cart-items"></div>
+  <div class="cart-form-section">
+    <form class="cot-form" id="cot-form" onsubmit="submitCotizacion(event)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+        <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre"/></div>
+        <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
+      </div>
       <div><label>Correo *</label><input type="email" name="ce" required placeholder="tu@correo.com"/></div>
-      <div><label>Teléfono</label><input type="tel" name="ct" placeholder="55 0000 0000"/></div>
-      <div style="display:flex;flex-direction:column;gap:.35rem">
-        <label style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A7060">Requieres factura?</label>
-        <div style="display:flex;gap:.75rem">
-          <label class="fac-opt" id="fac-no-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #C05A3A;border-radius:3px;flex:1;background:rgba(192,90,58,.07);transition:all .2s">
-            <input type="radio" name="factura" value="No" style="accent-color:#C05A3A;width:16px;height:16px" checked/> No
-          </label>
-          <label class="fac-opt" id="fac-si-lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.95rem;color:#1E0F08;cursor:pointer;padding:.65rem 1rem;border:1.5px solid #DDD5C8;border-radius:3px;flex:1;background:#fff;transition:all .2s">
-            <input type="radio" name="factura" value="Si" style="accent-color:#C05A3A;width:16px;height:16px"/> Si
-          </label>
-        </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+        <div><label>¿Factura?</label><div class="rg"><label><input type="radio" name="factura" value="Si"/> Sí</label><label><input type="radio" name="factura" value="No" checked/> No</label></div></div>
+        <div><label>¿Envío?</label><div class="rg"><label><input type="radio" name="requiere_envio" value="Si"/> Sí</label><label><input type="radio" name="requiere_envio" value="No" checked/> No</label></div></div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:.35rem">
-        <label style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A7060">Código postal de entrega <span style="font-weight:400;font-style:italic;text-transform:none;letter-spacing:0">(opcional, si requieres envío)</span></label>
-        <input type="text" name="cp_envio" id="cp-envio-input" placeholder="Ej: 64000, 45000, 06600..." maxlength="10"
-          style="border:1.5px solid var(--border);border-radius:3px;padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--dark);background:#fff;outline:none;transition:border-color .2s;width:100%"
-          onfocus="this.style.borderColor='#C05A3A'" onblur="this.style.borderColor='var(--border)'"/>
-      </div>
-      <div><label>Notas adicionales</label><textarea name="co" placeholder="Ej: precio objetivo, fecha requerida, especificaciones adicionales..."></textarea></div>
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1.1rem">Enviar cotizacion</button>
+      <div id="cp-wrap" style="display:none"><label>C.P. de entrega</label><input type="text" name="cp_envio" placeholder="Código postal"/></div>
+      <div><label>Notas</label><textarea name="co" rows="2" placeholder="Cantidad aproximada, colores..."></textarea></div>
+      <button type="submit" class="btn-full">Enviar cotización →</button>
     </form>
+  </div>
+</div>
+<!-- MODAL PRODUCTO -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeProductModal()"></div>
+<div class="product-modal" id="product-modal">
+  <button class="modal-close" onclick="closeProductModal()">✕</button>
+  <div class="modal-sheet">
+    <div><div class="modal-img"><img id="modal-img" src="" alt=""/></div></div>
+    <div>
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-comp" id="modal-comp"></div>
+      <div id="modal-specs"></div><div id="modal-usos"></div>
+      <div class="modal-col-lbl">Color / Tono</div>
+      <select class="modal-col-select" id="modal-color" onchange="toggleOtroColor(this)"></select>
+      <div class="modal-otro-color-wrap" id="modal-otro-color-wrap"><input class="modal-otro-color-input" id="modal-otro-color-input" type="text" placeholder="Escribe el color que necesitas..."/></div>
+      <div class="modal-qty-row"><span class="modal-qty-lbl">Cantidad</span><input class="modal-qty-input" id="modal-qty" type="number" value="5" min="1"/><span class="modal-qty-unit" id="modal-qty-unit">kg</span></div>
+      <div class="modal-min-note" id="modal-min-note"></div>
+      <button class="modal-add-btn" id="modal-add-btn">+ Agregar a cotización</button>
+      <div class="modal-err" id="modal-err"></div>
     </div>
   </div>
 </div>
-<button class="cart-fab" onclick="openCart()" aria-label="Ver cotización">
-  <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-  <span class="cart-badge" id="cart-badge-main"></span>
-</button>
-<div class="notif" id="bx-notif" style="opacity:0;transform:translateX(130%)"></div>
 <script>
 
+// Parallax suave en hero
+window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero-img-col img');
+  if (hero && window.scrollY < window.innerHeight) {
+    hero.style.transform = `scale(1) translateY(${window.scrollY * 0.08}px)`;
+  }
+});
 
-/* TEXTILES BEITEX - JS GLOBAL */
-document.documentElement.classList.add('js-ready');
-
-// REVEAL ON SCROLL
-var revealObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) { e.target.classList.add('up'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.08 });
-
-function initReveal() {
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) { revealObs.observe(el); });
-}
-
-// STAT COUNTER
-function initStats() {
-  var so = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (!e.isIntersecting) return;
-      var el = e.target, t = parseInt(el.dataset.t);
-      var c = 0, step = Math.max(1, Math.ceil(t/45));
-      var timer = setInterval(function() { c = Math.min(c+step,t); el.textContent = c; if(c>=t) clearInterval(timer); }, 40);
-      so.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-t]').forEach(function(el) { so.observe(el); });
-}
-
-// NAV
-function initNav() {
-  var hb = document.getElementById('nav-hb'), mob = document.getElementById('nav-mob');
-  if (!hb || !mob) return;
-  hb.addEventListener('click', function() {
-    mob.classList.toggle('open');
-    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
-  });
-  mob.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() { mob.classList.remove('open'); document.body.style.overflow = ''; });
-  });
-}
-
-// FAQ
-function initFaq() {
-  document.querySelectorAll('.faq-q').forEach(function(q) {
-    q.addEventListener('click', function() {
-      var item = q.closest('.faq-item'), isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function(i) {
-        i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0';
+// Factura radio highlight
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('input[name="factura"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('.fac-opt').forEach(function(lbl) {
+        var inp = lbl.querySelector('input');
+        lbl.style.borderColor = inp && inp.checked ? '#C05A3A' : '#DDD5C8';
+        lbl.style.background  = inp && inp.checked ? 'rgba(192,90,58,.07)' : '#fff';
       });
-      if (!isOpen) {
-        item.classList.add('open');
-        var ans = item.querySelector('.faq-a');
-        ans.style.maxHeight = ans.scrollHeight + 'px';
-      }
     });
   });
-}
-
-// CARRITO
-var CK = 'beitex_cot_v3';
-function getCart() { try { return JSON.parse(localStorage.getItem(CK)) || []; } catch(e) { return []; } }
-function saveCart(c) { localStorage.setItem(CK, JSON.stringify(c)); }
-
-function addToCart(item) {
-  var c = getCart();
-  var idx = c.findIndex(function(i) { return i.id === item.id && i.color === item.color; });
-  if (idx >= 0) {
-    c[idx].qty = (parseFloat(c[idx].qty) + parseFloat(item.qty)).toString();
-  } else {
-    c.push({ id: item.id, name: item.name, color: item.color, qty: parseFloat(item.qty).toString(), unit: item.unit });
-  }
-  saveCart(c); updateBadge(); showNotif(item.name, item.color);
-}
-
-function removeFromCart(id, color) {
-  saveCart(getCart().filter(function(i) { return !(i.id === id && i.color === color); }));
-  updateBadge(); renderCart();
-}
-
-function updateQty(id, color, delta) {
-  var c = getCart();
-  var idx = c.findIndex(function(i) { return i.id === id && i.color === color; });
-  if (idx < 0) return;
-  var nv = Math.max(1, Math.round(parseFloat(c[idx].qty) + delta));
-  c[idx].qty = nv.toString();
-  saveCart(c); renderCart();
-}
-
-function updateBadge() {
-  document.querySelectorAll('.cart-badge').forEach(function(b) {
-    var n = getCart().length; b.textContent = n; b.classList.toggle('show', n > 0);
-  });
-}
-
-function showNotif(name, color) {
-  var n = document.getElementById('bx-notif');
-  if (!n) {
-    n = document.createElement('div'); n.id = 'bx-notif'; n.className = 'notif';
-    document.body.appendChild(n);
-  }
-  n.innerHTML = '<strong style="color:var(--rl)">Agregado</strong><br>' + name + (color ? ' - ' + color : '');
-  n.classList.add('show');
-  clearTimeout(n._t);
-  n._t = setTimeout(function() { n.classList.remove('show'); }, 2800);
-}
-
-function renderOrderSummary(c) {
-  var el = document.getElementById('cos-items-summary');
-  if (!el) return;
-  if (!c || !c.length) {
-    el.innerHTML = '<div class="cos-empty">Sin productos aun</div>'; return;
-  }
-  var html = '';
-  c.forEach(function(x) {
-    html += '<div class="cos-item"><span class="cos-item-name">' + x.name + (x.color ? ' - ' + x.color : '') + '</span><span class="cos-item-qty">' + x.qty + ' ' + x.unit + '</span></div>';
-  });
-  el.innerHTML = html;
-}
-
-function renderCart() {
-  var el = document.getElementById('cart-items-list');
-  if (!el) return;
-  var c = getCart();
-  var hc = document.getElementById('cart-head-count');
-  if(hc) hc.textContent = c.length ? c.length + ' producto' + (c.length>1?'s':'') : '';
-  if (!c.length) {
-    el.innerHTML = '<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>Tu cotizacion esta vacia.<br>Visita el <a href="catalogo.html">catalogo</a> para agregar telas.</p></div>';
-    return;
-  }
-  var html = '';
-  c.forEach(function(x) {
-    var eid = x.id.replace(/'/g, "\\'");
-    var ecol = x.color.replace(/'/g, "\\'");
-    html += '<div class="cart-item">' +
-      '<div><div class="cart-item-name">' + x.name + '</div>' +
-      '<div class="cart-item-detail">' + (x.color || '') + '</div>' +
-      '<div class="cart-item-qty">' +
-      '<button class="qty-btn" onclick="updateQty(\'' + eid + '\',\'' + ecol + '\',-1)">&#8722;</button>' +
-      '<span class="qty-val">' + x.qty + ' ' + x.unit + '</span>' +
-      '<button class="qty-btn" onclick="updateQty(\'' + eid + '\',\'' + ecol + '\',1)">+</button>' +
-      '</div></div>' +
-      '<button class="cart-rm" onclick="removeFromCart(\'' + eid + '\',\'' + ecol + '\')" title="Eliminar">' +
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg>' +
-      '</button></div>';
-  });
-  el.innerHTML = html;
-  var body = document.getElementById('cart-body-scroll');
-  if(body) body.scrollTop = 0;
-}
-
-function openCart() {
-  var drawer = document.getElementById('cart-drawer');
-  if(drawer) drawer.classList.add('open');
-  var ov = document.getElementById('cart-ov');
-  if(ov) ov.classList.add('show');
-  document.body.style.overflow = 'hidden';
-  renderCart();
-  // Scroll al inicio al abrir
-  var body = document.getElementById('cart-body-scroll');
-  if(body) setTimeout(function(){ body.scrollTop = 0; }, 50);
-}
-
-function closeCart() {
-  document.getElementById('cart-drawer') && document.getElementById('cart-drawer').classList.remove('open');
-  document.getElementById('cart-ov') && document.getElementById('cart-ov').classList.remove('show');
-  document.body.style.overflow = '';
-}
-
-function submitCotizacion(e) {
-  e.preventDefault();
-  var c = getCart();
-  if (!c.length) { alert('Agrega al menos una tela a tu cotizacion.'); return; }
-
-  var prendaTotal = 0, hasPrenda = false;
-  c.forEach(function(x) { if(x.unit==='pza'){hasPrenda=true;prendaTotal+=parseInt(x.qty)||0;} });
-  if(hasPrenda && prendaTotal < 25) { alert('El minimo de prendas es 25 piezas. Actualmente tienes '+prendaTotal+'.'); return; }
-
-  var form = e.target;
-  var nombre  = (form.querySelector('[name="cn"]')||{}).value||'';
-  var correo  = (form.querySelector('[name="ce"]')||{}).value||'';
-  var tel     = (form.querySelector('[name="ct"]')||{}).value||'No proporcionado';
-  var notas   = (form.querySelector('[name="co"]')||{}).value||'';
-  var cpInp   = (form.querySelector('[name="cp_envio"]')||{}).value||'';
-  var factRad = form.querySelector('input[name="factura"]:checked');
-  var factura = factRad ? factRad.value : 'No';
-  var envRad  = form.querySelector('input[name="requiere_envio"]:checked');
-  var req_env = envRad ? envRad.value : 'No';
-
-  if(!nombre.trim()||!correo.trim()){alert('Por favor ingresa tu nombre y correo.');return;}
-
-  var envioInfo = req_env==='Si' ? ('Si'+(cpInp?' - CP: '+cpInp:' (sin CP)')) : 'No requiere envio';
-
-  var listaParts=[];
-  c.forEach(function(x){
-    listaParts.push(x.name+(x.color?' | '+x.color:'')+' | '+x.qty+' '+x.unit);
-  });
-
-  var payload = {
-    access_key: '40337e2a-322a-47a2-91eb-873abf2c7eee',
-    subject:    'Cotizacion Beitex - '+nombre,
-    from_name:  'Textiles Beitex Web',
-    replyto:    correo,
-    Nombre:     nombre,
-    Correo:     correo,
-    Telefono:   tel,
-    Factura:    factura==='Si'?'Si requiere factura':'No requiere factura',
-    Envio:      envioInfo,
-    Productos:  listaParts.join(' | '),
-    Notas:      notas||'Sin notas'
-  };
-
-  var btn = form.querySelector('[type="submit"]');
-  if(btn){btn.disabled=true;btn.textContent='Enviando...';}
-
-  fetch('https://api.web3forms.com/submit',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify(payload)
-  }).then(function(res){return res.json();})
-  .then(function(data){
-    if(data.success){
-      showConfirmBanner(nombre, correo);
-      saveCart([]);
-      updateBadge();
-      closeCart();
-    } else {
-      if(btn){btn.disabled=false;btn.textContent='Enviar cotizacion';}
-      console.error('Web3Forms error:', data);
-      fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas);
-    }
-  }).catch(function(err){
-    console.error('Fetch error:', err);
-    if(btn){btn.disabled=false;btn.textContent='Enviar cotizacion';}
-    fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas);
-  });
-}
-
-function fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas){
-  var body='Nombre: '+nombre+'\nCorreo: '+correo+'\nTelefono: '+tel+'\nFactura: '+factura+'\nEnvio: '+envioInfo+'\n\nProductos:\n'+listaParts.join('\n')+(notas?'\n\nNotas: '+notas:'');
-  window.location.href='mailto:ventas@textilesbeitex.mx?subject='+encodeURIComponent('Cotizacion - '+nombre)+'&body='+encodeURIComponent(body);
-}
-
-function showConfirmBanner(nombre, correo){
-  var old = document.getElementById('confirm-banner');
-  if(old) old.remove();
-  var banner = document.createElement('div');
-  banner.id = 'confirm-banner';
-  var inner = document.createElement('div');
-  inner.className = 'cb-inner';
-  inner.innerHTML = [
-    '<div class="cb-icon"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#C05A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
-    '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>',
-    '<div class="cb-title">¡COTIZACIÓN ENVIADA!</div>',
-    '<div class="cb-sub">Gracias <strong>'+nombre+'</strong>, recibimos tu solicitud y te contactaremos en menos de <strong>24 horas hábiles</strong> al correo <strong>'+correo+'</strong>.</div>',
-    '<div class="cb-note">Si no recibes noticias escíbenos a <a href="mailto:ventas@textilesbeitex.mx">ventas@textilesbeitex.mx</a> o al <a href="tel:5554911568">55-5491-1568</a></div>'
-  ].join('');
-  var closeBtn = document.createElement('button');
-  closeBtn.className = 'cb-close';
-  closeBtn.textContent = 'Cerrar';
-  closeBtn.addEventListener('click', function(){ banner.remove(); });
-  inner.appendChild(closeBtn);
-  banner.appendChild(inner);
-  document.body.appendChild(banner);
-}
-
-
-
-
-
-function fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas){
-  var body='Nombre: '+nombre+'\nCorreo: '+correo+'\nTelefono: '+tel+'\nFactura: '+factura+'\nEnvio: '+envioInfo+'\n\nProductos:\n'+listaParts.join('\n')+(notas?'\n\nNotas: '+notas:'');
-  window.location.href='mailto:ventas@textilesbeitex.mx?subject='+encodeURIComponent('Cotizacion - '+nombre)+'&body='+encodeURIComponent(body);
-}
-
-
-
-
-</script>
-<script>
-var PRODUCTS_DB = {"felpa-nacional": {"id": "felpa-nacional", "name": "Felpa Nacional", "badge": "★ Nacional", "btype": "solid", "unit": "kg", "cat": "felpa", "comp": "100% Poliéster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.5 mt/kg", "desc": "La favorita para pants y sudaderas. Suave al tacto, sin bolitas, excelente caída.", "usos": ["Pants", "Sudaderas", "Chamarras", "Uniformes escolares", "Hoodies"], "colores": ["AZUL MARINO", "AZUL REY", "BLANCO", "NEGRO", "PIZARRA", "ROJO", "VINO", "OTROS COLORES"], "venta": "Por kilogramo (kg)", "rollo": "20 kg"}, "micropique": {"id": "micropique", "name": "Micropiqué", "badge": "Deportivo", "btype": "outline", "unit": "kg", "cat": "deportivo", "comp": "100% Poliéster", "peso": "145 gsm", "ancho": "1.60 m", "rend": "4.2 mt/kg", "desc": "Textura fina ideal para playeras tipo polo y uniformes deportivos de alto rendimiento.", "usos": ["Playeras tipo polo", "Uniformes corporativos", "Ropa deportiva", "Escolares", "Camisas"], "colores": ["AZUL CIELO", "AZUL MARINO", "AZUL REY", "BLANCO", "FUCSIA", "NEGRO", "PALO DE ROSA", "ROJO", "ROSA PASTEL", "OTROS COLORES"], "venta": "Por kilogramo (kg)", "rollo": "25 kg"}, "premiere": {"id": "premiere", "name": "Tela Premiere", "badge": "★ Top Ventas", "btype": "solid", "unit": "kg", "cat": "basica", "comp": "100% Poliéster", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Nuestra tela más popular. Acabado suave, versátil y perfecta para todo tipo de playeras y uniformes.", "usos": ["Playeras escolares", "Playeras casuales", "Uniformes", "Ropa deportiva", "Camisetas"], "colores": ["AZUL MARINO", "BLANCO", "NEGRO", "OTROS COLORES"], "rollo": "20 kg"}, "sportock": {"id": "sportock", "name": "Sportock", "badge": "Deportivo", "btype": "solid", "unit": "kg", "cat": "deportivo", "comp": "100% Poliéster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.50 mt/kg", "desc": "Tela satinada de alto rendimiento para conjuntos deportivos y chamarras escolares.", "usos": ["Pants deportivos", "Chamarras escolares", "Conjuntos deportivos", "Uniformes de equipo"], "colores": ["AMARILLO", "AZUL ACERO", "AZUL CIELO", "AZUL FRANCIA", "AZUL MARINO", "AZUL MARINO OSCURO", "AZUL PETRÓLEO", "AZUL PLUMBAGO", "AZUL REY", "BEIGE", "BLANCO", "CAQUI", "GRIS", "GRIS OXFORD", "GRIS PERLA", "MANGO", "MILITAR", "MOSTAZA", "NARANJA", "NEGRO", "ROJO", "TURQUESA", "VERDE AGUA", "VERDE BANDERA", "VERDE BOTELLA", "VERDE JADE", "VERDE LIMÓN", "VINO", "OTROS COLORES"], "rollo": "25 kg"}, "polar-fleece": {"id": "polar-fleece", "name": "Polar Fleece", "badge": "Forro", "btype": "outline", "unit": "kg", "cat": "forro", "comp": "100% Poliéster", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.50 mt/kg", "desc": "Tela suave y cálida ideal para temporada de frío. Excelente como forro o prenda exterior.", "usos": ["Forros de chamarras", "Cobijas", "Chamarras de invierno", "Forros interiores", "Accesorios"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"]}, "forro-capitonado": {"id": "forro-capitonado", "name": "Forro Capitonado", "badge": "Invierno", "btype": "outline", "unit": "mt", "cat": "forro", "comp": "100% Poliéster", "peso": "Variable", "ancho": "1.50 m", "rend": "Por metro", "desc": "Forro acolchado de alta calidad. Proporciona calidez excepcional en chamarras y colchas. Diseño a tu elección.", "usos": ["Chamarras acolchadas", "Colchas", "Colchonetas", "Forros de invierno", "Sacos"], "colores": ["Acero", "Agua", "Amarillo", "Amarillo Neon", "Aqua", "Arena", "Bandera", "Beige", "Blanco", "Botella", "Bugambilia", "Cafe", "Camuflaje", "Canario", "Cemento", "Cielo", "Clavel", "Coral", "Fiucsa", "Francia", "Fresa", "Granate", "Grey", "Hueso", "Jade", "Jaspe", "Jaspe Claro", "Jaspe Oscuro", "Kaki", "Lila", "Limon", "Mango", "Manzana", "Marino", "Marino Claro", "Marino Rey", "Melon", "Menta", "Militar", "Morado", "Mostaza", "Naranja", "Naranja Neon", "Negro", "Oro", "Oxford", "Palo de Rosa", "Perla", "Petroleo", "Pimenton", "Pistache", "Pizarra", "Plumbago", "Rey", "Rojo", "Rosa", "Rosa Mexicano", "Rosa Neon", "Rosa Pastel", "Salmon", "Shedron", "Turquesa", "Uva", "Vainilla", "Verde Limon", "Verde Sage", "Vino", "Yema", "Otro color"], "has_dibujo": true}, "interlock": {"id": "interlock", "name": "Interlock 50/50", "badge": "Versátil", "btype": "outline", "unit": "kg", "cat": "basica", "comp": "50% Poliéster · 50% Algodón Peinado", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Tela interlock suave con buena elasticidad. Cómoda para uso diario y prendas de contacto con la piel.", "usos": ["Playeras básicas", "Ropa interior", "Uniformes escolares", "Prendas de bebé", "Camisetas"], "colores": ["BLANCO", "OTROS COLORES"], "venta": "Por kilogramo (kg)", "rollo": "20 kg"}, "pique": {"id": "pique", "name": "Piqué 50/50", "badge": "Popular", "btype": "solid", "unit": "kg", "cat": "deportivo", "comp": "50% Poliéster · 50% Algodón Peinado", "peso": "240 gsm", "ancho": "1.60 m", "rend": "2.6 mt/kg", "desc": "Clásico piqué con textura waffle. Fresco y resistente, ideal para playeras tipo polo y uniformes.", "usos": ["Playeras tipo polo", "Uniformes corporativos", "Ropa deportiva", "Camisas escolares"], "colores": ["BLANCO", "OTROS COLORES"], "venta": "Por kilogramo (kg)", "rollo": "20 kg"}, "forro-millenium": {"id": "forro-millenium", "name": "Forro Millenium", "badge": "Forro", "btype": "solid", "unit": "mt", "cat": "forro", "comp": "100% Poliéster", "peso": "90 gsm", "ancho": "1.50 m", "rend": "Por metro", "desc": "Forro ligero y transpirable. Acabado liso y elegante, perfecto para el interior de chamarras y sacos.", "usos": ["Forros de chamarras", "Forros de sacos", "Uniformes de fútbol", "Ropa técnica", "Forros elegantes"], "colores": ["AZUL MARINO", "AZUL REY", "BEIGE", "BLANCO", "NARANJA NEÓN", "NEGRO", "ROJO", "VINO", "OTROS COLORES"], "rollo": "145 mt"}, "licra-brush": {"id": "licra-brush", "name": "Licra DTY Brush", "badge": "Elástica", "btype": "solid", "unit": "mt", "cat": "elastica", "comp": "100% Poliéster", "peso": "135 gsm", "ancho": "1.60 m", "rend": "4.6 mt/kg", "desc": "Licra con acabado brush suave al tacto. Alta elasticidad en 4 direcciones, ideal para ropa deportiva y ajustada.", "usos": ["Leggins y mallas", "Ropa deportiva", "Shorts", "Playeras ajustadas", "Ropa de yoga"], "colores": ["AZUL CIELO", "AZUL REY", "BEIGE", "FUCSIA", "HUESO", "LILA", "NEGRO", "PALO DE ROSA", "PERLA JASPE", "ROJO", "ROSA PASTEL", "VINO", "OTROS COLORES"], "venta": "Por metro (mt)", "rollo": "120 mt"}, "bombay": {"id": "bombay", "name": "Bombay", "badge": "Ligero", "btype": "outline", "unit": "mt", "cat": "ligero", "comp": "100% Poliéster", "peso": "105 gsm", "ancho": "1.60 m", "rend": "5.95 mt/kg", "desc": "Tela ultra ligera y fresca. Excelente para sublimación, playeras de campaña y decoración de eventos.", "usos": ["Playeras de campaña", "Sublimación", "Decoración de eventos", "Mantelería", "Playeras promocionales"], "colores": ["AZUL CIELO", "AZUL MARINO", "AZUL REY", "BLANCO", "FUCSIA", "NEGRO", "PALO DE ROSA", "ROJO", "ROSA PASTEL", "OTROS COLORES"], "venta": "Por metro (mt)", "rollo": "120 mt"}, "dublin": {"id": "dublin", "name": "Dublín", "badge": "Formal", "btype": "outline", "unit": "kg", "cat": "formal", "comp": "100% Poliéster", "peso": "230 gsm", "ancho": "1.55 m", "rend": "2.8 mt/kg", "desc": "Tela resistente con acabado liso y formal. Preferida para uniformes de beisbol, americano y manteados.", "usos": ["Uniformes de beisbol", "Americano", "Manteados de tianguis", "Ropa formal", "Uniformes industriales"], "colores": ["AZUL MARINO", "AZUL REY", "BLANCO", "GRIS OXFORD", "GRIS PERLA", "NEGRO", "ROJO", "ROSA MEXICANO", "VERDE BANDERA", "VERDE BOTELLA", "OTROS COLORES"], "venta": "Por kilogramo (kg)", "rollo": "20 kg"}, "felpa-china": {"id": "felpa-china", "name": "Felpa China", "badge": "Importada", "btype": "solid", "unit": "kg", "cat": "felpa", "comp": "95% Poliéster · 5% Spandex", "peso": "250 gsm", "ancho": "1.60 m", "rend": "2.5 mt/kg", "desc": "Felpa importada con elasticidad superior. Sin bolitas, excelente resistencia al lavado intensivo.", "usos": ["Sudaderas con capucha", "Hoodies", "Pants de invierno", "Chamarras", "Ropa casual premium"], "colores": ["AZUL MARINO", "AZUL REY", "BLANCO", "JASPE CLARO", "JASPE OSCURO", "NEGRO", "ROJO", "VERDE BANDERA", "VERDE SAGE", "VINO", "OTROS COLORES"], "venta": "Por kilogramo (kg)", "rollo": "25 kg"}, "licra-saludable": {"id": "licra-saludable", "name": "Licra Saludable", "badge": "Nueva", "btype": "solid", "unit": "kg", "cat": "elastica", "comp": "92% Poliéster · 8% Spandex", "peso": "270 gsm", "ancho": "1.70 m", "rend": "220 g/mt", "venta": "Por kilogramo (kg)", "desc": "Licra saludable de alto gramaje con excelente elasticidad y recuperación. Ideal para ropa deportiva, leggins, fajas y prendas de compresión ligera.", "usos": ["Leggins y mallas", "Ropa deportiva", "Shorts ajustados", "Fajas ligeras", "Trajes de baño", "Ropa de yoga"], "colores": ["AZUL MARINO", "AZUL REY", "BEIGE", "BLANCO", "JASPE CLARO", "JASPE OSCURO", "NEGRO", "ROJO", "VERDE BANDERA", "VERDE BOTELLA", "VINO", "OTROS COLORES"]}, "tela-diablo": {"id": "tela-diablo", "name": "Tela Diablo", "badge": "Nueva", "btype": "solid", "unit": "mt", "cat": "forro", "comp": "100% Poliéster", "peso": "320 gsm", "ancho": "1.50 m", "rend": "2.1 mt/kg", "venta": "Por metro (mt)", "rollo": "50 mt", "desc": "Tela diablo de doble cara: exterior liso tipo softshell y reverso tipo borrego/sherpa. Alto gramaje y excelente abrigo para temporada de frío.", "usos": ["Chamarras de invierno", "Forros cálidos", "Chamarras tipo borrego", "Ropa de montaña", "Accesorios de invierno"], "colores": ["AZUL MARINO", "AZUL REY", "BLANCO", "GRIS OXFORD", "MILITAR", "NEGRO", "ROJO", "VINO", "OTROS COLORES"]}, "pique-vera": {"id": "pique-vera", "name": "Piqué Vera", "badge": "Deportivo", "btype": "outline", "unit": "kg", "cat": "deportivo", "comp": "100% Poliéster", "peso": "145 gsm", "ancho": "1.60 m", "rend": "4.2 mt/kg", "venta": "Por kilogramo (kg)", "rollo": "23 kg", "desc": "Piqué Vera ligero y fresco. Textura fina ideal para playeras tipo polo, uniformes deportivos y camisas escolares de alta calidad.", "usos": ["Playeras tipo polo", "Uniformes deportivos", "Camisas escolares", "Uniformes corporativos", "Ropa casual"], "colores": ["AZUL CIELO", "AZUL MARINO", "AZUL REY", "BLANCO", "FUCSIA", "NEGRO", "PALO DE ROSA", "ROJO", "ROSA PASTEL", "OTROS COLORES"]}, "jurly": {"id": "jurly", "name": "Jurly / Fourway", "badge": "Nueva", "btype": "solid", "unit": "mt", "cat": "elastica", "comp": "96% Poliéster · 4% Spandex", "peso": "130 gsm", "ancho": "1.50 m", "rend": "4.9 mt/kg", "venta": "Por metro (mt)", "desc": "Tela Jurly (Fourway) con elasticidad en 4 direcciones. Ideal para uniformes médicos, scrubs y ropa de trabajo. Excelente caída y resistencia al lavado.", "usos": ["Uniformes médicos", "Scrubs", "Ropa de trabajo", "Uniformes escolares", "Ropa deportiva"], "colores": ["AZUL CIELO", "AZUL MARINO", "AZUL REY", "BEIGE", "BLANCO", "CAFÉ", "CAMEL", "CANARIO", "CRÈME BRÛLÉE", "ESMERALDA", "FRESA", "FUCSIA CLARO", "FUCSIA INTENSO", "HOT PINK", "HUESO", "LILA", "MAGENTA", "MENTA", "MILITAR", "MOKA", "MOSTAZA", "NARANJA", "NEGRO", "NUDE", "PALO DE ROSA", "PERLA", "ROJO", "ROSA BABY", "ROSA PASTEL", "RUST", "VERDE KELLY", "VERDE PASTEL", "VINO", "OTROS COLORES"], "rollo": "60–120 mt"}};
-var PRENDA_DB = {
-  "playera-premiere":{
-    id:"playera-premiere",name:"Playera Premiere Slim Fit",
-    desc:"Playera cuello redondo en tela Premiere 100% Poliéster. Corte slim fit moderno, acabado suave y fresco.",
-    specs:[["Composicion","100% Poliester"],["Gramaje","240 gsm"],["Corte","Slim Fit"],["Cuello","Redondo"],["Minimo","25 piezas por articulo"]],
-    colores:["Blanco","Negro","Azul Marino"],
-    tallas:["XS","S","M","L","XL","XXL"],
-    usos:["Uniformes","Playera casual","Deportivo","Sublimacion","Bordado"],
-    unit:"pza",is_prenda:true
-  },
-  "sudadera-azul":{
-    id:"sudadera-azul",name:"Sudadera Crew Neck Azul Pizarra",
-    desc:"Sudadera cuello redondo en felpa azul pizarra. Corte oversized, sin capucha. 100% Algodon.",
-    specs:[["Composicion","100% Algodon"],["Gramaje","250 gsm"],["Color","Azul Pizarra"],["Corte","Oversized Crew Neck"],["Minimo","25 piezas totales"]],
-    colores:["Azul Pizarra"],
-    tallas:["XS","S","M","L","XL","XXL"],
-    usos:["Uso casual","Streetwear","Uniformes","Bordado","Serigrafia"],
-    unit:"pza",is_prenda:true
-  }
-};
-
-function openProductModal(id) {
-  var p = PRODUCTS_DB[id] || PRENDA_DB[id];
-  if (!p) return;
-  var isP = !!PRENDA_DB[id];
-  var unit = isP ? "pza" : p.unit;
-  var defQ = isP ? 25 : 5;
-
-  var specRows = "";
-  if (isP) {
-    (PRENDA_DB[id].specs || []).forEach(function(sp) {
-      var hl = sp[0] === "Minimo" ? " style=\"color:#C05A3A;font-weight:700\"" : "";
-      specRows += "<div class=\"ms-row\"><span class=\"ms-lbl\">" + sp[0] + "</span><span class=\"ms-val\"" + hl + ">" + sp[1] + "</span></div>";
-    });
-  } else {
-    var specList = [["Composicion",p.comp],["Gramaje",p.peso],["Ancho",p.ancho],["Rendimiento",p.rend],["Venta","Por "+p.unit]];
-    if(p.rollo) specList.push(["Tamaño de rollo", p.rollo]);
-    specList.forEach(function(sp) {
-      specRows += "<div class=\"ms-row\"><span class=\"ms-lbl\">" + sp[0] + "</span><span class=\"ms-val\">" + sp[1] + "</span></div>";
-    });
-  }
-
-  var usosHtml = "<div class=\"ms-usos-ttl\">Uso recomendado</div><div class=\"ms-chips\">";
-  (isP ? (PRENDA_DB[id].usos || []) : (p.usos || [])).forEach(function(u) {
-    usosHtml += "<span class=\"ms-chip\">" + u + "</span>";
-  });
-  usosHtml += "</div>";
-
-  var colList = isP ? PRENDA_DB[id].colores : (p.colores || []);
-  var colOpts = "<option value=\"\">Seleccionar color</option>";
-  colList.forEach(function(c) { colOpts += "<option value=\"" + c + "\">" + c + "</option>"; });
-  if (!isP && colList.indexOf("OTROS COLORES") < 0) {
-    colOpts += "<option value=\"OTROS COLORES\">OTROS COLORES</option>";
-  }
-
-  var dibujoHtml = "";
-  if (id === "forro-capitonado") {
-    dibujoHtml = "<div style=\"margin-top:.5rem\"><label style=\"font-size:.68rem;font-weight:700;text-transform:uppercase;color:#8A7060;display:block;margin-bottom:.3rem\">Dibujo</label><input id=\"modal-dibujo\" type=\"text\" placeholder=\"Ej: rombos, rayas...\" style=\"width:100%;border:1.5px solid #DDD5C8;border-radius:3px;padding:.6rem;font-size:.88rem;color:#1E0F08;outline:none\" /></div>";
-  }
-
-  document.getElementById("modal-title").textContent = p.name.toUpperCase();
-  document.getElementById("modal-desc").textContent = p.desc || "";
-  document.getElementById("modal-specs").innerHTML = specRows;
-  document.getElementById("modal-usos").innerHTML = usosHtml;
-  document.getElementById("modal-color").innerHTML = colOpts;
-
-  var tallaEl = document.getElementById("modal-talla");
-  if (tallaEl) {
-    if (isP && PRENDA_DB[id].tallas) {
-      var tOpts = "<option value=\"\">Seleccionar talla</option>";
-      PRENDA_DB[id].tallas.forEach(function(t) { tOpts += "<option value=\"" + t + "\">" + t + "</option>"; });
-      tallaEl.innerHTML = tOpts;
-      tallaEl.style.display = "block";
-    } else {
-      tallaEl.innerHTML = ""; tallaEl.style.display = "none";
-    }
-  }
-
-  var dw = document.getElementById("modal-dibujo-wrap");
-  if (dw) dw.innerHTML = dibujoHtml;
-
-  var ow = document.getElementById("modal-otro-color-wrap");
-  if (ow) ow.style.display = "none";
-
-  var qi = document.getElementById("modal-qty");
-  qi.value = defQ; qi.min = 1; qi.step = 1;
-  document.getElementById("modal-unit").textContent = unit;
-  document.getElementById("modal-min-note").innerHTML = isP ? "<div class=\"ms-min-note\">Minimo 25 piezas en total</div>" : "";
-
-  var uw = document.getElementById("modal-unit-select-wrap");
-  if (uw) {
-    var ss = "border:1.5px solid #DDD5C8;border-radius:3px;padding:.5rem .7rem;font-size:.82rem;color:#1E0F08;background:#fff;outline:none;cursor:pointer;width:100%;margin-top:.3rem";
-    if (!isP && unit === "kg") {
-      uw.innerHTML = "<select id=\"modal-unit-sel\" onchange=\"switchUnit(this)\" style=\"" + ss + "\"><option value=\"kg\">Kilogramos (kg)</option><option value=\"rollo\">Rollo completo</option></select>";
-    } else if (!isP && unit === "mt") {
-      uw.innerHTML = "<select id=\"modal-unit-sel\" onchange=\"switchUnit(this)\" style=\"" + ss + "\"><option value=\"mt\">Metros (mt)</option><option value=\"rollo\">Rollo completo</option></select>";
-    } else {
-      uw.innerHTML = "";
-    }
-  }
-
-  var btn = document.getElementById("modal-add-btn");
-  btn.dataset.id = id; btn.dataset.name = p.name; btn.dataset.unit = unit; btn.dataset.prenda = isP ? "1" : "0";
-  document.getElementById("product-modal").classList.add("open");
-  document.getElementById("modal-overlay").classList.add("show");
-  document.body.style.overflow = "hidden";
-}
-
-function closeProductModal() {
-  var pm = document.getElementById("product-modal");
-  var mo = document.getElementById("modal-overlay");
-  if (pm) pm.classList.remove("open");
-  if (mo) mo.classList.remove("show");
-  document.body.style.overflow = "";
-}
-
-function modalQtyChange(delta) {
-  var qi = document.getElementById("modal-qty");
-  qi.value = Math.max(1, Math.round(parseFloat(qi.value) + delta));
-}
-
-function switchUnit(sel) {
-  var u = sel.value;
-  var us = document.getElementById("modal-unit");
-  var qi = document.getElementById("modal-qty");
-  var btn = document.getElementById("modal-add-btn");
-  if (us) us.textContent = u;
-  if (qi) { qi.value = u === "rollo" ? 1 : 5; qi.min = 1; }
-  if (btn) btn.dataset.unit = u;
-}
-
-function toggleOtroColor(sel) {
-  var w = document.getElementById("modal-otro-color-wrap");
-  if (w) w.style.display = sel.value === "OTROS COLORES" ? "block" : "none";
-}
-
-function showModalErr(msg) {
-  var e = document.getElementById("modal-err");
-  if (!e) {
-    e = document.createElement("div"); e.id = "modal-err";
-    e.style.cssText = "background:rgba(192,90,58,.1);color:#C05A3A;font-size:.85rem;font-weight:600;padding:.5rem 1rem;border-radius:4px;text-align:center;margin-top:.3rem;border:1px solid rgba(192,90,58,.3)";
-    var ab = document.getElementById("modal-add-btn");
-    if (ab) ab.after(e);
-  }
-  e.textContent = msg;
-  setTimeout(function() { if (e) e.textContent = ""; }, 3000);
-}
-
-function filterCat(cat, btn) {
-  document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("active"); });
-  btn.classList.add("active");
-  document.querySelectorAll(".cat-card").forEach(function(c) {
-    c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none";
-  });
-}
+});
 
 function toggleEnvioOpts() {
-  var noR = document.querySelector("input[name=\"requiere_envio\"][value=\"No\"]");
-  var siR = document.querySelector("input[name=\"requiere_envio\"][value=\"Si\"]");
-  var cpBlock = document.getElementById("envio-cp-block");
-  var noLbl = document.getElementById("envio-no-lbl");
-  var siLbl = document.getElementById("envio-si-lbl");
-  if (noR && siR) {
-    if (noLbl) { noLbl.style.borderColor = noR.checked ? "#C05A3A" : "var(--border)"; noLbl.style.background = noR.checked ? "rgba(192,90,58,.07)" : "#fff"; }
-    if (siLbl) { siLbl.style.borderColor = siR.checked ? "#C05A3A" : "var(--border)"; siLbl.style.background = siR.checked ? "rgba(192,90,58,.07)" : "#fff"; }
-    if (cpBlock) { cpBlock.style.display = siR.checked ? "flex" : "none"; }
+  var noR = document.querySelector('input[name="requiere_envio"][value="No"]');
+  var siR = document.querySelector('input[name="requiere_envio"][value="Si"]');
+  var cpBlock = document.getElementById('envio-cp-block');
+  var noLbl = document.getElementById('envio-no-lbl');
+  var siLbl = document.getElementById('envio-si-lbl');
+  if(noR && siR) {
+    if(noLbl) { noLbl.style.borderColor = noR.checked ? '#C05A3A' : 'var(--border)'; noLbl.style.background = noR.checked ? 'rgba(192,90,58,.07)' : '#fff'; }
+    if(siLbl) { siLbl.style.borderColor = siR.checked ? '#C05A3A' : 'var(--border)'; siLbl.style.background = siR.checked ? 'rgba(192,90,58,.07)' : '#fff'; }
+    if(cpBlock) { cpBlock.style.display = siR.checked ? 'flex' : 'none'; }
   }
 }
 
-// Registrar listeners al cargar la página
-window.addEventListener("load", function() {
-  // Botón agregar al carrito
-  var addBtn = document.getElementById("modal-add-btn");
-  if (addBtn) {
-    addBtn.addEventListener("click", function() {
-      var id = this.dataset.id, name = this.dataset.name, unit = this.dataset.unit, isP = this.dataset.prenda === "1";
-      var colorSel = document.getElementById("modal-color").value;
-      var otroInp = document.getElementById("modal-otro-color-input");
-      var tallaEl = document.getElementById("modal-talla");
-      var talla = (tallaEl && tallaEl.style.display !== "none") ? tallaEl.value : "";
-      var color = (colorSel === "OTROS COLORES" && otroInp && otroInp.value.trim()) ? otroInp.value.trim().toUpperCase() : colorSel;
-      var qty = parseInt(document.getElementById("modal-qty").value) || 1;
-      var dInp = document.getElementById("modal-dibujo");
-      var dibujo = dInp ? dInp.value : "";
-      if (!color) { showModalErr("Selecciona un color."); return; }
-      if (isP && !talla) { showModalErr("Selecciona una talla."); return; }
-      var colorFinal = color + (talla ? " - " + talla : "") + (dibujo ? " | Dibujo: " + dibujo : "");
-      addToCart({ id: id, name: name, color: colorFinal, qty: qty.toString(), unit: unit });
-      closeProductModal();
-      openCart();
-    });
-  }
+</script>
+<script>
 
-  // Overlay cierra modal
-  var mo = document.getElementById("modal-overlay");
-  if (mo) mo.addEventListener("click", closeProductModal);
-
-  // Escape cierra modal
-  document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeProductModal(); });
-
-  // Filtros de categoría
-  document.querySelectorAll(".filter-btn").forEach(function(b) {
-    b.addEventListener("click", function() {
-      document.querySelectorAll(".filter-btn").forEach(function(x) { x.classList.remove("active"); });
-      this.classList.add("active");
-      var cat = this.dataset.cat || "all";
-      document.querySelectorAll(".cat-card").forEach(function(c) {
-        c.style.display = (cat === "all" || c.dataset.cat === cat) ? "" : "none";
-      });
-    });
-  });
-
-  // Factura radio highlight
-  document.querySelectorAll("input[name=\"factura\"]").forEach(function(radio) {
-    radio.addEventListener("change", function() {
-      document.querySelectorAll(".fac-opt").forEach(function(lbl) {
-        var inp = lbl.querySelector("input");
-        lbl.style.borderColor = inp && inp.checked ? "#C05A3A" : "#DDD5C8";
-        lbl.style.background  = inp && inp.checked ? "rgba(192,90,58,.07)" : "#fff";
-      });
-    });
+document.querySelectorAll('#mob a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('mob').classList.remove('open');});
+});
+// Sticky CTA + scroll-to-top
+var _sc=document.getElementById('sticky-cta');
+window.addEventListener('scroll',function(){
+  if(_sc)_sc.classList.toggle('visible',window.scrollY>250);
+  var _tb=document.getElementById('top-btn');
+  if(_tb)_tb.classList.toggle('visible',window.scrollY>600);
+},{passive:true});
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=this.closest('.faq-item')||this.parentElement;
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+    if(!isOpen)item.classList.add('open');
   });
 });
-
-// ══ SLIDER DE TESTIMONIOS ══
-var tCurrent = 0;
-var tCards = null;
-var tDots = null;
-var tInterval = null;
-
-function initTestimonios() {
-  tCards = document.querySelectorAll('.t-card');
-  tDots = document.querySelectorAll('.t-dot');
-  if (!tCards.length) return;
-  startAutoSlide();
-}
-
-function goToSlide(n) {
-  if (!tCards) return;
-  tCards[tCurrent].classList.remove('active');
-  tCards[tCurrent].classList.add('out');
-  tDots[tCurrent] && tDots[tCurrent].classList.remove('active');
-  setTimeout(function() {
-    tCards[tCurrent] && tCards[tCurrent].classList.remove('out');
-    tCurrent = (n + tCards.length) % tCards.length;
-    tCards[tCurrent].classList.add('active');
-    tDots[tCurrent] && tDots[tCurrent].classList.add('active');
-  }, 300);
-  tCurrent = (n + tCards.length) % tCards.length;
-}
-
-function nextSlide() {
-  if (!tCards) return;
-  var next = (tCurrent + 1) % tCards.length;
-  tCards[tCurrent].classList.remove('active');
-  tCards[tCurrent].classList.add('out');
-  tDots[tCurrent] && tDots[tCurrent].classList.remove('active');
-  var prev = tCurrent;
-  tCurrent = next;
-  setTimeout(function() {
-    tCards[prev] && tCards[prev].classList.remove('out');
-    tCards[tCurrent].classList.add('active');
-    tDots[tCurrent] && tDots[tCurrent].classList.add('active');
-  }, 300);
-}
-
-function prevSlide() {
-  if (!tCards) return;
-  var prev = (tCurrent - 1 + tCards.length) % tCards.length;
-  tCards[tCurrent].classList.remove('active');
-  tCards[tCurrent].classList.add('out');
-  tDots[tCurrent] && tDots[tCurrent].classList.remove('active');
-  var old = tCurrent;
-  tCurrent = prev;
-  setTimeout(function() {
-    tCards[old] && tCards[old].classList.remove('out');
-    tCards[tCurrent].classList.add('active');
-    tDots[tCurrent] && tDots[tCurrent].classList.add('active');
-  }, 300);
-}
-
-function startAutoSlide() {
-  clearInterval(tInterval);
-  tInterval = setInterval(function() { nextSlide(); }, 5000);
-}
-
-window.addEventListener('load', function() {
-  initTestimonios();
-  // Pausar al pasar el mouse
-  var wrap = document.getElementById('t-slider');
-  if (wrap) {
-    wrap.addEventListener('mouseenter', function() { clearInterval(tInterval); });
-    wrap.addEventListener('mouseleave', function() { startAutoSlide(); });
-  }
+// Radio envío
+document.querySelectorAll('input[name="requiere_envio"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    var w=document.getElementById('cp-wrap');
+    if(w)w.style.display=this.value==='Si'?'block':'none';
+  });
 });
 
 </script>
+<script>
 
-var _sc=document.getElementById('sticky-cta');
-window.addEventListener('scroll',function(){
-  if(_sc)_sc.classList.toggle('visible',window.scrollY>300);
-  var _tb=document.getElementById('top-btn');if(_tb)_tb.classList.toggle('visible',window.scrollY>600);
-},{passive:true});
 
+// ══ CARRUSEL TELAS ══
+(function(){
+  var track = document.getElementById('carousel-track');
+  if(!track) return;
+  var slides = track.querySelectorAll('.carousel-slide');
+  var total = slides.length;
+  var current = 0;
+  var timer = null;
+  var visible = 4;
+
+  function getVisible(){
+    if(window.innerWidth <= 380) return 1;
+    if(window.innerWidth <= 600) return 2;
+    if(window.innerWidth <= 900) return 3;
+    return 4;
+  }
+
+  function buildDots(){
+    var dots = document.getElementById('carousel-dots');
+    if(!dots) return;
+    dots.innerHTML = '';
+    var pages = Math.ceil(total / getVisible());
+    for(var i=0; i<pages; i++){
+      var d = document.createElement('button');
+      d.className = 'carousel-dot' + (i===0?' active':'');
+      d.setAttribute('aria-label','Página '+(i+1));
+      (function(idx){ d.addEventListener('click', function(){ goTo(idx); }); })(i);
+      dots.appendChild(d);
+    }
+  }
+
+  function updateDots(){
+    var dots = document.getElementById('carousel-dots');
+    if(!dots) return;
+    var v = getVisible();
+    var page = Math.floor(current / v);
+    dots.querySelectorAll('.carousel-dot').forEach(function(d,i){ d.classList.toggle('active', i===page); });
+  }
+
+  function goTo(page){
+    var v = getVisible();
+    current = page * v;
+    if(current >= total) current = 0;
+    var offset = current * (100 / total);
+    track.style.transform = 'translateX(-' + offset + '%)';
+    updateDots();
+    resetTimer();
+  }
+
+  function goToSlide(idx){
+    var v = getVisible();
+    if(idx < 0) idx = total - v;
+    if(idx > total - v) idx = 0;
+    current = idx;
+    var offset = current * (100 / total);
+    track.style.transform = 'translateX(-' + offset + '%)';
+    updateDots();
+    resetTimer();
+  }
+
+  window.carouselNext = function(){ goToSlide(current + getVisible()); };
+  window.carouselPrev = function(){ goToSlide(current - getVisible()); };
+
+  function resetTimer(){ clearInterval(timer); timer = setInterval(window.carouselNext, 3500); }
+
+  // Touch swipe
+  var startX = 0;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 50){ dx < 0 ? window.carouselNext() : window.carouselPrev(); }
+  }, {passive:true});
+
+  // Pausar al pasar el mouse
+  track.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  track.addEventListener('mouseleave', function(){ resetTimer(); });
+
+  window.addEventListener('resize', function(){ buildDots(); goToSlide(0); });
+
+  buildDots();
+  resetTimer();
+})();
+
+
+
+// ── SCROLL ANIMATIONS ──
+(function(){
+  // IntersectionObserver para animaciones de entrada
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+
+  // Aplicar a elementos existentes
+  document.querySelectorAll('.sec-head, .cat-card, .rev-card, .blog-card, .faq-item, .about-wrap, .mayoreo-wrap, .nums-grid').forEach(function(el){
+    el.classList.add('rv','rv-up');
+    obs.observe(el);
+  });
+
+  // Stagger en grids
+  document.querySelectorAll('.cat-grid, .rev-grid, .blog-grid, .pps, .filter-wrap').forEach(function(el){
+    el.classList.add('rv-stagger');
+    obs.observe(el);
+  });
+
+  // Sellos
+  var sealObs = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){
+      document.querySelectorAll('.seal').forEach(function(s){ s.classList.add('visible'); });
+      sealObs.disconnect();
+    }
+  }, {threshold:0.2});
+  var sealsSection = document.querySelector('.seals-section');
+  if(sealsSection) sealObs.observe(sealsSection);
+
+  // Progress bars en mayoreo
+  var pbarObs = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){
+      document.querySelectorAll('.pbar-fill').forEach(function(bar){
+        bar.style.width = bar.dataset.width;
+      });
+      pbarObs.disconnect();
+    }
+  }, {threshold:0.3});
+  var mayoreo = document.querySelector('.mayoreo-wrap');
+  if(mayoreo) pbarObs.observe(mayoreo);
+
+  // Parallax en hero (sutil)
+  var heroBg = document.querySelector('.hero-bg');
+  if(heroBg){
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      heroBg.style.transform = 'translateY(' + (y * 0.25) + 'px)';
+    }, {passive:true});
+  }
+
+  // Stagger en product cards al cargar y al filtrar
+  function staggerCards(){
+    var visible = document.querySelectorAll('.p-card:not(.hidden)');
+    visible.forEach(function(card, i){
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(24px)';
+      card.style.transition = 'opacity .5s ease ' + (i * 0.04) + 's, transform .5s ease ' + (i * 0.04) + 's';
+      setTimeout(function(){
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+      }, 50);
+    });
+  }
+  // Sobreescribir filterProducts para incluir stagger
+  var origFilter = window.filterProducts;
+  window.filterProducts = function(btn){
+    origFilter(btn);
+    setTimeout(staggerCards, 10);
+  };
+  setTimeout(staggerCards, 200);
+
+  // Hover 3D sutil en sellos
+  document.querySelectorAll('.seal').forEach(function(seal){
+    seal.addEventListener('mousemove', function(e){
+      var rect = seal.getBoundingClientRect();
+      var cx = rect.left + rect.width/2;
+      var cy = rect.top + rect.height/2;
+      var dx = (e.clientX - cx) / 8;
+      var dy = (e.clientY - cy) / 8;
+      seal.querySelector('.seal-ring').style.transform = 'rotateX(' + (-dy) + 'deg) rotateY(' + dx + 'deg) scale(1.06)';
+    });
+    seal.addEventListener('mouseleave', function(){
+      seal.querySelector('.seal-ring').style.transform = '';
+    });
+  });
+
+  // Cursor personalizado en cards (sutil)
+  document.querySelectorAll('.p-card, .cat-card').forEach(function(card){
+    card.style.cursor = 'pointer';
+  });
+})();
+
+
+// ── CARRUSEL PRODUCTOS ── loop infinito
+(function(){
+  var track = document.getElementById('cr-track');
+  if(!track) return;
+  var slides = track.querySelectorAll('.cr-slide');
+  var total = slides.length;
+  var current = 0;
+
+  function getVisible(){
+    var w = window.innerWidth;
+    if(w <= 600) return 2;
+    if(w <= 900) return 3;
+    return 4;
+  }
+
+  function maxIdx(){ return total - getVisible(); }
+
+  function goTo(idx, animate){
+    var mp = maxIdx();
+    if(idx < 0) idx = mp;
+    if(idx > mp) idx = 0;
+    current = idx;
+    if(animate === false){
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform .55s cubic-bezier(.4,0,.2,1)';
+    }
+    track.style.transform = 'translateX(-' + (current * 100 / total) + '%)';
+    buildDots();
+  }
+
+  function next(){ goTo(current + 1); }
+  function prev(){ goTo(current - 1); }
+
+  function buildDots(){
+    var dotsEl = document.getElementById('cr-dots');
+    if(!dotsEl) return;
+    var pages = maxIdx() + 1;
+    if(dotsEl.children.length !== pages){
+      dotsEl.innerHTML = '';
+      for(var i = 0; i < pages; i++){
+        var d = document.createElement('button');
+        d.className = 'cr-dot';
+        d.setAttribute('aria-label', 'Página ' + (i+1));
+        (function(idx){ d.addEventListener('click', function(){ goTo(idx); }); })(i);
+        dotsEl.appendChild(d);
+      }
+    }
+    Array.from(dotsEl.children).forEach(function(d,i){
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  // Botones manuales (no pausan)
+  var prevBtn = document.getElementById('cr-prev');
+  var nextBtn = document.getElementById('cr-next');
+  if(prevBtn) prevBtn.addEventListener('click', prev);
+  if(nextBtn) nextBtn.addEventListener('click', next);
+
+  // Touch swipe (no pausa el auto)
+  var startX = 0;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    var diff = e.changedTouches[0].clientX - startX;
+    if(Math.abs(diff) > 40){ diff < 0 ? next() : prev(); }
+  }, {passive:true});
+
+  // Resize
+  window.addEventListener('resize', function(){ buildDots(); goTo(Math.min(current, maxIdx()), false); });
+
+  // AUTO — avanza cada 2.2s, sin pausa, sin fin
+  buildDots();
+  goTo(0, false);
+  setInterval(next, 2200);
+})();
+
+
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = this.closest('.faq-item') || this.parentElement;
+    var isOpen = item.classList.contains('open');
+    // Cerrar todos
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    // Abrir este si estaba cerrado
+    if(!isOpen){ item.classList.add('open'); }
+  });
+});
+
+</script>
 </body>
 </html>
