@@ -468,6 +468,7 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 .spec-table td:last-child{color:rgba(255,255,255,.78);font-weight:500}
 @media(max-width:768px){.tela-grid{grid-template-columns:1fr}}
 </style></head><body>
+<!-- NAV -->
 <nav class="site-nav">
   <a href="../index.html" class="nav-logo">BEITEX<span>.</span></a>
   <ul class="nav-links">
@@ -555,6 +556,7 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
   </div>
 </div></div>
 
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap" style="padding:0">
@@ -566,7 +568,8 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
     </div>
     <div class="f-bot"><div class="f-copy">© 2025 Textiles Beitex · Todos los derechos reservados</div><div class="f-leg"><a href="../privacidad.html">Privacidad</a><a href="../no-cambios.html">No devoluciones</a></div></div>
   </div>
-</footer><!-- FLOATING BUTTONS -->
+</footer>
+<!-- FLOATING BUTTONS -->
 <div class="float-btns">
   <button class="float-btn top-btn" id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Subir">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
@@ -617,7 +620,6 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
     </div>
   </div>
 </div>
-
 <script>
 
 // Parallax suave en hero
@@ -656,9 +658,31 @@ function toggleEnvioOpts() {
 
 </script>
 <script>
-document.querySelectorAll('#mob a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mob').classList.remove('open');});});
-var sc=document.getElementById('sticky-cta');
-window.addEventListener('scroll',function(){if(sc)sc.classList.toggle('visible',window.scrollY>200);var tb=document.getElementById('top-btn');if(tb)tb.classList.toggle('visible',window.scrollY>600);},{passive:true});
+
+document.querySelectorAll('#mob a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('mob').classList.remove('open');});
+});
+var _sc=document.getElementById('sticky-cta');
+window.addEventListener('scroll',function(){
+  if(_sc)_sc.classList.toggle('visible',window.scrollY>250);
+  var _tb=document.getElementById('top-btn');
+  if(_tb)_tb.classList.toggle('visible',window.scrollY>600);
+},{passive:true});
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=this.closest('.faq-item')||this.parentElement;
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+    if(!isOpen)item.classList.add('open');
+  });
+});
+document.querySelectorAll('input[name="requiere_envio"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    var w=document.getElementById('cp-wrap');
+    if(w)w.style.display=this.value==='Si'?'block':'none';
+  });
+});
+
 </script>
 <script>
 
@@ -936,4 +960,74 @@ document.querySelectorAll('.faq-q').forEach(function(q){
 });
 
 </script>
-</body></html>
+
+<script>
+/* ══ MODAL COTIZADOR ══ */
+var PRODUCTS = {
+  'felpa-nacional':  { name:'Felpa Nacional',     comp:'100% Poliéster',                specs:'Tejido circular · 230–260 g/m²',     usos:'Sudaderas, chamarras escolares, ropa deportiva', colors:['Blanco','Negro','Gris Oxford','Gris Jaspe','Marino','Rojo','Verde Limón','Amarillo','Rosa Baby','Naranja','Morado','Café','Beige','Otro color…'], unit:'kg', min:10 },
+  'felpa-china':     { name:'Felpa China',        comp:'95% Poliéster · 5% Spandex',    specs:'Tejido circular · 280–310 g/m²',     usos:'Sudaderas con stretch, ropa cómoda',             colors:['Blanco','Negro','Gris Oxford','Gris Jaspe','Marino','Rojo','Verde','Amarillo','Rosa Baby','Naranja','Otro color…'], unit:'kg', min:10 },
+  'sportock':        { name:'Sportock',           comp:'100% Poliéster',                specs:'Tejido circular · 180–200 g/m²',     usos:'Uniformes escolares, playeras deportivas',       colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Rosa','Naranja','Morado','Otro color…'], unit:'kg', min:10 },
+  'jurly':           { name:'Fourway / Jurly',    comp:'96% Poliéster · 4% Spandex',    specs:'Cuatro vías · 200–230 g/m²',         usos:'Ropa médica, scrubs, deportivo funcional',       colors:['Blanco','Negro','Gris','Marino','Verde Quirúrgico','Azul Cielo','Lila','Rojo','Rosa Baby','Otro color…'], unit:'kg', min:10 },
+  'micropique':      { name:'Micropiqué',         comp:'100% Poliéster',                specs:'Tejido piqué fino · 180–200 g/m²',   usos:'Playeras polo, uniformes corporativos',          colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Naranja','Otro color…'], unit:'kg', min:10 },
+  'premiere':        { name:'Tela Premiere',      comp:'100% Poliéster',                specs:'Para sublimación · 150–160 g/m²',    usos:'Sublimación, playeras técnicas',                 colors:['Blanco','Otro color…'], unit:'kg', min:10 },
+  'interlock':       { name:'Interlock 50/50',    comp:'50% Poliéster · 50% Algodón',  specs:'Doble cara · 180–200 g/m²',          usos:'Playeras cómodas, ropa infantil',                colors:['Blanco','Negro','Gris Jaspe','Marino','Rojo','Verde','Amarillo','Rosa Baby','Otro color…'], unit:'kg', min:10 },
+  'dublin':          { name:'Dublín',             comp:'100% Poliéster',                specs:'Tejido suave · 200–220 g/m²',        usos:'Ropa casual, uniformes, pantalones',             colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Beige','Café','Otro color…'], unit:'kg', min:10 },
+  'pique':           { name:'Piqué 50/50',        comp:'50% Poliéster · 50% Algodón',  specs:'Textura piqué · 210–230 g/m²',       usos:'Playeras polo, uniformes escolares',             colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Rosa','Otro color…'], unit:'kg', min:10 },
+  'pique-vera':      { name:'Piqué Vera',         comp:'100% Poliéster',                specs:'Piqué texturizado · 220–240 g/m²',   usos:'Playeras polo premium, uniformes ejecutivos',    colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Otro color…'], unit:'kg', min:10 },
+  'licra-saludable': { name:'Licra Saludable',    comp:'92% Poliéster · 8% Spandex',   specs:'Alta elasticidad · 200–220 g/m²',    usos:'Ropa deportiva, yoga, fitness',                  colors:['Blanco','Negro','Gris','Marino','Rojo','Verde Limón','Azul Cielo','Rosa','Morado','Otro color…'], unit:'kg', min:10 },
+  'licra-brush':     { name:'Licra Brush',        comp:'92% Poliéster · 8% Spandex',   specs:'Interior afelpado · 220–240 g/m²',   usos:'Ropa deportiva térmica, pants',                  colors:['Blanco','Negro','Gris','Marino','Rojo','Rosa','Otro color…'], unit:'kg', min:10 },
+  'tela-diablo':     { name:'Tela Diablo',        comp:'100% Poliéster',                specs:'Tejido resistente · 250–280 g/m²',   usos:'Chamarras, ropa de invierno',                    colors:['Blanco','Negro','Gris','Marino','Rojo','Café','Otro color…'], unit:'kg', min:10 },
+  'forro-millenium': { name:'Forro Millenium',    comp:'100% Poliéster',                specs:'Forro liso y sedoso · 60–80 g/m²',   usos:'Forro de chamarras, sacos, vestidos',            colors:['Negro','Marino','Gris','Blanco','Rojo','Verde','Otro color…'], unit:'metro', min:5 },
+  'bombay':          { name:'Bombay',             comp:'100% Poliéster',                specs:'Para sublimación · 140–160 g/m²',    usos:'Sublimación full-color, playeras técnicas',      colors:['Blanco','Otro color…'], unit:'kg', min:10 }
+};
+var _currentProductId=null;
+function openProductModal(id){
+  var p=PRODUCTS[id]; if(!p)return; _currentProductId=id;
+  var card=document.querySelector('.p-card[onclick*="'+id+'"]')||document.querySelector('[onclick*="\''+id+'\'"]');
+  var imgSrc=card?((card.querySelector('img')||{}).src||''):'';
+  document.getElementById('modal-img').src=imgSrc;
+  document.getElementById('modal-name').textContent=p.name;
+  document.getElementById('modal-comp').textContent=p.comp;
+  var se=document.getElementById('modal-specs');
+  se.innerHTML=p.specs?'<div class="modal-spec-row"><span>'+p.specs+'</span></div>':'';
+  var ue=document.getElementById('modal-usos');
+  ue.innerHTML=p.usos?'<div class="modal-usos-row">✔ '+p.usos+'</div>':'';
+  var sel=document.getElementById('modal-color');
+  sel.innerHTML='';
+  p.colors.forEach(function(c){var o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o);});
+  toggleOtroColor(sel);
+  var qe=document.getElementById('modal-qty');
+  qe.value=p.min;
+  document.getElementById('modal-qty-unit').textContent=p.unit;
+  document.getElementById('modal-min-note').textContent='Mínimo '+p.min+' '+p.unit;
+  document.getElementById('modal-err').textContent='';
+  var btn=document.getElementById('modal-add-btn');
+  btn.onclick=function(){
+    var color=sel.value==='Otro color…'?(document.getElementById('modal-otro-color-input').value.trim()||'A convenir'):sel.value;
+    var qty=parseFloat(qe.value);
+    if(!qty||qty<p.min){document.getElementById('modal-err').textContent='Mínimo '+p.min+' '+p.unit;return;}
+    addToCart({id:id,name:p.name,color:color,qty:qty,unit:p.unit});
+    closeProductModal();
+  };
+  document.getElementById('product-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeProductModal(){
+  var m=document.getElementById('product-modal');
+  if(m)m.classList.remove('open');
+  document.body.style.overflow='';
+  _currentProductId=null;
+}
+function toggleOtroColor(sel){
+  var w=document.getElementById('modal-otro-color-wrap');
+  if(!w)return;
+  w.style.display=sel.value==='Otro color…'?'block':'none';
+}
+document.addEventListener('click',function(e){
+  var m=document.getElementById('product-modal');
+  if(m&&m.classList.contains('open')&&e.target===m)closeProductModal();
+});
+</script>
+
+</body>
+</html>
