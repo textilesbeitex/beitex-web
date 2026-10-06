@@ -1142,6 +1142,159 @@ document.querySelectorAll('.faq-q').forEach(function(q){
 
 </script>
 
+
+<script>
+/* ══ CARRITO / COTIZADOR ══ */
+var CK = 'beitex_cot_v3';
+function getCart() { try { return JSON.parse(localStorage.getItem(CK)) || []; } catch(e) { return []; } }
+function saveCart(c) { localStorage.setItem(CK, JSON.stringify(c)); }
+
+function addToCart(item) {
+  var c = getCart();
+  var idx = c.findIndex(function(i) { return i.id === item.id && i.color === item.color; });
+  if (idx >= 0) {
+    c[idx].qty = (parseFloat(c[idx].qty) + parseFloat(item.qty)).toString();
+  } else {
+    c.push({ id: item.id, name: item.name, color: item.color, qty: parseFloat(item.qty).toString(), unit: item.unit });
+  }
+  saveCart(c); updateBadge(); showNotif(item.name, item.color);
+}
+
+function removeFromCart(id, color) {
+  saveCart(getCart().filter(function(i) { return !(i.id === id && i.color === color); }));
+  updateBadge(); renderCart();
+}
+
+function updateQty(id, color, delta) {
+  var c = getCart();
+  var idx = c.findIndex(function(i) { return i.id === id && i.color === color; });
+  if (idx < 0) return;
+  var nv = Math.max(1, Math.round(parseFloat(c[idx].qty) + delta));
+  c[idx].qty = nv.toString();
+  saveCart(c); renderCart();
+}
+
+function updateBadge() {
+  document.querySelectorAll('.cart-badge').forEach(function(b) {
+    var n = getCart().length; b.textContent = n; b.classList.toggle('show', n > 0);
+  });
+}
+
+function showNotif(name, color) {
+  var n = document.getElementById('bx-notif');
+  if (!n) {
+    n = document.createElement('div'); n.id = 'bx-notif'; n.className = 'notif';
+    document.body.appendChild(n);
+  }
+  n.innerHTML = '<strong style="color:var(--rl)">Agregado</strong><br>' + name + (color ? ' - ' + color : '');
+  n.classList.add('show');
+  clearTimeout(n._t);
+  n._t = setTimeout(function() { n.classList.remove('show'); }, 2800);
+}
+
+function renderCart() {
+  var el = document.getElementById('cart-items-list');
+  if (!el) return;
+  var c = getCart();
+  if (!c.length) {
+    el.innerHTML = '<div class="cart-empty"><p>Tu cotización está vacía.<br>Agrega telas desde el catálogo.</p></div>';
+    return;
+  }
+  var html = '';
+  c.forEach(function(x) {
+    var eid = x.id.replace(/'/g, "\'");
+    var ecol = x.color.replace(/'/g, "\'");
+    html += '<div class="cart-item">' +
+      '<div><div class="cart-item-name">' + x.name + '</div>' +
+      '<div class="cart-item-detail">' + (x.color || '') + '</div>' +
+      '<div class="cart-item-qty">' +
+      '<button class="qty-btn" onclick="updateQty('' + eid + '','' + ecol + '',-1)">&#8722;</button>' +
+      '<span class="qty-val">' + x.qty + ' ' + x.unit + '</span>' +
+      '<button class="qty-btn" onclick="updateQty('' + eid + '','' + ecol + '',1)">+</button>' +
+      '</div></div>' +
+      '<button class="cart-rm" onclick="removeFromCart('' + eid + '','' + ecol + '')" title="Eliminar">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4h6v2"/></svg>' +
+      '</button></div>';
+  });
+  el.innerHTML = html;
+}
+
+function openCart() {
+  var drawer = document.getElementById('cart-drawer');
+  if(drawer) drawer.classList.add('open');
+  var ov = document.getElementById('cart-ov');
+  if(ov) ov.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  renderCart();
+}
+
+function closeCart() {
+  var drawer = document.getElementById('cart-drawer');
+  if(drawer) drawer.classList.remove('open');
+  var ov = document.getElementById('cart-ov');
+  if(ov) ov.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function submitCotizacion(e) {
+  e.preventDefault();
+  var c = getCart();
+  if (!c.length) { alert('Agrega al menos una tela a tu cotización.'); return; }
+  var form = e.target;
+  var nombre  = (form.querySelector('[name="cn"]')||{}).value||'';
+  var correo  = (form.querySelector('[name="ce"]')||{}).value||'';
+  var tel     = (form.querySelector('[name="ct"]')||{}).value||'No proporcionado';
+  var notas   = (form.querySelector('[name="co"]')||{}).value||'';
+  var cpInp   = (form.querySelector('[name="cp_envio"]')||{}).value||'';
+  var factRad = form.querySelector('input[name="factura"]:checked');
+  var factura = factRad ? factRad.value : 'No';
+  var envRad  = form.querySelector('input[name="requiere_envio"]:checked');
+  var req_env = envRad ? envRad.value : 'No';
+  if(!nombre.trim()||!correo.trim()){alert('Por favor ingresa tu nombre y correo.');return;}
+  var envioInfo = req_env==='Si' ? ('Sí'+(cpInp?' - CP: '+cpInp:' (sin CP)')) : 'No requiere envío';
+  var listaParts = [];
+  c.forEach(function(x){ listaParts.push(x.name+(x.color?' | '+x.color:'')+' | '+x.qty+' '+x.unit); });
+  var payload = {
+    access_key: '40337e2a-322a-47a2-91eb-873abf2c7eee',
+    subject:    'Cotización Beitex - '+nombre,
+    from_name:  'Textiles Beitex Web',
+    replyto:    correo,
+    Nombre:     nombre, Correo: correo, Teléfono: tel,
+    Factura:    factura==='Si'?'Sí requiere factura':'No requiere factura',
+    Envío: envioInfo,
+    Productos:  listaParts.join(' | '),
+    Notas:      notas||'Sin notas'
+  };
+  var btn = form.querySelector('[type="submit"]');
+  if(btn){btn.disabled=true;btn.textContent='Enviando...';}
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(function(r){return r.json();}).then(function(d){
+    if(d.success){
+      alert('¡Cotización enviada! Te contactamos en menos de 24 horas.');
+      saveCart([]); updateBadge(); closeCart();
+      if(btn){btn.disabled=false;btn.textContent='Enviar cotización →';}
+    } else {
+      if(btn){btn.disabled=false;btn.textContent='Enviar cotización →';}
+      fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas);
+    }
+  }).catch(function(){
+    if(btn){btn.disabled=false;btn.textContent='Enviar cotización →';}
+    fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas);
+  });
+}
+
+function fallbackMailto(nombre,correo,tel,factura,envioInfo,listaParts,notas){
+  var body='Nombre: '+nombre+'\nCorreo: '+correo+'\nTeléfono: '+tel+'\nFactura: '+factura+'\nEnvío: '+envioInfo+'\n\nProductos:\n'+listaParts.join('\n')+(notas?'\n\nNotas: '+notas:'');
+  window.location.href='mailto:ventas@textilesbeitex.mx?subject='+encodeURIComponent('Cotización - '+nombre)+'&body='+encodeURIComponent(body);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  updateBadge();
+});
+</script>
+
 <script>
 /* ══ MODAL COTIZADOR ══ */
 var PRODUCTS = {
@@ -1319,12 +1472,16 @@ function openProductModal(id) {
 
   var modalEl = document.getElementById('product-modal');
   modalEl.classList.add('open');
+  var ov = document.getElementById('modal-overlay');
+  if(ov) ov.classList.add('show');
   document.body.style.overflow = 'hidden';
 }
 
 function closeProductModal() {
   var m = document.getElementById('product-modal');
   if (m) m.classList.remove('open');
+  var ov = document.getElementById('modal-overlay');
+  if(ov) ov.classList.remove('show');
   document.body.style.overflow = '';
   _currentProductId = null;
 }
