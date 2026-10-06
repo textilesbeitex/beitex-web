@@ -491,6 +491,7 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 .ic2-text{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65}
 @media(max-width:600px){.info-card-grid{grid-template-columns:1fr}}
 </style></head><body>
+<!-- NAV -->
 <nav class="site-nav">
   <a href="../index.html" class="nav-logo">BEITEX<span>.</span></a>
   <ul class="nav-links">
@@ -527,7 +528,7 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 </div>
 
 <div class="ph" id="hero"><div class="ph-inner">
-  <div class="bc"><a href="../index.html">Inicio</a><span class="bc-sep">›</span><a href="./index.html">Blog</a><span class="bc-sep">›</span>Producción</div>
+  <div class="bc"><a href="../index.html">Inicio</a><span class="bc-sep">›</span><a href="../blog.html">Blog</a><span class="bc-sep">›</span>Producción</div>
   <h1 class="ph-h1">Fabricación sobre <em>pedido</em></h1>
   <p class="ph-lead">Cómo funciona comprar telas directamente al fabricante y las ventajas de hacerlo sin intermediarios.</p>
 </div></div>
@@ -552,9 +553,10 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 </ol>
 <blockquote><p>Desde 1 kilogramo o 1 metro hasta contenedores completos — atendemos pedidos de todos los tamaños con el mismo nivel de calidad y atención.</p></blockquote>
 <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(192,90,58,.15)">
-      <a href="./index.html" style="color:var(--rl);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none">← Volver al blog</a>
+      <a href="../blog.html" style="color:var(--rl);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none">← Volver al blog</a>
       <a href="../catalogo.html" class="btn-p" style="font-size:.8rem;padding:.65rem 1.4rem">Ver catálogo →</a>
     </div></div></div></div>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap" style="padding:0">
@@ -566,7 +568,8 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
     </div>
     <div class="f-bot"><div class="f-copy">© 2025 Textiles Beitex · Todos los derechos reservados</div><div class="f-leg"><a href="../privacidad.html">Privacidad</a><a href="../no-cambios.html">No devoluciones</a></div></div>
   </div>
-</footer><!-- FLOATING BUTTONS -->
+</footer>
+<!-- FLOATING BUTTONS -->
 <div class="float-btns">
   <button class="float-btn top-btn" id="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Subir">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
@@ -617,7 +620,6 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
     </div>
   </div>
 </div>
-
 <script>
 
 // Parallax suave en hero
@@ -656,13 +658,30 @@ function toggleEnvioOpts() {
 
 </script>
 <script>
-document.querySelectorAll('#mob a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mob').classList.remove('open');});});
-var sc=document.getElementById('sticky-cta');
+
+document.querySelectorAll('#mob a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('mob').classList.remove('open');});
+});
+var _sc=document.getElementById('sticky-cta');
 window.addEventListener('scroll',function(){
-  if(sc)sc.classList.toggle('visible',window.scrollY>200);
-  var tb=document.getElementById('top-btn');if(tb)tb.classList.toggle('visible',window.scrollY>600);
+  if(_sc)_sc.classList.toggle('visible',window.scrollY>250);
+  var _tb=document.getElementById('top-btn');
+  if(_tb)_tb.classList.toggle('visible',window.scrollY>600);
 },{passive:true});
-document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var item=this.closest('.faq-item')||this.parentElement;var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});if(!open)item.classList.add('open');});});
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=this.closest('.faq-item')||this.parentElement;
+    var isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+    if(!isOpen)item.classList.add('open');
+  });
+});
+document.querySelectorAll('input[name="requiere_envio"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    var w=document.getElementById('cp-wrap');
+    if(w)w.style.display=this.value==='Si'?'block':'none';
+  });
+});
 
 </script>
 <script>
@@ -941,4 +960,5 @@ document.querySelectorAll('.faq-q').forEach(function(q){
 });
 
 </script>
-</body></html>
+</body>
+</html>
