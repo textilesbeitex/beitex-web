@@ -53,8 +53,10 @@ a{text-decoration:none;color:inherit}
 .nav-icons{display:flex;align-items:center;gap:.8rem}
 .nav-icon-btn{display:flex;align-items:center;background:var(--rl);border:none;border-radius:50%;padding:.55rem;cursor:pointer;color:#fff;transition:background .2s;position:relative;flex-shrink:0}
 .nav-icon-btn:hover{background:var(--rust)}
-.cart-badge{position:absolute;top:-5px;right:-5px;background:var(--rl);color:#fff;border-radius:50%;width:17px;height:17px;font-size:.58rem;font-weight:700;display:none;align-items:center;justify-content:center}
-.cart-badge.show{display:flex}
+.nav-icon-btn svg{flex-shrink:0}
+@media(max-width:600px){.nav-icon-btn{display:flex;align-items:center;background:var(--rl);border:none;border-radius:50%;padding:.55rem;cursor:pointer;color:#fff;transition:background .2s;position:relative;flex-shrink:0}}
+.cart-badge{position:absolute;top:-7px;right:-7px;min-width:20px;height:20px;padding:0 4px;border-radius:10px;background:#fff;color:var(--rl);font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid var(--rl);opacity:0;transform:scale(0);transition:all .2s;line-height:1}
+.cart-badge.show{opacity:1;transform:scale(1)}
 .ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
 .ham span{width:22px;height:2px;background:rgba(255,255,255,.7);border-radius:2px;transition:.3s}
 .mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(30,15,8,.98);padding:1.3rem 5%;z-index:998;flex-direction:column;gap:.9rem;border-bottom:2px solid rgba(192,90,58,.25)}
@@ -293,7 +295,10 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 .cart-remove{margin-left:auto;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.2);font-size:.95rem;transition:.2s}
 .cart-remove:hover{color:var(--rl)}
 .cart-empty{text-align:center;padding:2.5rem 1rem;color:rgba(255,255,255,.3);font-size:.85rem}
-.cart-form-section{padding:.85rem 1.2rem;border-top:2px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2)}
+.cart-form-section{padding:1.4rem 1.5rem 1.8rem;background:var(--mid);border-top:3px solid var(--rl)}
+.cart-form-header{margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.cart-form-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--rl);display:flex;align-items:center;gap:.5rem}
+.cart-form-eyebrow::before{content:'';width:20px;height:2px;background:var(--rl);flex-shrink:0}
 .cot-form label{font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.22rem;display:block}
 .cot-form input,.cot-form select,.cot-form textarea{width:100%;border:1.5px solid rgba(255,255,255,.12);border-radius:3px;padding:.5rem .72rem;font-size:.82rem;font-family:'DM Sans',sans-serif;color:#fff;background:rgba(255,255,255,.06);transition:.2s;margin-bottom:.55rem}
 .cot-form input:focus,.cot-form select:focus,.cot-form textarea:focus{outline:none;border-color:var(--rl)}
@@ -492,8 +497,8 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
     <li><a href="./catalogo.html" class="nav-cta">Cotizar →</a></li>
   </ul>
   <div class="nav-icons">
-    <button class="nav-icon-btn" onclick="openCart()" aria-label="Cotización">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    <button class="nav-icon-btn" onclick="openCart()" aria-label="Mi cotización">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
       <span class="cart-badge" id="cart-badge">0</span>
     </button>
     <button class="ham" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menú">
@@ -585,8 +590,12 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 <div class="cart-ov" id="cart-ov" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cart-drawer">
   <div class="cart-head"><div><span class="cart-title">Tu Cotización</span><div style="font-size:.62rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase">Agrega las telas que necesitas</div></div><button class="cart-close" onclick="closeCart()">✕</button></div>
-  <div id="cart-items-list" class="cart-items"></div>
-  <div class="cart-form-section">
+  <div class="cart-body-scroll" style="flex:1;overflow-y:auto;display:flex;flex-direction:column">
+    <div id="cart-items-list" class="cart-items" style="flex:1;padding:.85rem 1.2rem;background:#1E0F08"></div>
+    <div class="cart-form-section">
+      <div class="cart-form-header">
+        <span class="cart-form-eyebrow">Datos para tu cotización</span>
+      </div>
     <form class="cot-form" id="cot-form" onsubmit="submitCotizacion(event)">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
         <div><label>Nombre *</label><input type="text" name="cn" required placeholder="Tu nombre"/></div>
@@ -601,7 +610,8 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
       <div><label>Notas</label><textarea name="co" rows="2" placeholder="Cantidad aproximada, colores..."></textarea></div>
       <button type="submit" class="btn-full">Enviar cotización →</button>
     </form>
-  </div>
+    </div>
+  </div><!-- /cart-body-scroll -->
 </div>
 <!-- MODAL PRODUCTO -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeProductModal()"></div>
@@ -962,6 +972,140 @@ document.querySelectorAll('.faq-q').forEach(function(q){
   });
 });
 
+</script>
+<script>
+/* ══ CARRITO / COTIZADOR — sincronizado con localStorage ══ */
+var CK = 'beitex_cot_v3';
+function getCart() { try { return JSON.parse(localStorage.getItem(CK)) || []; } catch(e) { return []; } }
+function saveCart(c) { localStorage.setItem(CK, JSON.stringify(c)); }
+
+function updateBadge() {
+  document.querySelectorAll('.cart-badge').forEach(function(b) {
+    var n = getCart().length; b.textContent = n; b.classList.toggle('show', n > 0);
+  });
+}
+
+function removeFromCart(id, color) {
+  saveCart(getCart().filter(function(i) { return !(i.id === id && i.color === color); }));
+  updateBadge(); renderCart();
+}
+
+function updateQty(id, color, delta) {
+  var c = getCart();
+  var idx = c.findIndex(function(i) { return i.id === id && i.color === color; });
+  if (idx < 0) return;
+  var nv = Math.max(1, Math.round(parseFloat(c[idx].qty) + delta));
+  c[idx].qty = nv.toString();
+  saveCart(c); renderCart();
+}
+
+function renderCart() {
+  var el = document.getElementById('cart-items-list');
+  if (!el) return;
+  var c = getCart();
+  if (!c.length) {
+    el.innerHTML = '<div style="padding:2rem 1.2rem;text-align:center;color:rgba(255,255,255,.4);font-size:.85rem"><p>Tu cotización está vacía.<br>Agrega telas desde el <a href="./catalogo.html" style="color:var(--rl);font-weight:600">catálogo</a>.</p></div>';
+    return;
+  }
+  var html = '';
+  c.forEach(function(x) {
+    var eid = x.id.replace(/'/g, "\\'");
+    var ecol = (x.color||'').replace(/'/g, "\\'");
+    html += '<div style="display:flex;align-items:flex-start;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.08)">' +
+      '<div><div style="font-weight:600;font-size:.88rem;color:#fff">' + x.name + '</div>' +
+      (x.color ? '<div style="font-size:.75rem;color:rgba(255,255,255,.5);margin:.1rem 0">' + x.color + '</div>' : '') +
+      '<div style="display:flex;align-items:center;gap:.4rem;margin-top:.4rem">' +
+      '<button onclick="updateQty(\'' + eid + '\',\'' + ecol + '\',-1)" style="width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:none;color:#fff;cursor:pointer;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center">−</button>' +
+      '<span style="font-size:.82rem;color:rgba(255,255,255,.7);min-width:40px;text-align:center">' + x.qty + ' ' + x.unit + '</span>' +
+      '<button onclick="updateQty(\'' + eid + '\',\'' + ecol + '\',1)" style="width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:none;color:#fff;cursor:pointer;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center">+</button>' +
+      '</div></div>' +
+      '<button onclick="removeFromCart(\'' + eid + '\',\'' + ecol + '\')" style="background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;padding:.2rem;font-size:1.1rem;line-height:1" title="Eliminar">✕</button>' +
+      '</div>';
+  });
+  el.innerHTML = html;
+}
+
+function openCart() {
+  var drawer = document.getElementById('cart-drawer');
+  if(drawer) drawer.classList.add('open');
+  var ov = document.getElementById('cart-ov');
+  if(ov) ov.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  renderCart();
+}
+
+function closeCart() {
+  var drawer = document.getElementById('cart-drawer');
+  if(drawer) drawer.classList.remove('open');
+  var ov = document.getElementById('cart-ov');
+  if(ov) ov.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function submitCotizacion(e) {
+  e.preventDefault();
+  var c = getCart();
+  if (!c.length) { alert('Agrega al menos una tela a tu cotización.'); return; }
+  var form = e.target;
+  var nombre  = (form.querySelector('[name="cn"]')||{}).value||'';
+  var correo  = (form.querySelector('[name="ce"]')||{}).value||'';
+  var tel     = (form.querySelector('[name="ct"]')||{}).value||'No proporcionado';
+  var notas   = (form.querySelector('[name="co"]')||{}).value||'';
+  var cpInp   = (form.querySelector('[name="cp_envio"]')||{}).value||'';
+  var factRad = form.querySelector('input[name="factura"]:checked');
+  var factura = factRad ? factRad.value : 'No';
+  var envRad  = form.querySelector('input[name="requiere_envio"]:checked');
+  var req_env = envRad ? envRad.value : 'No';
+  if(!nombre.trim()||!correo.trim()){alert('Por favor ingresa tu nombre y correo.');return;}
+  var envioInfo = req_env==='Si' ? ('Sí'+(cpInp?' - CP: '+cpInp:' (sin CP)')) : 'No requiere envío';
+  var listaParts = [];
+  c.forEach(function(x){ listaParts.push(x.name+(x.color?' | '+x.color:'')+' | '+x.qty+' '+x.unit); });
+  var payload = {
+    access_key: '40337e2a-322a-47a2-91eb-873abf2c7eee',
+    subject:    'Cotización Beitex - '+nombre,
+    from_name:  'Textiles Beitex Web',
+    replyto:    correo,
+    Nombre:     nombre,
+    Correo:     correo,
+    Telefono:   tel,
+    Factura:    factura==='Si'?'Sí requiere factura':'No requiere factura',
+    Envio:      envioInfo,
+    Productos:  listaParts.join(' | '),
+    Notas:      notas||'Sin notas'
+  };
+  var btn = form.querySelector('[type="submit"]');
+  if(btn){btn.disabled=true;btn.textContent='Enviando...';}
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(function(res){return res.json();})
+  .then(function(data){
+    if(data.success){
+      saveCart([]); updateBadge(); closeCart();
+      alert('¡Cotización enviada! Te contactaremos pronto, '+nombre+'.');
+    } else {
+      if(btn){btn.disabled=false;btn.textContent='Enviar cotización →';}
+      var waMsg = '🧵 *Cotización Beitex*\n\n*Nombre:* '+nombre+'\n*Correo:* '+correo+'\n*Tel:* '+tel+'\n*Factura:* '+factura+'\n*Envío:* '+envioInfo+'\n\n*Productos:*\n'+listaParts.join('\n')+(notas?'\n\n*Notas:* '+notas:'');
+      window.open('https://wa.me/525553513925?text='+encodeURIComponent(waMsg),'_blank');
+    }
+  }).catch(function(){
+    if(btn){btn.disabled=false;btn.textContent='Enviar cotización →';}
+    var waMsg = '🧵 *Cotización Beitex*\n\n*Nombre:* '+nombre+'\n*Correo:* '+correo+'\n*Tel:* '+tel+'\n*Factura:* '+factura+'\n*Envío:* '+envioInfo+'\n\n*Productos:*\n'+listaParts.join('\n')+(notas?'\n\n*Notas:* '+notas:'');
+    window.open('https://wa.me/525553513925?text='+encodeURIComponent(waMsg),'_blank');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  updateBadge();
+  // Mostrar/ocultar campo CP según envío
+  document.querySelectorAll('input[name="requiere_envio"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      var w = document.getElementById('cp-wrap');
+      if(w) w.style.display = this.value === 'Si' ? 'flex' : 'none';
+    });
+  });
+});
 </script>
 </body>
 </html>
