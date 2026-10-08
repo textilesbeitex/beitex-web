@@ -17,6 +17,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Telas al Mayoreo CDMX — Textiles Beitex"/>
 <meta property="og:description" content="Fabricantes directos de telas al mayoreo. +15 telas, envíos a toda la república."/>
+<meta name="keywords" content="telas al mayoreo cdmx, tela poliéster mayoreo, textiles mayoreo centro histórico, tela deportiva mayoreo cdmx, telas baratas mayoreo, venta de telas cdmx"/>
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 <meta name="geo.region" content="MX-CMX"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -306,34 +307,38 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 .btn-full{width:100%;background:var(--rl);color:#fff;padding:.82rem;border:none;border-radius:3px;font-weight:700;font-size:.86rem;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif}
 .btn-full:hover{background:var(--rust)}
 /* MODAL */
-.modal-overlay{position:fixed;inset:0;z-index:950;background:rgba(0,0,0,.75);opacity:0;pointer-events:none;transition:.3s}
-.modal-overlay.open{opacity:1;pointer-events:all}
-.product-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-48%) scale(.96);z-index:951;width:90vw;max-width:720px;max-height:88vh;overflow-y:auto;background:var(--mid);border-radius:10px;padding:1.7rem;border:1.5px solid rgba(192,90,58,.2);box-shadow:0 20px 60px rgba(0,0,0,.5);transition:.3s;opacity:0;pointer-events:none}
-.product-modal.open{transform:translate(-50%,-50%) scale(1);opacity:1;pointer-events:all}
-.modal-close{position:absolute;top:.85rem;right:.85rem;background:rgba(255,255,255,.08);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:.2s}
-.modal-close:hover{background:var(--rl);color:#fff}
-.modal-sheet{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.modal-img{aspect-ratio:1;border-radius:7px;overflow:hidden}
-.modal-img img{width:100%;height:100%;object-fit:cover}
-.modal-name{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:.04em;color:#fff;margin-bottom:.22rem}
-.modal-comp{font-size:.73rem;color:rgba(255,255,255,.4);margin-bottom:.85rem}
-.ms-row{display:flex;justify-content:space-between;padding:.32rem 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.77rem}
-.ms-lbl{color:rgba(255,255,255,.4)}.ms-val{font-weight:600;color:#fff}
-.ms-usos-ttl{font-size:.61rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin:.85rem 0 .42rem}
-.ms-chips{display:flex;flex-wrap:wrap;gap:.32rem}
-.ms-chip{font-size:.64rem;background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);padding:.2rem .52rem;border-radius:2px;border:1px solid rgba(255,255,255,.1)}
-.modal-col-lbl{font-size:.61rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin:.85rem 0 .38rem}
-.modal-col-select{width:100%;border:1.5px solid rgba(255,255,255,.14);border-radius:3px;padding:.45rem .62rem;font-size:.8rem;font-family:'DM Sans',sans-serif;background:rgba(255,255,255,.07);color:#fff;margin-bottom:.42rem}
-.modal-col-select option{background:var(--dark)}
-.modal-otro-color-wrap{display:none;margin-bottom:.42rem}
-.modal-otro-color-input{width:100%;border:1.5px solid var(--rl);border-radius:3px;padding:.45rem .62rem;font-size:.8rem;font-family:'DM Sans',sans-serif;background:rgba(192,90,58,.1);color:#fff}
-.modal-qty-row{display:flex;align-items:center;gap:.72rem;margin:.85rem 0}
-.modal-qty-lbl{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.modal-qty-input{width:72px;border:1.5px solid rgba(255,255,255,.14);border-radius:3px;padding:.4rem .62rem;font-size:.86rem;text-align:center;background:rgba(255,255,255,.07);color:#fff}
-.modal-qty-unit{font-size:.74rem;color:rgba(255,255,255,.4);font-weight:600}
-.modal-add-btn{width:100%;background:var(--rl);color:#fff;border:none;border-radius:3px;padding:.82rem;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:.2s;margin-top:.38rem}
-.modal-add-btn:hover{background:var(--rust)}
-.modal-err{font-size:.72rem;color:var(--rl);margin-top:.22rem;min-height:.85rem}
+.modal-overlay{position:fixed;inset:0;z-index:950;background:rgba(30,15,8,.72);opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.show{opacity:1;pointer-events:all}
+.product-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-52%) scale(.95);z-index:951;width:min(480px,95vw);max-height:90vh;overflow-y:auto;background:#fff;border-radius:12px;box-shadow:0 24px 80px rgba(30,15,8,.4);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.product-modal.open{opacity:1;pointer-events:all;transform:translate(-50%,-50%) scale(1)}
+.modal-header{background:#1E0F08;padding:1.4rem 1.6rem;position:sticky;top:0;z-index:1;border-radius:12px 12px 0 0}
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.12);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.modal-close:hover{background:rgba(192,90,58,.45)}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.05em;color:#fff;margin-bottom:.3rem;padding-right:2.5rem;line-height:1.1}
+.modal-desc{font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.55}
+.modal-specs{padding:.9rem 1.6rem;border-bottom:1px solid #DDD5C8}
+.ms-row{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.3rem 0;border-bottom:1px solid rgba(221,213,200,.4);font-size:.77rem}
+.ms-row:last-child{border-bottom:none}
+.ms-lbl{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8A7060;flex-shrink:0}
+.ms-val{font-size:.85rem;font-weight:600;color:#1E0F08;text-align:right}
+.modal-usos{padding:.8rem 1.6rem;border-bottom:1px solid #DDD5C8}
+.ms-usos-ttl{font-size:.67rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#C05A3A;margin-bottom:.45rem}
+.ms-chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.ms-chip{background:#EDE5DA;color:#2C1F17;font-size:.77rem;font-weight:500;padding:.25rem .65rem;border-radius:20px}
+.modal-actions{padding:1rem 1.6rem;background:#F7F3EF;display:flex;flex-direction:column;gap:.7rem;border-radius:0 0 12px 12px}
+.modal-select{border:1.5px solid #DDD5C8;border-radius:4px;padding:.65rem .9rem;font-family:'DM Sans',sans-serif;font-size:.92rem;color:#1E0F08;background:#fff;outline:none;width:100%;transition:border-color .2s;cursor:pointer}
+.modal-select:focus{border-color:#C05A3A}
+.modal-otro-color-wrap{display:none}
+.modal-otro-color-input{width:100%;border:1.5px solid #C05A3A;border-radius:4px;padding:.65rem .9rem;font-size:.92rem;font-family:'DM Sans',sans-serif;background:rgba(192,90,58,.06);color:#1E0F08;outline:none}
+.modal-qty-row{display:flex;align-items:center;gap:.55rem}
+.mq-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid #DDD5C8;background:#fff;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:.2s}
+.mq-btn:hover{border-color:#C05A3A;color:#C05A3A}
+.mq-inp{width:70px;border:1.5px solid #DDD5C8;border-radius:4px;padding:.5rem;text-align:center;font-size:.95rem;font-weight:600;color:#1E0F08;outline:none}
+.mq-inp:focus{border-color:#C05A3A}
+.mq-unit{font-size:.8rem;color:#8A7060;font-weight:600}
+.modal-add-btn{background:#C05A3A;color:#fff;border:none;border-radius:4px;padding:.85rem;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.08em;cursor:pointer;transition:background .2s}
+.modal-add-btn:hover{background:#8B3A2A}
+.modal-err{font-size:.78rem;color:#C05A3A;min-height:1rem}
 .modal-min-note{font-size:.66rem;color:rgba(255,255,255,.35);margin-bottom:.22rem}
 /* CONFIRM */
 #confirm-banner{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:2rem;animation:cbIn .32s ease}
@@ -455,6 +460,23 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"TextileStore",
+  "name":"Textiles Beitex",
+  "url":"https://textilesbeitex.mx",
+  "logo":"https://textilesbeitex.mx/favicon.ico",
+  "description":"Mayorista de telas en Centro Histórico CDMX. Felpa, Interlock, Piqué, Licra, Deportiva y más. Envíos a toda la república.",
+  "address":{"@type":"PostalAddress","streetAddress":"Margil #6, Local 1","addressLocality":"Centro Histórico","addressRegion":"Ciudad de México","postalCode":"06000","addressCountry":"MX"},
+  "telephone":"+525554911568",
+  "email":"ventas@textilesbeitex.mx",
+  "openingHours":["Mo-Fr 09:30-18:00","Sa 09:30-15:00"],
+  "priceRange":"$$",
+  "hasMap":"https://maps.google.com/?q=Margil+6+Local+1+Centro+Historico+CDMX",
+  "sameAs":["https://www.instagram.com/textilesbeitex/"]
+}
+</script>
 </head>
 <body>
 <!-- NAV -->
@@ -1027,23 +1049,29 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 </div>
 
 <!-- MODAL PRODUCTO -->
+<!-- MODAL PRODUCTO -->
+<!-- MODAL PRODUCTO -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeProductModal()"></div>
 <div class="product-modal" id="product-modal">
   <button class="modal-close" onclick="closeProductModal()">✕</button>
-  <div class="modal-sheet">
-    <div><div class="modal-img"><img id="modal-img" src="" alt=""/></div></div>
-    <div>
-      <div class="modal-name" id="modal-name"></div>
-      <div class="modal-comp" id="modal-comp"></div>
-      <div id="modal-specs"></div><div id="modal-usos"></div>
-      <div class="modal-col-lbl">Color / Tono</div>
-      <select class="modal-col-select" id="modal-color" onchange="toggleOtroColor(this)"></select>
-      <div class="modal-otro-color-wrap" id="modal-otro-color-wrap"><input class="modal-otro-color-input" id="modal-otro-color-input" type="text" placeholder="Escribe el color que necesitas..."/></div>
-      <div class="modal-qty-row"><span class="modal-qty-lbl">Cantidad</span><input class="modal-qty-input" id="modal-qty" type="number" value="5" min="1"/><span class="modal-qty-unit" id="modal-qty-unit">kg</span></div>
-      <div class="modal-min-note" id="modal-min-note"></div>
-      <button class="modal-add-btn" id="modal-add-btn">+ Agregar a cotización</button>
-      <div class="modal-err" id="modal-err"></div>
+  <div class="modal-header">
+    <div class="modal-title" id="modal-name"></div>
+    <div class="modal-desc" id="modal-comp"></div>
+  </div>
+  <div class="modal-specs" id="modal-specs"></div>
+  <div class="modal-usos" id="modal-usos"></div>
+  <div class="modal-actions">
+    <select class="modal-select" id="modal-color" onchange="toggleOtroColor(this)"></select>
+    <div class="modal-otro-color-wrap" id="modal-otro-color-wrap"><input class="modal-otro-color-input" id="modal-otro-color-input" type="text" placeholder="Escribe el color que necesitas…"/></div>
+    <select class="modal-select" id="modal-unit-sel"></select>
+    <div class="modal-qty-row">
+      <button class="mq-btn" id="mq-dec" type="button">−</button>
+      <input class="mq-inp" id="modal-qty" type="number" value="1" min="1"/>
+      <button class="mq-btn" id="mq-inc" type="button">+</button>
+      <span class="mq-unit" id="modal-qty-unit">kg</span>
     </div>
+    <button class="modal-add-btn" id="modal-add-btn">+ Agregar a cotización</button>
+    <div class="modal-err" id="modal-err"></div>
   </div>
 </div>
 
@@ -1760,132 +1788,136 @@ document.querySelectorAll('.faq-q').forEach(function(q){
 /* ══ MODAL COTIZADOR ══ */
 var PRODUCTS = {
   'felpa-nacional': {
-    name: 'Felpa Nacional',
+    name: 'Tela Felpa Nacional',
     comp: '100% Poliéster',
-    specs: 'Tejido circular · 230–260 g/m²',
-    usos: 'Sudaderas, chamarras escolares, ropa deportiva',
-    colors: ['Blanco','Negro','Gris Oxford','Gris Jaspe','Marino','Rojo','Verde Limón','Amarillo','Rosa Baby','Naranja','Morado','Café','Beige','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="felpa-nacional"] img')?.src || ''
+    specs: {'Composición':'100% Poliéster','Gramaje':'250 gsm','Ancho':'1.60 m','Rollo':'~20 kg','Rendimiento':'2.50 mts / kg'},
+    usos: 'Sudaderas, pants, chamarras escolares',
+    nota: '✦ También disponible cardigan al tono',
+    colors: ['Azul Marino','Azul Rey','Blanco','Negro','Pizarra','Rojo','Vino','Otro color…'],
+    unit: 'kg', min: 1
   },
   'felpa-china': {
-    name: 'Felpa China',
+    name: 'Tela Felpa China',
     comp: '95% Poliéster · 5% Spandex',
-    specs: 'Tejido circular · 280–310 g/m²',
-    usos: 'Sudaderas con stretch, ropa cómoda',
-    colors: ['Blanco','Negro','Gris Oxford','Gris Jaspe','Marino','Rojo','Verde','Amarillo','Rosa Baby','Naranja','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="felpa-china"] img')?.src || ''
+    specs: {'Composición':'95% Poliéster · 5% Spandex','Gramaje':'250 gsm','Ancho':'1.60 m','Rollo':'~25 kg','Rendimiento':'2.50 mts / kg'},
+    usos: 'Sudaderas, pants con stretch',
+    colors: ['Azul Marino','Azul Rey','Blanco','Jaspe Claro','Jaspe Oxford','Negro','Rojo','Vino','Otro color…'],
+    unit: 'kg', min: 1
+  },
+  'felpa-spun': {
+    name: 'Tela Felpa Spun',
+    comp: '100% Poliéster',
+    specs: {'Composición':'100% Poliéster','Gramaje':'250 gsm','Ancho':'1.60 m','Rollo':'~25 kg','Rendimiento':'2.50 mts / kg'},
+    usos: 'Sudaderas, pants',
+    colors: ['Azul Rey','Blanco','Jaspe Claro','Jaspe Oscuro','Negro','Rojo','Vino','Otro color…'],
+    unit: 'kg', min: 1
   },
   'sportock': {
-    name: 'Sportock',
+    name: 'Tela Sportock',
     comp: '100% Poliéster',
-    specs: 'Tejido circular · 180–200 g/m²',
-    usos: 'Uniformes escolares, playeras deportivas',
-    colors: ['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Rosa','Naranja','Morado','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="sportock"] img')?.src || ''
+    specs: {'Composición':'100% Poliéster','Gramaje':'250 gsm','Ancho':'1.60 m','Rollo':'~25 kg','Rendimiento':'2.50 mts / kg'},
+    usos: 'Conjuntos escolares, uniformes deportivos',
+    colors: ['Azul Marino','Azul Marino Oscuro','Azul Plumbago','Azul Rey','Azul Turquesa','Blanco','Gris Oxford','Gris Perla','Grey','Negro','Rojo','Verde Bandera','Verde Botella','Verde Jade','Vino','Otro color…'],
+    unit: 'kg', min: 1
   },
   'jurly': {
-    name: 'Fourway / Jurly',
+    name: 'Tela Jurly / Fourway',
     comp: '96% Poliéster · 4% Spandex',
-    specs: 'Cuatro vías de estiramiento · 200–230 g/m²',
-    usos: 'Ropa médica, scrubs, ropa deportiva funcional',
-    colors: ['Blanco','Negro','Gris','Marino','Verde Quirúrgico','Azul Cielo','Lila','Rojo','Rosa Baby','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="jurly"] img')?.src || ''
+    specs: {'Composición':'96% Poliéster · 4% Spandex','Gramaje':'130 gsm','Ancho':'1.50 m','Rollo':'100–250 mts','Rendimiento':'5 mts / kg'},
+    usos: 'Uniformes quirúrgicos, scrubs',
+    colors: ['Azul Cielo','Azul Marino','Azul Rey','Beige','Café','Camel','Canario','Creme Brulee','Fiusha Claro','Fiusha Intenso','Fresa','Hot Pink','Hueso','Kelly','Lila','Magenta','Menta','Militar','Moka','Mostaza','Naranja','Negro','Nude','Palo de Rosa','Pastel Green','Rojo','Rosa Baby','Rust','Verde Esmeralda','Verde Kelly','Vino','Otro color…'],
+    unit: 'metro', min: 1
   },
   'micropique': {
-    name: 'Micropiqué',
+    name: 'Tela Micropiqué',
     comp: '100% Poliéster',
-    specs: 'Tejido piqué fino · 180–200 g/m²',
-    usos: 'Playeras polo, uniformes corporativos, deportivo',
-    colors: ['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Naranja','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="micropique"] img')?.src || ''
+    specs: {'Composición':'100% Poliéster','Gramaje':'145 gsm','Ancho':'1.60 m','Rollo':'~23 kg','Rendimiento':'4.2 mts / kg'},
+    usos: 'Playeras deportivas, polos',
+    colors: ['Azul Marino','Azul Rey','Blanco','Chocolate','Fiusha','Gris Oxford','Gris Perla','Negro','Rojo','Turquesa','Verde Bandera','Verde Botella','Otro color…'],
+    unit: 'kg', min: 1
   },
   'premiere': {
-    name: 'Tela Premiere',
+    name: 'Tela Premiere / Tacto Algodón',
     comp: '100% Poliéster',
-    specs: 'Ideal para sublimación · 150–160 g/m²',
-    usos: 'Sublimación, playeras técnicas, uniformes deportivos',
-    colors: ['Blanco','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="premiere"] img')?.src || ''
+    specs: {'Composición':'100% Poliéster','Gramaje':'240 gsm','Ancho':'1.60 m','Rollo':'~20 kg','Rendimiento':'2.60 mts / kg'},
+    usos: 'Playeras básicas, escolares, sublimación',
+    colors: ['Azul Marino','Blanco','Negro','Otro color…'],
+    unit: 'kg', min: 1
   },
   'interlock': {
-    name: 'Interlock 50/50',
-    comp: '50% Poliéster · 50% Algodón',
-    specs: 'Doble cara · 180–200 g/m²',
-    usos: 'Playeras cómodas, ropa infantil, uniformes',
-    colors: ['Blanco','Negro','Gris Jaspe','Marino','Rojo','Verde','Amarillo','Rosa Baby','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="interlock"] img')?.src || ''
+    name: 'Tela Interlock 50/50',
+    comp: '50% Algodón Peinado · 50% Poliéster',
+    specs: {'Composición':'50% Algodón Peinado · 50% Poliéster','Gramaje':'240 gsm','Ancho':'1.60 m','Rollo':'~20 kg','Rendimiento':'2.60 mts / kg'},
+    usos: 'Playeras suaves al tacto, escolares',
+    colors: ['Blanco','Otro color…'],
+    unit: 'kg', min: 1
   },
   'dublin': {
-    name: 'Dublín',
+    name: 'Tela Dublín',
     comp: '100% Poliéster',
-    specs: 'Tejido suave y versátil · 200–220 g/m²',
-    usos: 'Ropa casual, uniformes, pantalones',
-    colors: ['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Beige','Café','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="dublin"] img')?.src || ''
+    specs: {'Composición':'100% Poliéster','Gramaje':'225 gsm','Ancho':'1.60 m','Rollo':'20–25 kg','Rendimiento':'2.80 mts / kg'},
+    usos: 'Manteados, uniformes de béisbol',
+    colors: ['Azul Marino','Azul Rey','Blanco','Gris Perla','Negro','Rojo','Rosa Mexicano','Verde Bandera','Otro color…'],
+    unit: 'kg', min: 1
   },
   'pique': {
-    name: 'Piqué 50/50',
-    comp: '50% Poliéster · 50% Algodón',
-    specs: 'Textura piqué · 210–230 g/m²',
-    usos: 'Playeras polo, uniformes escolares y corporativos',
-    colors: ['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Rosa','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="\'pique\'"] img')?.src || ''
+    name: 'Tela Piqué 50/50',
+    comp: '50% Poliéster · 50% Algodón Peinado',
+    specs: {'Composición':'50% Poliéster · 50% Algodón Peinado','Gramaje':'200 gsm','Ancho':'1.70 m','Rollo':'~20 kg','Rendimiento':'2.70 mts / kg'},
+    usos: 'Playeras tipo polo de alto gramaje',
+    nota: '✦ También disponibles cuellos y puños al tono',
+    colors: ['Blanco','Otro color…'],
+    unit: 'kg', min: 1
   },
   'pique-vera': {
-    name: 'Piqué Vera',
-    comp: '100% Poliéster',
-    specs: 'Piqué texturizado · 220–240 g/m²',
-    usos: 'Playeras polo premium, uniformes ejecutivos',
-    colors: ['Blanco','Negro','Gris','Marino','Rojo','Verde','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="pique-vera"] img')?.src || ''
+    name: 'Tela Piqué Vera',
+    comp: '95% Poliéster · 5% Spandex',
+    specs: {'Composición':'95% Poliéster · 5% Spandex','Gramaje':'145 gsm','Ancho':'1.60 m','Rollo':'~23 kg','Rendimiento':'4.2 mts / kg'},
+    usos: 'Playeras deportivas con dryfit',
+    colors: ['Azul Marino','Azul Rey','Blanco','Fiusha','Gris Oxford','Gris Perla','Negro','Rojo','Verde Bandera','Verde Botella','Otro color…'],
+    unit: 'kg', min: 1
   },
   'licra-saludable': {
-    name: 'Licra Saludable',
+    name: 'Tela Saludable',
     comp: '92% Poliéster · 8% Spandex',
-    specs: 'Alta elasticidad · 200–220 g/m²',
-    usos: 'Ropa deportiva, yoga, fitness, activewear',
-    colors: ['Blanco','Negro','Gris','Marino','Rojo','Verde Limón','Azul Cielo','Rosa','Morado','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="licra-saludable"] img')?.src || ''
+    specs: {'Composición':'92% Poliéster · 8% Spandex','Gramaje':'275 gsm','Ancho':'1.70 m','Rollo':'~23 kg','Rendimiento':'2.20 mts / kg'},
+    usos: 'Sudaderas, conjuntos deportivos',
+    colors: ['Azul Marino','Azul Rey','Blanco','Jaspe Claro','Jaspe Oxford','Negro','Rojo','Verde Botella','Otro color…'],
+    unit: 'kg', min: 1
+  },
+  'licra-brush': {
+    name: 'Tela Brush DTY',
+    comp: '95% Poliéster · 5% Spandex',
+    specs: {'Composición':'95% Poliéster · 5% Spandex','Gramaje':'135 gsm','Ancho':'1.60 m','Rollo':'~120 mts','Rendimiento':'4.80 mts / kg'},
+    usos: 'Pijamas, playeras deportivas',
+    colors: ['Arena','Azul Marino','Azul Rey','Beige','Blanco','Cielo','Hueso','Jaspe Claro','Jaspe Oxford','Lila','Militar','Negro','Palo de Rosa','Rojo','Vino','Otro color…'],
+    unit: 'metro', min: 1
   },
   'tela-diablo': {
-    name: 'Tela Diablo',
+    name: 'Tela Diablo / Ángeles',
     comp: '100% Poliéster',
-    specs: 'Tejido resistente · 250–280 g/m²',
-    usos: 'Chamarras, ropa de invierno, aplicaciones resistentes',
-    colors: ['Blanco','Negro','Gris','Marino','Rojo','Café','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="tela-diablo"] img')?.src || ''
+    specs: {'Composición':'100% Poliéster','Ancho':'1.50 m','Rollo':'~50 mts'},
+    usos: 'Chamarras forradas',
+    colors: ['Azul Marino','Azul Rey','Blanco','Negro','Rojo','Vino','Otro color…'],
+    unit: 'metro', min: 1
   },
   'forro-millenium': {
-    name: 'Forro Millenium',
+    name: 'Tela Forro Millenium',
     comp: '100% Poliéster',
-    specs: 'Forro liso y sedoso · 60–80 g/m²',
-    usos: 'Forro de chamarras, sacos, vestidos y uniformes',
-    colors: ['Negro','Marino','Gris','Blanco','Rojo','Verde','Otro color…'],
-    unit: 'metro', min: 5,
-    img: document.querySelector('.p-card[onclick*="forro-millenium"] img')?.src || ''
+    specs: {'Composición':'100% Poliéster','Gramaje':'100 gsm','Ancho':'1.50 m','Rollo':'~170 mts','Rendimiento':'7 mts / kg'},
+    usos: 'Playeras transpirables, forros de chamarras y sacos',
+    colors: ['Azul Marino','Azul Rey','Blanco','Naranja Neón','Negro','Rojo','Vino','Otro color…'],
+    unit: 'metro', min: 1
   },
   'bombay': {
-    name: 'Bombay',
+    name: 'Tela Bombay',
     comp: '100% Poliéster',
-    specs: 'Ideal para sublimación · 140–160 g/m²',
-    usos: 'Sublimación full-color, playeras técnicas, uniformes',
-    colors: ['Blanco','Otro color…'],
-    unit: 'kg', min: 10,
-    img: document.querySelector('.p-card[onclick*="bombay"] img')?.src || ''
+    specs: {'Composición':'100% Poliéster','Gramaje':'105 gsm','Ancho':'1.60 m','Rollo':'~130 mts','Rendimiento':'6 mts / kg'},
+    usos: 'Sublimación full-color, playeras de campaña',
+    colors: ['Arena','Azul Cielo','Azul Marino','Azul Rey','Beige','Blanco','Hueso','Militar','Negro','Rojo','Turquesa','Verde Cemento','Verde Sage','Vino','Otro color…'],
+    unit: 'metro', min: 1
   }
-};
+};;;
 
 var _currentProductId = null;
 
@@ -1894,64 +1926,92 @@ function openProductModal(id) {
   if (!p) return;
   _currentProductId = id;
 
-  // Imagen: tomar del p-card visible
-  var card = document.querySelector('.p-card[onclick*="' + id + '"]') ||
-             document.querySelector('[onclick*="openProductModal(\'' + id + '\')"]');
-  var imgSrc = card ? (card.querySelector('img') || {}).src || '' : '';
-
-  var modalEl = document.getElementById('product-modal');
-  document.getElementById('modal-img').src = imgSrc;
   document.getElementById('modal-name').textContent = p.name;
   document.getElementById('modal-comp').textContent = p.comp;
 
+  // Specs
   var specsEl = document.getElementById('modal-specs');
-  specsEl.innerHTML = p.specs ? '<div class="modal-spec-row"><span>' + p.specs + '</span></div>' : '';
+  if (p.specs && typeof p.specs === 'object') {
+    specsEl.innerHTML = Object.keys(p.specs).map(function(k) {
+      return '<div class="ms-row"><span class="ms-lbl">' + k + '</span><span class="ms-val">' + p.specs[k] + '</span></div>';
+    }).join('');
+  } else if (p.specs) {
+    specsEl.innerHTML = '<div class="ms-row"><span class="ms-lbl">Ficha</span><span class="ms-val">' + p.specs + '</span></div>';
+  } else { specsEl.innerHTML = ''; }
 
+  // Usos
   var usosEl = document.getElementById('modal-usos');
-  usosEl.innerHTML = p.usos ? '<div class="modal-usos-row">✔ ' + p.usos + '</div>' : '';
+  if (p.usos) {
+    var chips = p.usos.split(',').map(function(u){ return '<span class="ms-chip">'+u.trim()+'</span>'; }).join('');
+    var notaHtml = p.nota ? '<div style="margin-top:.55rem;font-size:.78rem;color:#C05A3A;font-weight:600;letter-spacing:.01em">' + p.nota + '</div>' : '';
+    usosEl.innerHTML = '<div class="ms-usos-ttl">Usos</div><div class="ms-chips">' + chips + '</div>' + notaHtml;
+  } else { usosEl.innerHTML = ''; }
 
-  // Colores
-  var sel = document.getElementById('modal-color');
-  sel.innerHTML = '';
+  // Color selector
+  var colorSel = document.getElementById('modal-color');
+  colorSel.innerHTML = '';
   p.colors.forEach(function(c) {
     var opt = document.createElement('option');
     opt.value = c; opt.textContent = c;
-    sel.appendChild(opt);
+    colorSel.appendChild(opt);
   });
-  toggleOtroColor(sel);
+  toggleOtroColor(colorSel);
 
-  // Cantidad
+  // Unit selector
+  var unitSel = document.getElementById('modal-unit-sel');
+  unitSel.innerHTML = '';
+  var units = p.unit === 'metro' ? [['metro','Por metro'],['rollo','Por rollo']] : [['kg','Por kilo'],['rollo','Por rollo']];
+  units.forEach(function(u) {
+    var opt = document.createElement('option');
+    opt.value = u[0]; opt.textContent = u[1];
+    unitSel.appendChild(opt);
+  });
+
+  // Qty
   var qtyEl = document.getElementById('modal-qty');
   qtyEl.value = p.min;
-  document.getElementById('modal-qty-unit').textContent = p.unit;
 
-  var minNote = document.getElementById('modal-min-note');
-  minNote.textContent = 'Mínimo ' + p.min + ' ' + p.unit;
+  function updateUnit() {
+    document.getElementById('modal-qty-unit').textContent = unitSel.value;
+  }
+  updateUnit();
+  unitSel.onchange = updateUnit;
 
   document.getElementById('modal-err').textContent = '';
 
-  // Botón agregar
-  var btn = document.getElementById('modal-add-btn');
-  btn.onclick = function() {
-    var color = sel.value === 'Otro color…'
+  document.getElementById('mq-dec').onclick = function() {
+    var v = parseFloat(qtyEl.value) || 1;
+    if (v > 1) qtyEl.value = v - 1;
+  };
+  document.getElementById('mq-inc').onclick = function() {
+    qtyEl.value = (parseFloat(qtyEl.value) || 0) + 1;
+  };
+
+  document.getElementById('modal-add-btn').onclick = function() {
+    var color = colorSel.value === 'Otro color…'
       ? (document.getElementById('modal-otro-color-input').value.trim() || 'A convenir')
-      : sel.value;
+      : colorSel.value;
     var qty = parseFloat(qtyEl.value);
-    if (!qty || qty < p.min) {
-      document.getElementById('modal-err').textContent = 'Cantidad mínima: ' + p.min + ' ' + p.unit;
+    var unit = unitSel.value;
+    if (!qty || qty < 1) {
+      document.getElementById('modal-err').textContent = 'Ingresa una cantidad válida';
       return;
     }
-    addToCart({ id: id, name: p.name, color: color, qty: qty, unit: p.unit });
+    addToCart({ id: id, name: p.name, color: color, qty: qty, unit: unit });
     closeProductModal();
   };
 
-  modalEl.classList.add('open');
+  document.getElementById('product-modal').classList.add('open');
+  var ov = document.getElementById('modal-overlay');
+  if(ov) ov.classList.add('show');
   document.body.style.overflow = 'hidden';
 }
 
 function closeProductModal() {
   var m = document.getElementById('product-modal');
   if (m) m.classList.remove('open');
+  var ov = document.getElementById('modal-overlay');
+  if(ov) ov.classList.remove('show');
   document.body.style.overflow = '';
   _currentProductId = null;
 }
@@ -1962,14 +2022,42 @@ function toggleOtroColor(sel) {
   wrap.style.display = sel.value === 'Otro color…' ? 'block' : 'none';
 }
 
-// Cerrar con click fuera
 document.addEventListener('click', function(e) {
   var m = document.getElementById('product-modal');
-  if (m && m.classList.contains('open') && e.target === m) {
-    closeProductModal();
-  }
+  if (m && m.classList.contains('open') && e.target === m) closeProductModal();
 });
 </script>
 
+<script>
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = q.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(function(el) {
+      el.classList.remove('open');
+      var a = el.querySelector('.faq-a');
+      if (a) a.style.maxHeight = '0';
+      var svg = el.querySelector('.faq-q svg');
+      if (svg) svg.style.transform = '';
+    });
+    // Open clicked if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      var a = item.querySelector('.faq-a');
+      if (a) a.style.maxHeight = a.scrollHeight + 'px';
+      var svg = item.querySelector('.faq-q svg');
+      if (svg) svg.style.transform = 'rotate(180deg)';
+    }
+  });
+});
+// Init: close all answers
+document.querySelectorAll('.faq-a').forEach(function(a) {
+  a.style.maxHeight = '0';
+  a.style.overflow = 'hidden';
+  a.style.transition = 'max-height .3s ease';
+});
+</script>
 </body>
 </html>
