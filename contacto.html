@@ -45,11 +45,11 @@ a{text-decoration:none;color:inherit}
 }
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.18em;color:#fff}
 .nav-logo span{color:var(--rl)}
-.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
-.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:.2s}
-.nav-links a:hover{color:var(--rl)}
-.nav-cta{background:var(--rl);color:#fff!important;padding:.45rem 1.3rem;border-radius:2px}
-.nav-cta:hover{background:var(--rust)!important}
+.nav-links{display:flex;gap:2.5rem;list-style:none;flex-shrink:1;min-width:0}
+.nav-links a{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--rl)}
+.nav-cta{background:var(--rl);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem 1.6rem;border-radius:2px;transition:background .2s;white-space:nowrap;flex-shrink:0;text-decoration:none}
+.nav-cta:hover{background:var(--rust)}
 .nav-icons{display:flex;align-items:center;gap:.8rem}
 .nav-icon-btn{display:flex;align-items:center;background:var(--rl);border:none;border-radius:50%;padding:.55rem;cursor:pointer;color:#fff;transition:background .2s;position:relative;flex-shrink:0}
 .nav-icon-btn:hover{background:var(--rust)}
@@ -494,8 +494,8 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
     <li><a href="./catalogo.html">Catálogo</a></li>
     <li><a href="./blog.html">Blog</a></li>
     <li><a href="./contacto.html">Contacto</a></li>
-    <li><a href="./catalogo.html" class="nav-cta">Cotizar →</a></li>
   </ul>
+  <a href="./catalogo.html" class="nav-cta">Cotizar →</a>
   <div class="nav-icons">
     <button class="nav-icon-btn" onclick="openCart()" aria-label="Mi cotización">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -570,7 +570,7 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
   <div class="wrap" style="padding:0">
     <div class="f-grid">
       <div><div class="f-name">BEITEX<span>.</span></div><div class="f-tag">La Casa del Textil · Desde 2003</div><p class="f-desc">Fabricantes y distribuidores directos de telas al mayoreo en Centro Histórico CDMX.</p></div>
-      <div class="f-col"><h4>Catálogo</h4><ul><li><a href="./telas/felpa-nacional.html">Felpa Nacional</a></li><li><a href="./telas/sportock.html">Sportock</a></li><li><a href="./telas/micropique.html">Micropiqué</a></li><li><a href="./telas/jurly.html">Fourway / Jurly</a></li><li><a href="./catalogo.html">Ver todas →</a></li></ul></div>
+      <div class="f-col"><h4>Catálogo</h4><ul><li><a href="./catalogo.html">Felpa Nacional</a></li><li><a href="./catalogo.html">Sportock</a></li><li><a href="./catalogo.html">Micropiqué</a></li><li><a href="./catalogo.html">Fourway / Jurly</a></li><li><a href="./catalogo.html">Ver todas →</a></li></ul></div>
       <div class="f-col"><h4>Empresa</h4><ul><li><a href="./blog.html">Blog textil</a></li><li><a href="./contacto.html">Contacto</a></li><li><a href="./privacidad.html">Aviso de privacidad</a></li><li><a href="./no-cambios.html">No devoluciones</a></li></ul></div>
       <div class="f-col"><h4>Contacto</h4><ul><li><a href="tel:5554911568">55-5491-1568</a></li><li><a href="mailto:ventas@textilesbeitex.mx">ventas@textilesbeitex.mx</a></li><li style="color:rgba(255,255,255,.28);font-size:.74rem">Margil #6 Local-1, Centro Histórico<br/>Lun–Vie 9:30–18:00 · Sáb 9:30–15:00</li></ul></div>
     </div>
