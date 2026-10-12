@@ -10,10 +10,15 @@
 
 
 
-<title>Dublín al Mayoreo CDMX — 100% Poliéster | Textiles Beitex</title>
-<meta name="description" content="Dublín al mayoreo en CDMX. 100% Poliéster, 230 gsm, ancho 1.55m. Precio $100/kg. Entrega inmediata. Envíos a toda la república."/>
+<title>Tela Dublín al Mayoreo — Centro Histórico CDMX | Textiles Beitex</title>
+<meta name="description" content="Compra Tela Dublín al mayoreo en Centro Histórico CDMX. Precio $100/kg. Ideal para trajes, uniformes escolares y ropa formal. Envíos a toda la república. Mínimo 1 metro o kg. Factura disponible."/>
 <link rel="canonical" href="https://textilesbeitex.mx/telas/dublin.html"/>
+<meta property="og:title" content="Tela Dublín al Mayoreo — Textiles Beitex"/>
+<meta property="og:description" content="Compra Tela Dublín al mayoreo en CDMX. $100/kg. Envíos a toda la república."/>
+<meta property="og:url" content="https://textilesbeitex.mx/telas/dublin.html"/>
+<meta property="og:site_name" content="Textiles Beitex"/>
 <meta property="og:type" content="product"/>
+<meta name="keywords" content="tela dublin mayoreo, tela de lana mayoreo cdmx, tela dublin poliester, tela traje al mayoreo"/>
 <meta name="robots" content="index,follow"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
@@ -41,12 +46,12 @@ a{text-decoration:none;color:inherit}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.18em;color:#fff}
 .nav-logo span{color:var(--rl)}
 .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
-.nav-links a{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:.2s}
+.nav-links a{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:color .2s}
 .nav-links a:hover{color:var(--rl)}
 .nav-cta{background:var(--rl);color:#fff!important;padding:.45rem 1.3rem;border-radius:2px}
 .nav-cta:hover{background:var(--rust)!important}
 .nav-icons{display:flex;align-items:center;gap:.8rem}
-.nav-icon-btn{background:none;border:1.5px solid rgba(255,255,255,.15);width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:.2s;position:relative}
+.nav-icon-btn{display:flex;align-items:center;background:var(--rl);border:none;border-radius:50%;padding:.55rem;cursor:pointer;color:#fff;transition:background .2s;position:relative;flex-shrink:0}
 .nav-icon-btn:hover{border-color:var(--rl);color:var(--rl)}
 .cart-badge{position:absolute;top:-5px;right:-5px;background:var(--rl);color:#fff;border-radius:50%;width:17px;height:17px;font-size:.58rem;font-weight:700;display:none;align-items:center;justify-content:center}
 .cart-badge.show{display:flex}
@@ -467,7 +472,36 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
 .spec-table td:first-child{color:rgba(255,255,255,.35);font-weight:700;letter-spacing:.1em;text-transform:uppercase;width:42%}
 .spec-table td:last-child{color:rgba(255,255,255,.78);font-weight:500}
 @media(max-width:768px){.tela-grid{grid-template-columns:1fr}}
-</style></head><body>
+</style><script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"Tela Dublín al Mayoreo",
+  "description":"Compra Tela Dublín al mayoreo en Centro Histórico CDMX. Precio $100/kg. Ideal para trajes, uniformes escolares y ropa fo",
+  "brand":{"@type":"Brand","name":"Textiles Beitex"},
+  "offers":{
+    "@type":"Offer",
+    "priceCurrency":"MXN",
+    "price":"100",
+    "priceSpecification":{"@type":"UnitPriceSpecification","price":"100","priceCurrency":"MXN","referenceQuantity":{"@type":"QuantitativeValue","value":"1","unitText":"kg"}},
+    "availability":"https://schema.org/InStock",
+    "seller":{"@type":"Organization","name":"Textiles Beitex","url":"https://textilesbeitex.mx"}
+  },
+  "url":"https://textilesbeitex.mx/telas/dublin.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Inicio","item":"https://textilesbeitex.mx/"},
+    {"@type":"ListItem","position":2,"name":"Catálogo","item":"https://textilesbeitex.mx/catalogo.html"},
+    {"@type":"ListItem","position":3,"name":"Tela Dublín","item":"https://textilesbeitex.mx/telas/dublin.html"}
+  ]
+}
+</script>
+</head><body>
 <!-- NAV -->
 <nav class="site-nav">
   <a href="../index.html" class="nav-logo">BEITEX<span>.</span></a>
@@ -476,8 +510,8 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
     <li><a href="../catalogo.html">Catálogo</a></li>
     <li><a href="../blog.html">Blog</a></li>
     <li><a href="../contacto.html">Contacto</a></li>
-    <li><a href="../catalogo.html" class="nav-cta">Cotizar →</a></li>
   </ul>
+  <a href="../catalogo.html" class="nav-cta">Cotizar →</a>
   <div class="nav-icons">
     <button class="nav-icon-btn" onclick="openCart()" aria-label="Cotización">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -535,7 +569,7 @@ footer{background:#120A04;padding:3.5rem 5% 1.8rem;border-top:2px solid rgba(192
       </table>
       <div style="margin-bottom:1.4rem">
         <div style="font-size:.63rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.6rem">Colores disponibles</div>
-        <div><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">AZUL MARINO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">AZUL REY</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">BLANCO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">GRIS OXFORD</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">GRIS PERLA</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">NEGRO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">ROJO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">ROSA MEXICANO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">VERDE BANDERA</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">VERDE BOTELLA</span><span style="display:inline-block;background:rgba(192,90,58,.15);border:1px solid rgba(192,90,58,.4);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;color:var(--rl);margin:.2rem .2rem .2rem 0">+ OTROS COLORES</span></div>
+        <div><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">BLANCO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">NEGRO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">AZUL REY</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">AZUL MARINO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">ROSA MEXICANO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">VERDE BANDERA</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">GRIS PERLA</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">ROJO</span><span style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:3px;padding:.22rem .65rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.6);margin:.2rem .2rem .2rem 0">OTRO COLOR…</span></div>
       </div>
       <div style="margin-bottom:1.8rem">
         <div style="font-size:.63rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.6rem">Aplicaciones ideales</div>
@@ -964,21 +998,21 @@ document.querySelectorAll('.faq-q').forEach(function(q){
 <script>
 /* ══ MODAL COTIZADOR ══ */
 var PRODUCTS = {
-  'felpa-nacional':  { name:'Felpa Nacional',     comp:'100% Poliéster',                specs:'Tejido circular · 230–260 g/m²',     usos:'Sudaderas, chamarras escolares, ropa deportiva', colors:['Blanco','Negro','Gris Oxford','Gris Jaspe','Marino','Rojo','Verde Limón','Amarillo','Rosa Baby','Naranja','Morado','Café','Beige','Otro color…'], unit:'kg', min:10 },
-  'felpa-china':     { name:'Felpa China',        comp:'95% Poliéster · 5% Spandex',    specs:'Tejido circular · 280–310 g/m²',     usos:'Sudaderas con stretch, ropa cómoda',             colors:['Blanco','Negro','Gris Oxford','Gris Jaspe','Marino','Rojo','Verde','Amarillo','Rosa Baby','Naranja','Otro color…'], unit:'kg', min:10 },
-  'sportock':        { name:'Sportock',           comp:'100% Poliéster',                specs:'Tejido circular · 180–200 g/m²',     usos:'Uniformes escolares, playeras deportivas',       colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Rosa','Naranja','Morado','Otro color…'], unit:'kg', min:10 },
-  'jurly':           { name:'Fourway / Jurly',    comp:'96% Poliéster · 4% Spandex',    specs:'Cuatro vías · 200–230 g/m²',         usos:'Ropa médica, scrubs, deportivo funcional',       colors:['Blanco','Negro','Gris','Marino','Verde Quirúrgico','Azul Cielo','Lila','Rojo','Rosa Baby','Otro color…'], unit:'kg', min:10 },
-  'micropique':      { name:'Micropiqué',         comp:'100% Poliéster',                specs:'Tejido piqué fino · 180–200 g/m²',   usos:'Playeras polo, uniformes corporativos',          colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Naranja','Otro color…'], unit:'kg', min:10 },
-  'premiere':        { name:'Tela Premiere',      comp:'100% Poliéster',                specs:'Para sublimación · 150–160 g/m²',    usos:'Sublimación, playeras técnicas',                 colors:['Blanco','Otro color…'], unit:'kg', min:10 },
-  'interlock':       { name:'Interlock 50/50',    comp:'50% Poliéster · 50% Algodón',  specs:'Doble cara · 180–200 g/m²',          usos:'Playeras cómodas, ropa infantil',                colors:['Blanco','Negro','Gris Jaspe','Marino','Rojo','Verde','Amarillo','Rosa Baby','Otro color…'], unit:'kg', min:10 },
-  'dublin':          { name:'Dublín',             comp:'100% Poliéster',                specs:'Tejido suave · 200–220 g/m²',        usos:'Ropa casual, uniformes, pantalones',             colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Beige','Café','Otro color…'], unit:'kg', min:10 },
-  'pique':           { name:'Piqué 50/50',        comp:'50% Poliéster · 50% Algodón',  specs:'Textura piqué · 210–230 g/m²',       usos:'Playeras polo, uniformes escolares',             colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Amarillo','Azul Rey','Rosa','Otro color…'], unit:'kg', min:10 },
-  'pique-vera':      { name:'Piqué Vera',         comp:'100% Poliéster',                specs:'Piqué texturizado · 220–240 g/m²',   usos:'Playeras polo premium, uniformes ejecutivos',    colors:['Blanco','Negro','Gris','Marino','Rojo','Verde','Otro color…'], unit:'kg', min:10 },
-  'licra-saludable': { name:'Licra Saludable',    comp:'92% Poliéster · 8% Spandex',   specs:'Alta elasticidad · 200–220 g/m²',    usos:'Ropa deportiva, yoga, fitness',                  colors:['Blanco','Negro','Gris','Marino','Rojo','Verde Limón','Azul Cielo','Rosa','Morado','Otro color…'], unit:'kg', min:10 },
-  'licra-brush':     { name:'Licra Brush',        comp:'92% Poliéster · 8% Spandex',   specs:'Interior afelpado · 220–240 g/m²',   usos:'Ropa deportiva térmica, pants',                  colors:['Blanco','Negro','Gris','Marino','Rojo','Rosa','Otro color…'], unit:'kg', min:10 },
-  'tela-diablo':     { name:'Tela Diablo',        comp:'100% Poliéster',                specs:'Tejido resistente · 250–280 g/m²',   usos:'Chamarras, ropa de invierno',                    colors:['Blanco','Negro','Gris','Marino','Rojo','Café','Otro color…'], unit:'kg', min:10 },
-  'forro-millenium': { name:'Forro Millenium',    comp:'100% Poliéster',                specs:'Forro liso y sedoso · 60–80 g/m²',   usos:'Forro de chamarras, sacos, vestidos',            colors:['Negro','Marino','Gris','Blanco','Rojo','Verde','Otro color…'], unit:'metro', min:5 },
-  'bombay':          { name:'Bombay',             comp:'100% Poliéster',                specs:'Para sublimación · 140–160 g/m²',    usos:'Sublimación full-color, playeras técnicas',      colors:['Blanco','Otro color…'], unit:'kg', min:10 }
+  'felpa-nacional':  { name:'Felpa Nacional',     comp:'100% Poliéster',                specs:'Tejido circular · 230–260 g/m²',     usos:'Sudaderas, chamarras escolares, ropa deportiva', colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'felpa-china':     { name:'Felpa China',        comp:'95% Poliéster · 5% Spandex',    specs:'Tejido circular · 280–310 g/m²',     usos:'Sudaderas con stretch, ropa cómoda',             colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'sportock':        { name:'Sportock',           comp:'100% Poliéster',                specs:'Tejido circular · 180–200 g/m²',     usos:'Uniformes escolares, playeras deportivas',       colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'jurly':           { name:'Fourway / Jurly',    comp:'96% Poliéster · 4% Spandex',    specs:'Cuatro vías · 200–230 g/m²',         usos:'Ropa médica, scrubs, deportivo funcional',       colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'micropique':      { name:'Micropiqué',         comp:'100% Poliéster',                specs:'Tejido piqué fino · 180–200 g/m²',   usos:'Playeras polo, uniformes corporativos',          colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'premiere':        { name:'Tela Premiere',      comp:'100% Poliéster',                specs:'Para sublimación · 150–160 g/m²',    usos:'Sublimación, playeras técnicas',                 colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'interlock':       { name:'Interlock 50/50',    comp:'50% Poliéster · 50% Algodón',  specs:'Doble cara · 180–200 g/m²',          usos:'Playeras cómodas, ropa infantil',                colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'dublin':          { name:'Dublín',             comp:'100% Poliéster',                specs:'Tejido suave · 200–220 g/m²',        usos:'Ropa casual, uniformes, pantalones',             colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'pique':           { name:'Piqué 50/50',        comp:'50% Poliéster · 50% Algodón',  specs:'Textura piqué · 210–230 g/m²',       usos:'Playeras polo, uniformes escolares',             colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'pique-vera':      { name:'Piqué Vera',         comp:'100% Poliéster',                specs:'Piqué texturizado · 220–240 g/m²',   usos:'Playeras polo premium, uniformes ejecutivos',    colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'licra-saludable': { name:'Licra Saludable',    comp:'92% Poliéster · 8% Spandex',   specs:'Alta elasticidad · 200–220 g/m²',    usos:'Ropa deportiva, yoga, fitness',                  colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'licra-brush':     { name:'Licra Brush',        comp:'92% Poliéster · 8% Spandex',   specs:'Interior afelpado · 220–240 g/m²',   usos:'Ropa deportiva térmica, pants',                  colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'tela-diablo':     { name:'Tela Diablo',        comp:'100% Poliéster',                specs:'Tejido resistente · 250–280 g/m²',   usos:'Chamarras, ropa de invierno',                    colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 },
+  'forro-millenium': { name:'Forro Millenium',    comp:'100% Poliéster',                specs:'Forro liso y sedoso · 60–80 g/m²',   usos:'Forro de chamarras, sacos, vestidos',            colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'metro', min:5 },
+  'bombay':          { name:'Bombay',             comp:'100% Poliéster',                specs:'Para sublimación · 140–160 g/m²',    usos:'Sublimación full-color, playeras técnicas',      colors:["Blanco", "Negro", "Azul Rey", "Azul Marino", "Rosa Mexicano", "Verde Bandera", "Gris Perla", "Rojo", "Otro color…"], unit:'kg', min:10 }
 };
 var _currentProductId=null;
 function openProductModal(id){
